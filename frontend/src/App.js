@@ -7,6 +7,7 @@ import HomeScreen from './screens/HomeScreen';
 import HotelDetailsScreen from './screens/HotelDetailsScreen';
 import SigninScreen from './screens/SigninScreen';
 import RegisterScreen from './screens/UserRegister';
+import UserProfile from './screens/ProfileScreen';
 
 function App() {
 
@@ -44,9 +45,8 @@ function App() {
                   <button className="dropbtn">{userInfo.name} <i className="fa fa-caret-down"></i></button>{' '}
                 </Link>
                 <div className="dropdown-content">
-                 
-                    <Link to="#signout" onClick={signoutHandler}>
-                      Sign Out
+                    <Link to="/profile">User Profile</Link>
+                    <Link to="#signout" onClick={signoutHandler}>Sign Out
                     </Link>
                  
                   </div>
@@ -62,6 +62,7 @@ function App() {
       <Route path="/hotelDetails/:Htlid" exact component={HotelDetailsScreen}></Route>
       <Route path="/register" component={RegisterScreen}></Route>
       <Route path="/signin" component={SigninScreen}></Route>
+      <Route path="/profile" component={UserProfile}></Route>
       <Route path="/" exact component={HomeScreen}></Route>
       </main>
       <footer className="row center">All right reserved</footer>
