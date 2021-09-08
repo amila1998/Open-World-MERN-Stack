@@ -27,6 +27,16 @@ UserRouter.route("/adduser").post(async(req, res)=>{
    })
 })
 
+UserRouter.route("/userfindbyid/:id").get(async (req, res) => {
+  const user = await User.findById(req.params.id);
+  if (user) {
+    res.send(user);
+  } else {
+    res.status(404).send({ message: 'User Not Found' });
+  }
+}
+);
+
 UserRouter.route("/signin").post(async (req, res) => {
   const user = await User.findOne({ email: req.body.email });
   if (user) {
@@ -62,9 +72,14 @@ UserRouter.route("/signin").post(async (req, res) => {
         isAdmin: createdUser.isAdmin,
         token: generateToken(createdUser),
       });
-    }
+    } 
   );
 
+ 
+
+
+  
+  
 
 
 module.exports = UserRouter;
