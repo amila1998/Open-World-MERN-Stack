@@ -8,6 +8,10 @@ import HotelDetailsScreen from './screens/HotelDetailsScreen';
 import SigninScreen from './screens/SigninScreen';
 import RegisterScreen from './screens/UserRegister';
 import UserProfile from './screens/ProfileScreen';
+import Settings from './screens/SettingsScreen';
+import UpdateUserProfile from './screens/UpdateUserProfileScreen';
+import PrivateRoute from './components/PrivateRoute';
+
 
 function App() {
 
@@ -46,6 +50,7 @@ function App() {
                 </Link>
                 <div className="dropdown-content">
                     <Link to="/profile">User Profile</Link>
+                    <Link to="/settings">Settings</Link>
                     <Link to="#signout" onClick={signoutHandler}>Sign Out
                     </Link>
                  
@@ -63,6 +68,11 @@ function App() {
       <Route path="/register" component={RegisterScreen}></Route>
       <Route path="/signin" component={SigninScreen}></Route>
       <Route path="/profile" component={UserProfile}></Route>
+      <Route path="/settings" component={Settings}></Route>
+      <PrivateRoute
+            path="/UpdateUserProfile"
+            component={UpdateUserProfile}
+          ></PrivateRoute>
       <Route path="/" exact component={HomeScreen}></Route>
       </main>
       <footer className="row center">All right reserved</footer>

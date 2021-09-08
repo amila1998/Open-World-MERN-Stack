@@ -41,6 +41,7 @@ export default function ProfileScreen(props) {
               <label htmlFor="email">Email</label>
               <label htmlFor="emailholder"> {user.email}</label>
             </div>
+            
           </>
         )}
       </form>
