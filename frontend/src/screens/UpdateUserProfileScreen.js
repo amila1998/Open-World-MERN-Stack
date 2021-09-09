@@ -53,7 +53,7 @@ export default function UpdateUserProfile(props) {
             <MessageBox variant="danger">{error}</MessageBox>
           ) : (
             <>
-                   {loadingUpdate && <LoadingBox></LoadingBox>}
+            {loadingUpdate && <LoadingBox></LoadingBox>}
             {errorUpdate && (
               <MessageBox variant="danger">{errorUpdate}</MessageBox>
             )}

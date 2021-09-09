@@ -26,7 +26,7 @@ UserRouter.route("/adduser").post(async(req, res)=>{
    }).catch((err)=>{
       console.log(err);
    })
-})
+});
 
 UserRouter.route("/userfindbyid/:id").get(async (req, res) => {
   const user = await User.findById(req.params.id);
