@@ -32,6 +32,9 @@ app.use("/userR",UserRouter);
 
 const hotelRouter =require("./routes/hotelsRouter.js");
 app.use("/hotelR",hotelRouter);
+const roomRouter =require("./routes/roomRouter.js");
+app.use("/roomR",roomRouter);
+
 
 
 app.listen(PORT,()=>{

@@ -2,15 +2,19 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter,Link, Route } from 'react-router-dom';
 import { signout } from './actions/userAction';
-import HotelsScreen from './screens/HotelsScreen';
-import HomeScreen from './screens/HomeScreen';
+
+
 import HotelDetailsScreen from './screens/HotelDetailsScreen';
 import SigninScreen from './screens/SigninScreen';
 import RegisterScreen from './screens/UserRegister';
 import UserProfile from './screens/ProfileScreen';
 import Settings from './screens/SettingsScreen';
+import RoomsScreen from './screens/RoomsScreen';
 import UpdateUserProfile from './screens/UpdateUserProfileScreen';
 import PrivateRoute from './components/PrivateRoute';
+import HomeScreen from './screens/HomeScreen';
+import HotelsScreen from './screens/HotelScreen';
+import RoomDetailsScreen from './screens/RoomDetailsScreen';
 
 
 function App() {
@@ -37,6 +41,7 @@ function App() {
                     </button>
                     <div className="dropdown-content">
                         <a href="/hotels">Hotels</a>
+                        <a href="/rooms">Rooms</a>
                         <a href="/">aaaaa</a>
                         <a href="/">Link 3</a>
                     </div>
@@ -64,7 +69,9 @@ function App() {
       <main>
       
       <Route path="/hotels" exact component={HotelsScreen}></Route>
+      <Route path="/rooms" exact component={RoomsScreen}></Route>
       <Route path="/hotelDetails/:Htlid" exact component={HotelDetailsScreen}></Route>
+      <Route path="/roomDetails/:roomId" exact component={RoomDetailsScreen}></Route>
       <Route path="/register" component={RegisterScreen}></Route>
       <Route path="/signin" component={SigninScreen}></Route>
       <Route path="/profile" component={UserProfile}></Route>

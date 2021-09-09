@@ -23,7 +23,7 @@ body {
     'main'
     'footer';
   grid-template-columns: 1fr;
-  grid-template-rows: 5rem 1fr 5rem;
+  grid-template-rows: 8rem 1fr 5rem;
   height: 100%;
 }
 header {
@@ -132,6 +132,27 @@ a.brand img {
 }
 .row.center {
   justify-content: center;
+}
+.row.top {
+  align-items: flex-start;
+}
+.row.start {
+  justify-content: flex-start;
+}
+.col-1 {
+  flex: 1 1 25rem;
+}
+.col-2 {
+  flex: 2 1 50rem;
+}
+.col-3 {
+  flex: 32 1 75rem;
+}
+.min-30 {
+  min-width: 30rem;
+}
+.p-1 {
+  padding: 1rem;
 }
 /* Image */
 img {
@@ -247,6 +268,27 @@ animation: rotate 5s linear infinite;
   background-color: #f0c040;
 }
 
+/* Split the screen to two */
+#split2 {
+  display: flex;
+  height: 100%;
+}
 
+/* Control the left side */
+#left2 {
+  left: 1rem;
+  width: 70%;
+  height: 100%;
+  padding-right: 5ref;
+  
+  
+}
 
-
+/* Control the right side */
+#right2{
+  right: 0;
+  width: 30%;
+  background-color: rgb(92, 92, 92);
+  height: 100%;
+  padding: 5ref;
+}
