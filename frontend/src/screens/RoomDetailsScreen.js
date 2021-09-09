@@ -27,7 +27,8 @@ export default function RoomDetailsScreen(props){
     ) : error ? (
       <MessageBox variant="danger">{error}</MessageBox>
     ) : (
-    <div>
+    <div id="split2">
+      <div id="left2">
       <Link to="/rooms">Back to result</Link>
       <div className="row top">
         <div className="col-2">
@@ -80,6 +81,11 @@ export default function RoomDetailsScreen(props){
         </div>
       </div>
       </div>
+      <div id="right2">
+                        <h1>Righit</h1>
+      </div>
+      </div>
+     
       )}
     </div>
   );
