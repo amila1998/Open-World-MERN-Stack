@@ -88,7 +88,7 @@ function App() {
       <Route path="/roomDetails/:roomId" exact component={RoomDetailsScreen}></Route>
       <Route path="/register" component={RegisterScreen}></Route>
       <Route path="/signin" component={SigninScreen}></Route>
-      <Route path="/profile" component={UserProfile}></Route>
+      
       <Route path="/settings" component={Settings}></Route>
       <Switch>
       <Route path="/HotelManagement" exact component={AdminHotelManagement}></Route>
@@ -97,6 +97,10 @@ function App() {
       <PrivateRoute
             path="/UpdateUserProfile"
             component={UpdateUserProfile}
+          ></PrivateRoute>
+          <PrivateRoute
+            path="/profile"
+            component={UserProfile}
           ></PrivateRoute>
       <AdminRoute
             path="/adminDashboard"
