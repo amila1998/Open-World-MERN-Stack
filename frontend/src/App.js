@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter,Link, Route } from 'react-router-dom';
+import { BrowserRouter,Link, Route, Switch } from 'react-router-dom';
 import { signout } from './actions/userAction';
 
 
@@ -15,6 +15,11 @@ import PrivateRoute from './components/PrivateRoute';
 import HomeScreen from './screens/HomeScreen';
 import HotelsScreen from './screens/HotelScreen';
 import RoomDetailsScreen from './screens/RoomDetailsScreen';
+import AdminRoute from './components/AdminRouter';
+import AdminDashboardScreen from './screens/AdminDashboardScreen';
+
+import AdminHotelManagement from './screens/AdminHotelManagement';
+import AdminHotelList from './screens/AdminHotelList';
 
 
 function App() {
@@ -23,7 +28,10 @@ function App() {
   const { userInfo } = userSignin;
   const dispatch = useDispatch();
   const signoutHandler = () => {
-    dispatch(signout());
+   
+    dispatch(signout({
+      
+    }));
   };
 
 
@@ -65,18 +73,10 @@ function App() {
               <Link to="/signin">Sign In</Link>
             )}
              {userInfo && userInfo.isAdmin && (
-              <div className="dropdown">
-                <Link to="#admin">
-                <button className="dropbtn"> Admin <i className="fa fa-caret-down"></i></button>{' '}
-                </Link>
-                <div className="dropdown-content">
-                    <Link to="/dashboard">Dashboard</Link>
-                    <Link to="/productlist">Products</Link>                
-                    <Link to="/orderlist">Orders</Link>                 
-                    <Link to="/userlist">Users</Link>
+              <Link to="/adminDashboard">Admin</Link>
                   
-                </div>
-              </div>
+                
+             
             )}
         </div>
       </header>
@@ -90,16 +90,26 @@ function App() {
       <Route path="/signin" component={SigninScreen}></Route>
       <Route path="/profile" component={UserProfile}></Route>
       <Route path="/settings" component={Settings}></Route>
+      <Switch>
+      <Route path="/HotelManagement" exact component={AdminHotelManagement}></Route>
+      <Route path="/HotelManagement/adminhotellist" exact component={AdminHotelList}></Route>
+      </Switch>
       <PrivateRoute
             path="/UpdateUserProfile"
             component={UpdateUserProfile}
           ></PrivateRoute>
+      <AdminRoute
+            path="/adminDashboard"
+            component={AdminDashboardScreen}
+      ></AdminRoute>
+        
       <Route path="/" exact component={HomeScreen}></Route>
       </main>
       <footer className="row center">All right reserved</footer>
     </div>
     </BrowserRouter>
   );
+  
 }
 
 export default App;
