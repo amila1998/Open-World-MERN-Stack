@@ -20,6 +20,8 @@ import AdminDashboardScreen from './screens/AdminDashboardScreen';
 
 import AdminHotelManagement from './screens/AdminHotelManagement';
 import AdminHotelList from './screens/AdminHotelList';
+import ServiceProviderRoute from './components/ServiceProviderRouter';
+import ServiceProviderDashboardScreen from './screens/ServiceProviderDashboardScreen';
 
 
 function App() {
@@ -39,8 +41,10 @@ function App() {
     <BrowserRouter>
 <div className="grid-container">
       <header className="row">
+     
         <div>
-          <a className="brand" href="/"><img src="/images/logo.png" alt="Open World"></img></a>
+           <a className="brand" href="/">
+          <img src="/images/logo.png" alt="Open World"></img></a>
         </div>
             <div>
                 <div className="dropdown">
@@ -63,6 +67,11 @@ function App() {
                 </Link>
                 <div className="dropdown-content">
                     <Link to="/profile">User Profile</Link>
+                    {userInfo && userInfo.isServiceProvider ?(
+                    <Link to="/ServiceProviderRouteDashboard">I am a ServiceProvider</Link>
+                    ):(
+                      <Link to="/serviceRegistration">Become a ServiceProvider</Link>
+                    )}
                     <Link to="/settings">Settings</Link>
                     <Link to="#signout" onClick={signoutHandler}>Sign Out
                     </Link>
@@ -74,9 +83,6 @@ function App() {
             )}
              {userInfo && userInfo.isAdmin && (
               <Link to="/adminDashboard">Admin</Link>
-                  
-                
-             
             )}
         </div>
       </header>
@@ -91,8 +97,8 @@ function App() {
       
       <Route path="/settings" component={Settings}></Route>
       <Switch>
-      <Route path="/HotelManagement" exact component={AdminHotelManagement}></Route>
-      <Route path="/HotelManagement/adminhotellist" exact component={AdminHotelList}></Route>
+      <AdminRoute path="/HotelManagement" exact component={AdminHotelManagement}></AdminRoute>
+      <AdminRoute path="/HotelManagement/adminhotellist" exact component={AdminHotelList}></AdminRoute>
       </Switch>
       <PrivateRoute
             path="/UpdateUserProfile"
@@ -102,6 +108,10 @@ function App() {
             path="/profile"
             component={UserProfile}
           ></PrivateRoute>
+        <ServiceProviderRoute
+            path="/ServiceProviderRouteDashboard"
+            component={ServiceProviderDashboardScreen}
+      ></ServiceProviderRoute>
       <AdminRoute
             path="/adminDashboard"
             component={AdminDashboardScreen}

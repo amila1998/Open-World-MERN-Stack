@@ -47,7 +47,7 @@ UserRouter.route("/signin").post(async (req, res) => {
         name: user.name,
         email: user.email,
         isAdmin: user.isAdmin,
-        isSeller: user.isSeller,
+        isServiceProvider: user.isServiceProvider,
         token: generateToken(user),
       });
       return;
@@ -71,6 +71,7 @@ UserRouter.route("/signin").post(async (req, res) => {
         name: createdUser.name,
         email: createdUser.email,
         isAdmin: createdUser.isAdmin,
+        isServiceProvider:createdUser.isServiceProvider,
         token: generateToken(createdUser),
       });
     } 
