@@ -3,8 +3,8 @@ import styled from 'styled-components';
 //import { Link } from 'react-router-dom';
 //import * as FaIcons from 'react-icons/fa';
 //import * as AiIcons from 'react-icons/ai';
-import { SidebarData } from './AdminSidebarData';
-import SubMenu from './AdminSubMenu';
+import { SidebarData } from './ServiceProviderSidebarData';
+import SubMenu from './ServiceProviderSubMenu';
 
 
 
