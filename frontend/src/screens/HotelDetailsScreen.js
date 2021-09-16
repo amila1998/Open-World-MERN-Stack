@@ -7,19 +7,23 @@ import Rating from '../components/Rating';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { detailHotel } from '../actions/hotelActions';
+import { listRooms } from '../actions/roomAction';
+import Rooms from '../components/Rooms';
 //import data from '../data';
 
 
 export default function HotelDetailsScreen(props){
-  const dispatch = useDispatch();
+
   const hotelId = props.match.params.Htlid;
   const hoteldetail = useSelector((state) => state.hoteldetail);
   const { loading, error, hotel } = hoteldetail;
+ 
 
+  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(detailHotel(hotelId));
-  }, [dispatch, hotelId]);
     
+  }, [dispatch, hotelId]);
   return (
     <div>
     {loading ? (
@@ -51,36 +55,26 @@ export default function HotelDetailsScreen(props){
             </li>
           </ul>
         </div>
-        <div className="col-1">
-          <div className="card card-body">
-            <ul>
-              <li>
-                <div className="row">
-                  <div>Price</div>
-                  <div className="price">${hotel.price}</div>
-                </div>
-              </li>
-              <li>
-                <div className="row">
-                  <div>Status</div>
-                  <div>
-                    {hotel.countInStock > 0 ? (
-                      <span className="success">In Stock</span>
-                    ) : (
-                      <span className="error">Unavailable</span>
-                    )}
-                  </div>
-                </div>
-              </li>
-              <li>
-                <button className="primary block">Add to Cart</button>
-              </li>
-            </ul>
+       
+      </div>
+      <div>  <div className="col-3">
+      
+            <div className="row center">
+            {
+              hotel.rooms.length?(
+            hotel.rooms.map((room) => (
+          <a href={`/${hotel._id}/roomDetails/${room._id}`}>
+          <Rooms key={room._id} room={room}></Rooms></a> ))):(
+            <MessageBox>No Rooms</MessageBox>
+          )}
           </div>
-        </div>
+        
+        )
+      </div></div>
       </div>
-      </div>
+      
       )}
+      
     </div>
   );
 }

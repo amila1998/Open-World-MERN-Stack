@@ -1,14 +1,17 @@
 import React from 'react';
 import Rating from './Rating';
+import { Link } from 'react-router-dom';
+
 
 export default function room(props) {
+  
     
   const { room } = props;
     return (
       
-      <div key={room.id} className="card">
+      <div key={room._id} className="card">
        
-       <div className='image'><img className="medium" src={room.image} alt={room.name} /></div>
+       <div className='image'><img className="medium" src="" alt={room.roomname} /></div>
           
         
         <div className="card-body">
@@ -21,6 +24,12 @@ export default function room(props) {
           ></Rating>
           <div className="price">${room.price}</div>
         </div>
+        <div>
+            <Link to={`/hotelDetails/${room.hotel}`}>
+           
+              </Link>
+          </div>
+       
        
       </div>
      

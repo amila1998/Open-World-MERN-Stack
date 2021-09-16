@@ -7,13 +7,16 @@ import MessageBox from '../components/MessageBox';
 import { useDispatch, useSelector } from 'react-redux';
 import { listHotels } from '../actions/hotelActions';
 
-export default function HotelsScreen(){
+
+export default function HotelsScreen(props){
+  //const serviceproviderMode = props.match.path.indexof['/serviceprovider']>=0;
   const dispatch = useDispatch();
   const hotelList = useSelector((state) => state.hotelList);
   const { loading, error, hotels } = hotelList;
-
+  
   useEffect(() => {
-    dispatch(listHotels());
+    dispatch(listHotels({}));
+   
   }, [dispatch]);
     return(
         <div>
@@ -25,7 +28,7 @@ export default function HotelsScreen(){
         
         <div className="row center">
           {hotels.map((hotel) => (
-            <a href={`/hotelDetails/${hotel._id}`}>
+            <a href={`/hotel/hotelDetails/${hotel._id}`}>
             <Hotel key={hotel._id} hotel={hotel}></Hotel></a> ))}
             </div>
             
