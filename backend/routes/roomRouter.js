@@ -1,13 +1,36 @@
 const roomRouter = require("express").Router();
-let Room = require("../model/HotelRoomsModel.js");
+const Hotel = require("../model/HotelModel.js");
+/*let Room = require("../model/HotelRoomsModel.js");*/
 //insert
-roomRouter.route("/addroom").post(async(req, res)=>{
-    const   roomname = req.body.roomname;
+roomRouter.route("/addroom/:HID").post(async(req, res)=>{
+    
+  const hotelId = req.params.HID;
+  const hotel = await Hotel.findById(hotelId);
+  if (hotel) {
+     const room = {
+      roomname: req.body.roomname,
+      image:req.body.image,
+      price:req.body.price,
+      rating:req.body.rating,
+      numReviews:req.body.numReviews,
+      hotel:hotelId
+    };
+    
+    hotel.rooms.push(room);
+     const updatedHotel = await hotel.save();
+    res.status(201).send({
+      message: 'Room Created',
+      
+    });
+  } else {
+    res.status(404).send({ message: 'Hotel Not Found' });
+  }
+});
+   /* const   roomname = req.body.roomname;
     const   image= req.body.image;
     const   price= req.body.price;
     const   rating= req.body.rating;
     const   numReviews= req.body.numReviews;
-    
     const   hotel= req.body.hotel;
    
 
@@ -29,24 +52,32 @@ roomRouter.route("/addroom").post(async(req, res)=>{
 });
 
 roomRouter.route("/displayAllRooms").get(async(req, res)=>{
-   Room.find().then((rooms)=>{
-     res.json(rooms)
+ 
+  const rooms = await Hotel.rooms.find().then((rooms)=>{
+     res.send(rooms)
    }).catch((err)=>{
      console.log(err)
      
    })
-})
+  })*/
 
-roomRouter.route("/RoombyId/:Roomid").get(async (req, res) => {
+
+roomRouter.route("/:hotelid/RoombyId/:Roomid").get(async (req, res) => {
    let Roomid = req.params.Roomid;
-   const room = await Room.findById(Roomid)
-     .then((room) => {
+   let hotelId = req.params.hotelid;
+   const hotel= await Hotel.findById(hotelId);
+    if (hotel) {
+      const room =await hotel.rooms.find((x) => x._id == Roomid);
+      if (room) {
        res.send(room);
-     }).catch((err) => {
-       console.log(err.message);
-       res.status(500).send({status: "Error with get Room", error: err.message});
-   })
- })   
+      }else{
+        res.send({message: "can't find Room data"});
+      }
+      }
+   });
+
+ 
+
   
 
 

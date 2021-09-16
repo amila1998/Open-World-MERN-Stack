@@ -19,9 +19,11 @@ import AdminRoute from './components/AdminRouter';
 import AdminDashboardScreen from './screens/AdminDashboardScreen';
 
 import AdminHotelManagement from './screens/AdminHotelManagement';
-import AdminHotelList from './screens/AdminHotelList';
+import HotelList from './screens/HotelList';
 import ServiceProviderRoute from './components/ServiceProviderRouter';
 import ServiceProviderDashboardScreen from './screens/ServiceProviderDashboardScreen';
+import HotelEditScreen from './screens/HotelEditScreen';
+
 
 
 function App() {
@@ -67,11 +69,6 @@ function App() {
                 </Link>
                 <div className="dropdown-content">
                     <Link to="/profile">User Profile</Link>
-                    {userInfo && userInfo.isServiceProvider ?(
-                    <Link to="/ServiceProviderRouteDashboard">I am a ServiceProvider</Link>
-                    ):(
-                      <Link to="/serviceRegistration">Become a ServiceProvider</Link>
-                    )}
                     <Link to="/settings">Settings</Link>
                     <Link to="#signout" onClick={signoutHandler}>Sign Out
                     </Link>
@@ -81,9 +78,32 @@ function App() {
             ) : (
               <Link to="/signin">Sign In</Link>
             )}
+             {userInfo && userInfo.isServiceProvider?(
+                     <div className="dropdown">
+                     <Link to="#">
+                       <button className="dropbtn">Work Flow<i className="fa fa-caret-down"></i></button>{' '}
+                     </Link>
+                     <div className="dropdown-content">
+                                      
+                        {userInfo && userInfo.isServiceProvider && userInfo.haveHotels ? (
+                                      <Link to="/hotellist">My Hotels</Link>
+                                    ):(
+                                      <Link to="/adminDashboard">Add a Hotel</Link>
+                                    )}
+                                              
+                       </div>
+                   </div>
+                    ):(
+                      <Link to="/settings">Become a Service Provider</Link>
+                    )
+                }
+             
              {userInfo && userInfo.isAdmin && (
               <Link to="/adminDashboard">Admin</Link>
             )}
+
+            
+
         </div>
       </header>
       <main>
@@ -91,14 +111,21 @@ function App() {
       <Route path="/hotels" exact component={HotelsScreen}></Route>
       <Route path="/rooms" exact component={RoomsScreen}></Route>
       <Route path="/hotelDetails/:Htlid" exact component={HotelDetailsScreen}></Route>
-      <Route path="/roomDetails/:roomId" exact component={RoomDetailsScreen}></Route>
+      
+      <Route path="/hotel/hotelDetails/:Htlid"  component={HotelDetailsScreen} exact></Route>
+      <Route
+            path="/hotel/hotelDetails/:Htlid/edit"
+            component={HotelEditScreen}
+            exact
+          ></Route>
+      <Route path="/:hotelId/roomDetails/:roomId" exact component={RoomDetailsScreen}></Route>
       <Route path="/register" component={RegisterScreen}></Route>
       <Route path="/signin" component={SigninScreen}></Route>
       
       <Route path="/settings" component={Settings}></Route>
       <Switch>
       <AdminRoute path="/HotelManagement" exact component={AdminHotelManagement}></AdminRoute>
-      <AdminRoute path="/HotelManagement/adminhotellist" exact component={AdminHotelList}></AdminRoute>
+      <AdminRoute path="/HotelManagement/adminhotellist" component={HotelList}></AdminRoute>
       </Switch>
       <PrivateRoute
             path="/UpdateUserProfile"
@@ -109,8 +136,12 @@ function App() {
             component={UserProfile}
           ></PrivateRoute>
         <ServiceProviderRoute
-            path="/ServiceProviderRouteDashboard"
+            path="/ServiceProviderDashboard"
             component={ServiceProviderDashboardScreen}
+      ></ServiceProviderRoute>
+      <ServiceProviderRoute
+            path="/ServiceProviderhotellist"
+            component={HotelList}
       ></ServiceProviderRoute>
       <AdminRoute
             path="/adminDashboard"

@@ -5,15 +5,17 @@ import Rooms from '../components/Rooms';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { useDispatch, useSelector } from 'react-redux';
-import { listRooms } from '../actions/roomAction';
+//import { listRooms } from '../actions/roomAction';
+import { listHotels } from '../actions/hotelActions';
 
 export default function RoomsScreen(){
   const dispatch = useDispatch();
-  const roomList = useSelector((state) => state.roomList);
-  const { loading, error, rooms } = roomList;
-
+  const hotelList = useSelector((state) => state.hotelList);
+  const { loading, error, hotels } = hotelList;
+  
   useEffect(() => {
-    dispatch(listRooms());
+    dispatch(listHotels({}));
+   
   }, [dispatch]);
     return(
         <div>
@@ -23,11 +25,15 @@ export default function RoomsScreen(){
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <div className="row center">
-          {rooms.map((room) => (
-            <a href={`/roomDetails/${room._id}`}>
-            <Rooms key={room._id} room={room}></Rooms></a> ))}
-            </div>
-          )}
-        </div>
+          {hotels.rooms === 0 && (
+              <MessageBox>There is no hotels</MessageBox>
+            )}
+        {hotels.map((hotel) => (
+            hotel.rooms.map((room) => (
+          <a href={`${hotel._id}/roomDetails/${room._id}`}>
+          <Rooms key={room._id} room={room}></Rooms></a> ))))}
+          </div>
+        )}
+      </div>
       );
     }

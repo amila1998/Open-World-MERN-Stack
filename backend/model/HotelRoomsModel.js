@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+/*const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const roomSchema = new Schema({
 
@@ -7,7 +7,7 @@ const roomSchema = new Schema({
             price: { type: Number,required:true },
             rating:{ type: Number, required: true},
             numReviews:{ type: Number, required: true},
-            hotel: { type: mongoose.Schema.Types.ObjectID, ref: 'Hotel', required:true },
+            hotel: { type: mongoose.Schema.Types.ObjectId, ref: 'Hotel', required:true  },
             
 },
 {
@@ -17,4 +17,4 @@ const roomSchema = new Schema({
 );
 const Room = mongoose.model('Room', roomSchema);
 
-module.exports = Room;
+module.exports = Room;*/

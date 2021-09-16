@@ -205,6 +205,10 @@ img.medium {
 
 /* Alert */
 
+.notfount{
+  color: #0082fc;
+}
+
 .success {
   color: #20a020;
 }

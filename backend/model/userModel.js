@@ -11,7 +11,7 @@ const Schema = mongoose.Schema;
             haveHotels:{type: Boolean, default: false, required: true},
             name: String,
             logo: String,
-            description: String,
+            description: { type: String,},
             rating: { type: Number, default: 0, required: true },
             numReviews: { type: Number, default: 0, required: true },
           },

@@ -5,37 +5,19 @@ import * as IoIcons from 'react-icons/io';
 import * as RiIcons from 'react-icons/ri';
 
 export const SidebarData = [
+
   {
+    
     title: 'Dashboard',
     path: '/ServiceProviderDashboard',
     icon: <AiIcons.AiOutlineUser />,
   },
   {
-    title: 'Hotels Management',
-    path: '#HotelManagement',
+    title: 'My Hotels',
+    path: '/myHotels',
     icon: <IoIcons.IoIosPaper />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
-
-    subNav: [
-      {
-        title: 'Hotels List',
-        path: '/HotelManagement/adminhotellist',
-        icon: <IoIcons.IoIosPaper />,
-        cName: 'sub-nav'
-      },
-      {
-        title: 'Rooms List',
-        path: '/HotelManagement/RoomsList',
-        icon: <IoIcons.IoIosPaper />,
-        cName: 'sub-nav'
-      },
-      {
-        title: 'Reports',
-        path: '/HotelManagement/reports',
-        icon: <IoIcons.IoIosPaper />
-      }
-    ]
   },
   {
     title: 'Products',
