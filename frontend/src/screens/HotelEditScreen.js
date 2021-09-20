@@ -6,7 +6,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { detailHotel, updateHotel } from '../actions/hotelActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import { HOTEL_UPDATE_RESET } from '../constants/hotelConstants';
+import { HOTEL_DELETE_RESET, HOTEL_UPDATE_RESET } from '../constants/hotelConstants';
+import Rating from '../components/Rating';
+import { Link } from 'react-router-dom';
+import { deleteRoom } from '../actions/roomAction';
+import { ROOM_CREATE_RESET, ROOM_DELETE_RESET, ROOM_UPDATE_RESET } from '../constants/roomConstants';
+
 
 export default function HotelEditScreen(props) {
   const hotelId = props.match.params.Htlid;
@@ -22,6 +27,8 @@ export default function HotelEditScreen(props) {
 
   
   const [image, setImage] = useState('');
+
+
   
   const hoteldetail = useSelector((state) => state.hoteldetail);
   const { loading, error, hotel } = hoteldetail;
@@ -33,10 +40,26 @@ export default function HotelEditScreen(props) {
     success: successUpdate,
   } = hotelUpdate;
 
+
+
+ 
+
   const dispatch = useDispatch();
 
+  const roomDelete = useSelector((state) => state.roomDelete);
+  const {
+    loading: loadingRDelete,
+    error: errorRDelete,
+    success: successRDelete,
+  } = roomDelete;
+
   useEffect(() => {
-     if (successUpdate) {
+
+
+    if (successRDelete) {
+      dispatch({ type: ROOM_DELETE_RESET });
+    }
+    if (successUpdate) {
       props.history.push('/HotelManagement/adminhotellist');
     }
     if (!hotel || hotel._id !== hotelId || successUpdate) {
@@ -56,7 +79,7 @@ export default function HotelEditScreen(props) {
 
      
     }
-  }, [hotel, dispatch, hotelId, successUpdate, props.history]);
+  }, [hotel, dispatch, hotelId, successUpdate, props.history,successRDelete]);
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(
@@ -90,7 +113,7 @@ export default function HotelEditScreen(props) {
     bodyFormData.append('image', file);
     setLoadingUpload(true);
     try {
-      const { data } = await Axios.post('http://localhost:8070/uploadR/', bodyFormData, {
+      const { data } = await Axios.post('http://localhost:8070/uploadR', bodyFormData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${userInfo.token}`,
@@ -102,14 +125,23 @@ export default function HotelEditScreen(props) {
       setErrorUpload(error.message);
       setLoadingUpload(false);
     }
+   
+  };
+
+  const deleteHandler = (roomId) => {
+    if (window.confirm('Are you sure to delete?')) {
+      dispatch(deleteRoom(hotel._id,roomId));
+     
+    }
+  };
+
+
+  const NavAddRoomHandler = () => {
+    props.history.push(`/addARoom/${hotelId}`);
   };
   return (
     <div>
-      <form className="form" onSubmit={submitHandler}>
-        <div>
-          <h1>Edit Hotel {hotelId}</h1>
-        </div>
-        {loadingUpdate && <LoadingBox></LoadingBox>}
+         {loadingUpdate && <LoadingBox></LoadingBox>}
         {errorUpdate && <MessageBox variant="danger">{errorUpdate}</MessageBox>}
         {loading ? (
           <LoadingBox></LoadingBox>
@@ -117,6 +149,11 @@ export default function HotelEditScreen(props) {
           <MessageBox variant="danger">{error}</MessageBox>
         ) : (
           <>
+      <form className="form" onSubmit={submitHandler}>
+        <div>
+          <h1>Edit Hotel {hotelId}</h1>
+        </div>
+     
             <div>
               <label htmlFor="name">Name</label>
               <input
@@ -151,17 +188,22 @@ export default function HotelEditScreen(props) {
                 <MessageBox variant="danger">{errorUpload}</MessageBox>
               )}
             </div>
-
-
+    
             <div>
               <label></label>
               <button className="primary" type="submit">
                 Update
               </button>
             </div>
-          </>
-        )}
+           
+           
+
+         
       </form>
+ 
+ </>
+          
+          )}
     </div>
   );
 }

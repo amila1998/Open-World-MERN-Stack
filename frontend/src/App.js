@@ -23,6 +23,9 @@ import HotelList from './screens/HotelList';
 import ServiceProviderRoute from './components/ServiceProviderRouter';
 import ServiceProviderDashboardScreen from './screens/ServiceProviderDashboardScreen';
 import HotelEditScreen from './screens/HotelEditScreen';
+import RoomAddScreen from './screens/RoomAddScreen';
+import RoomList from './screens/RoomLists';
+import RoomEditScreen from './screens/RoomEditScreen';
 
 
 
@@ -112,21 +115,29 @@ function App() {
       <Route path="/rooms" exact component={RoomsScreen}></Route>
       <Route path="/hotelDetails/:Htlid" exact component={HotelDetailsScreen}></Route>
       
-      <Route path="/hotel/hotelDetails/:Htlid"  component={HotelDetailsScreen} exact></Route>
-      <Route
+      <AdminRoute path="/hotel/hotelDetails/:Htlid"  component={HotelDetailsScreen} exact></AdminRoute>
+      <AdminRoute
             path="/hotel/hotelDetails/:Htlid/edit"
             component={HotelEditScreen}
-            exact
-          ></Route>
+            
+          ></AdminRoute>
+        
       <Route path="/:hotelId/roomDetails/:roomId" exact component={RoomDetailsScreen}></Route>
+      <AdminRoute path="/addARoom/:hotelId"  component={RoomAddScreen}></AdminRoute>
+      <AdminRoute path="/room/:hotelId/roomDetails/:roomId/edit" exact component={RoomEditScreen}></AdminRoute>
+      <AdminRoute path="/roomlist/:hotelId"  component={RoomList}></AdminRoute>
       <Route path="/register" component={RegisterScreen}></Route>
       <Route path="/signin" component={SigninScreen}></Route>
       
       <Route path="/settings" component={Settings}></Route>
+
       <Switch>
+
       <AdminRoute path="/HotelManagement" exact component={AdminHotelManagement}></AdminRoute>
       <AdminRoute path="/HotelManagement/adminhotellist" component={HotelList}></AdminRoute>
+
       </Switch>
+
       <PrivateRoute
             path="/UpdateUserProfile"
             component={UpdateUserProfile}
@@ -135,6 +146,7 @@ function App() {
             path="/profile"
             component={UserProfile}
           ></PrivateRoute>
+
         <ServiceProviderRoute
             path="/ServiceProviderDashboard"
             component={ServiceProviderDashboardScreen}
