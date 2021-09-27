@@ -1,7 +1,7 @@
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { hotelCreateReducer, hotelDeleteReducer, hotelDetailsReducer, hotelListReducer, hotelUpdateReducer } from './reducers/hotelReducers';
-import { roomDetailsReducer, roomListReducer } from './reducers/roomReducers';
+import { roomCreateReducer, roomDeleteReducer, roomDetailsReducer, roomListReducer, roomUpdateReducer } from './reducers/roomReducers';
 import { userRegisterReducer, userSigninReducer, userDetailsReducer, userUpdateProfileReducer } from './reducers/userReducers';
 
 const initialState = {
@@ -17,7 +17,10 @@ const reducer = combineReducers({
   hotelList: hotelListReducer,
   hoteldetail:hotelDetailsReducer,
   roomList:roomListReducer,
+  roomCreate:roomCreateReducer,
+  roomDelete:roomDeleteReducer,
   roomdetail:roomDetailsReducer,
+  roomUpdate:roomUpdateReducer,
   userSignin:userSigninReducer,
   userRegister: userRegisterReducer,
   userDetails: userDetailsReducer,

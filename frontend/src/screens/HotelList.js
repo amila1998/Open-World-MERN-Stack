@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { createHotel, listHotels, deleteHotel } from '../actions/hotelActions';
+import { createRoom } from '../actions/roomAction';
 import Sidebar from '../components/AdminSidebar';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
@@ -37,6 +38,7 @@ export default function HotelList(props) {
         }
         dispatch(listHotels());
       }, [createdHotel, dispatch, props.history, successCreate, successDelete]);
+      
       const deleteHandler = (hotel) => {
         if (window.confirm('Are you sure to delete?')) {
           dispatch(deleteHotel(hotel._id));
@@ -93,6 +95,16 @@ export default function HotelList(props) {
                             <td>{hotel.category}</td>
                           
                             <td>
+                            <button
+                                type="button"
+                                className="small"
+                                onClick={() =>
+                                props.history.push(`/roomlist/${hotel._id}`)
+                                }
+                            >
+                                {hotel.rooms.length           
+                               } Rooms
+                            </button>  
                             <button
                                 type="button"
                                 className="small"
