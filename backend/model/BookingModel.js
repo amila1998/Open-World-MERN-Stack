@@ -4,7 +4,10 @@ const Schema = mongoose.Schema;
 
 const bookedHotelRoomSchema = new Schema({
     
-    room:{type: mongoose.Schema.Types.ObjectId, ref: 'Hotel.rooms'}
+    room:{type: mongoose.Schema.Types.ObjectId, ref: 'Hotel.rooms'},
+    starDate:{type: Date, required: true},
+   endDate:{type: Date, required: true},
+   serviceProviderAcception:{type: Boolean,default:false},
     
  },
  {
@@ -17,9 +20,7 @@ const bookedHotelSchema = new Schema({
     
    hotel:{type: mongoose.Schema.Types.ObjectId, ref: 'Hotel'},
    rooms:[ bookedHotelRoomSchema ],
-   starDate:{type: Date, required: true},
-   endDate:{type: Date, required: true},
-   serviceProviderAcception:{type: Boolean,default:false},
+   
    ispaid:{type: Boolean,default:false},
    paymenttype:{type: String},
    price:{type:Number},
