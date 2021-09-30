@@ -2,6 +2,8 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { signout } from '../../actions/userAction';
+import LoadingBox from '../LoadingBox';
+
 
 export default function Navigation() {
     const userSignin = useSelector((state) => state.userSignin);
@@ -15,70 +17,89 @@ export default function Navigation() {
   };
 
     return (
-        <div>
-            <div>
-           <a className="brand" href="/">
-          <img src="/images/logo.png" alt="Open World"></img></a>
-        </div>
-            <div>
-                <div className="dropdown">
-                    <button className="dropbtn">categories  
-                        <i className="fa fa-caret-down"></i>
-                    </button>
-                    <div className="dropdown-content">
-                        <a href="/hotels">Hotels</a>
-                        <a href="/rooms">Rooms</a>
-                        <a href="/">aaaaa</a>
-                        <a href="/">Link 3</a>
-                    </div>
-                </div> 
-            <a href="cart.html">feacures</a>
-            <a href="cart.html">About us</a>
-            <a href="cart.html">Cart</a>
-                      {userInfo ? (
+
+       <div>
+        <header className="row">
+          <div>
+            <Link className="brand" to="/">
+              Open World
+            </Link>
+          </div>
+          
+          <div>
+          <div className="dropdown">
+                <Link to="#Categories">
+                Categories <i className="fa fa-caret-down"></i>
+                </Link>
+                <ul className="dropdown-content">
+                  <li>
+                    <Link to="/hotels">Hotels</Link>
+                  </li>
+                  <li>
+                    <Link to="/rooms">Rooms</Link>
+                  </li>
+                </ul>
+              </div>
+            <Link to="/feacures">feacures          
+            </Link>
+            <Link to="/aboutus">About Us           
+            </Link>
+            <Link to="/cart">Cart            
+            </Link>
+            {userInfo ? (
               <div className="dropdown">
                 <Link to="#">
-                  <button className="dropbtn">{userInfo.name} <i className="fa fa-caret-down"></i></button>{' '}
+                  {userInfo.name} <i className="fa fa-caret-down"></i>{' '}
                 </Link>
-                <div className="dropdown-content">
-                    <Link to="/profile">User Profile</Link>
-                    <Link to="/settings">Settings</Link>
-                    <Link to="#signout" onClick={signoutHandler}>Sign Out
-                    </Link>
-                 
-                  </div>
+                <ul className="dropdown-content">
+                    <li>
+                        <Link to="/profile">User Profile</Link>
+                    </li>
+                    <li>
+                        <Link to="/settings">Settings</Link>
+                    </li>
+                     <li>
+                        <Link to="#signout" onClick={signoutHandler}>
+                         Sign Out
+                        </Link>
+                     </li>
+                </ul>
               </div>
             ) : (
               <Link to="/signin">Sign In</Link>
             )}
-             {userInfo && userInfo.isServiceProvider?(
-                     <div className="dropdown">
-                     <Link to="#">
-                       <button className="dropbtn">Work Flow<i className="fa fa-caret-down"></i></button>{' '}
-                     </Link>
-                     <div className="dropdown-content">
-                                      
-                        {userInfo && userInfo.isServiceProvider && userInfo.haveHotels ? (
-                                      <Link to="/hotellist">My Hotels</Link>
-                                    ):(
-                                      <Link to="/adminDashboard">Add a Hotel</Link>
-                                    )}
-                                              
-                       </div>
-                   </div>
-                    ):(
-                      <Link to="/settings">Become a Service Provider</Link>
-                    )
-                }
-             
-             {userInfo && userInfo.isAdmin && (
+            {userInfo && userInfo.isServiceProvider? (
+              <div className="dropdown">
+                <Link to="#serviceprovider">
+                    Work Flow <i className="fa fa-caret-down"></i>
+                </Link>
+                <ul className="dropdown-content">
+                {userInfo && userInfo.isServiceProvider && userInfo.haveHotels ? (
+                        <li>
+                        <Link to="/hotellist">My Hotels</Link>
+                      </li>
+                ):(
+                    <li>
+                     <Link to="/adminDashboard">Add a Hotel</Link>
+                  </li>
+                )}
+                  
+                </ul>
+              </div>
+
+            ):(
+                <Link to="/settings">Become a Service Provider</Link>
+              )}
+            {userInfo && userInfo.isAdmin && (
+              
               <Link to="/adminDashboard">Admin</Link>
+                
             )}
-
-            
+          </div>
+        </header>
+       
 
         </div>
-            
-        </div>
+
     )
 }
