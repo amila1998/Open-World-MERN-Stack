@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { createHotel, listHotels, deleteHotel } from '../actions/hotelActions';
-import { createRoom } from '../actions/roomAction';
-import Sidebar from '../components/AdminSidebar';
+
+//import Sidebar from '../components/AdminSidebar';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { HOTEL_CREATE_RESET, HOTEL_DELETE_RESET } from '../constants/hotelConstants';

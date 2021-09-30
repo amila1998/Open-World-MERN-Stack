@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteRoom, listRooms } from '../actions/roomAction';
-import Sidebar from '../components/AdminSidebar';
+//import Sidebar from '../components/AdminSidebar';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 
@@ -24,8 +24,6 @@ export default function RoomList(props) {
     success: successCreate,
   } = roomCreate;
 
-
-
   const roomDelete = useSelector((state) => state.roomDelete);
   const {
     loading: loadingDelete,
@@ -35,12 +33,10 @@ export default function RoomList(props) {
   
   const deleteroomHandler = (roomId) => {
     if (window.confirm('Are you sure to delete?')) {
-      dispatch(deleteRoom(hotelId,roomId));
-      
+      dispatch(deleteRoom(hotelId,roomId)); 
      
     }
   };
-
 
   const NavAddRoomHandler = () => {
     props.history.push(`/addARoom/${hotelId}`);

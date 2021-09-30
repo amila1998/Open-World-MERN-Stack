@@ -1,9 +1,9 @@
-const router = require("express").Router();
+/**const router = require("express").Router();
 let Booking = require("../model/BookingModel.js");
 
-const { isAuth ,isAdmin , isServiceprovider} =  require("../utils.js");
+const { isAdmin , isServiceprovider} =  require("../utils.js");
 
-router.route("/addaHotelRoomBooking",isAuth).post(async(req, res)=>{
+router.route("/addaHotelRoomBooking").post(async(req, res)=>{
     
   
     const booking = new Booking({
@@ -37,4 +37,4 @@ router.route("/addaHotelRoomBooking",isAuth).post(async(req, res)=>{
     
 
     res.send({ message: 'Booking Request Success!', booking: createdBooking });
-  });
+  });**/

@@ -1,7 +1,7 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter,Link, Route, Switch } from 'react-router-dom';
-import { signout } from './actions/userAction';
+
+import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+
 
 
 import HotelDetailsScreen from './screens/HotelDetailsScreen';
@@ -26,11 +26,13 @@ import HotelEditScreen from './screens/HotelEditScreen';
 import RoomAddScreen from './screens/RoomAddScreen';
 import RoomList from './screens/RoomLists';
 import RoomEditScreen from './screens/RoomEditScreen';
+import Navigation from './components/NavigationBar/Navigation';
+import { useDispatch, useSelector } from 'react-redux';
+import { signout } from './actions/userAction';
 
 
 
 function App() {
-
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
   const dispatch = useDispatch();
@@ -41,73 +43,13 @@ function App() {
     }));
   };
 
-
   return (
     <BrowserRouter>
-<div className="grid-container">
+    
+      <div className="grid-container">
+      
       <header className="row">
-     
-        <div>
-           <a className="brand" href="/">
-          <img src="/images/logo.png" alt="Open World"></img></a>
-        </div>
-            <div>
-                <div className="dropdown">
-                    <button className="dropbtn">categories  
-                        <i className="fa fa-caret-down"></i>
-                    </button>
-                    <div className="dropdown-content">
-                        <a href="/hotels">Hotels</a>
-                        <a href="/rooms">Rooms</a>
-                        <a href="/">aaaaa</a>
-                        <a href="/">Link 3</a>
-                    </div>
-                </div> 
-            <a href="cart.html">feacures</a>
-            <a href="cart.html">About us</a>
-                      {userInfo ? (
-              <div className="dropdown">
-                <Link to="#">
-                  <button className="dropbtn">{userInfo.name} <i className="fa fa-caret-down"></i></button>{' '}
-                </Link>
-                <div className="dropdown-content">
-                    <Link to="/profile">User Profile</Link>
-                    <Link to="/settings">Settings</Link>
-                    <Link to="#signout" onClick={signoutHandler}>Sign Out
-                    </Link>
-                 
-                  </div>
-              </div>
-            ) : (
-              <Link to="/signin">Sign In</Link>
-            )}
-             {userInfo && userInfo.isServiceProvider?(
-                     <div className="dropdown">
-                     <Link to="#">
-                       <button className="dropbtn">Work Flow<i className="fa fa-caret-down"></i></button>{' '}
-                     </Link>
-                     <div className="dropdown-content">
-                                      
-                        {userInfo && userInfo.isServiceProvider && userInfo.haveHotels ? (
-                                      <Link to="/hotellist">My Hotels</Link>
-                                    ):(
-                                      <Link to="/adminDashboard">Add a Hotel</Link>
-                                    )}
-                                              
-                       </div>
-                   </div>
-                    ):(
-                      <Link to="/settings">Become a Service Provider</Link>
-                    )
-                }
-             
-             {userInfo && userInfo.isAdmin && (
-              <Link to="/adminDashboard">Admin</Link>
-            )}
-
-            
-
-        </div>
+      <Navigation/>
       </header>
       <main>
       
@@ -115,7 +57,7 @@ function App() {
       <Route path="/rooms" exact component={RoomsScreen}></Route>
       <Route path="/hotelDetails/:Htlid" exact component={HotelDetailsScreen}></Route>
       
-      <AdminRoute path="/hotel/hotelDetails/:Htlid"  component={HotelDetailsScreen} exact></AdminRoute>
+      <Route path="/hotel/hotelDetails/:Htlid"  component={HotelDetailsScreen} exact></Route>
       <AdminRoute
             path="/hotel/hotelDetails/:Htlid/edit"
             component={HotelEditScreen}
@@ -134,7 +76,7 @@ function App() {
       <Switch>
 
       <AdminRoute path="/HotelManagement" exact component={AdminHotelManagement}></AdminRoute>
-      <AdminRoute path="/HotelManagement/adminhotellist" component={HotelList}></AdminRoute>
+      <AdminRoute path="/HotelManagement/hotellist" exact component={HotelList}></AdminRoute>
 
       </Switch>
 

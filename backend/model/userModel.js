@@ -7,7 +7,7 @@ const Schema = mongoose.Schema;
           password: { type: String, required: true },
           isAdmin: { type: Boolean, default: false, required: true },
           isServiceProvider: { type: Boolean, default: false, required: true },
-          serviceProvider: {
+          hotelserviceProvider: {
             haveHotels:{type: Boolean, default: false, required: true},
             name: String,
             logo: String,
@@ -15,6 +15,7 @@ const Schema = mongoose.Schema;
             rating: { type: Number, default: 0, required: true },
             numReviews: { type: Number, default: 0, required: true },
           },
+         
         },
        {
         timestamps: true,
