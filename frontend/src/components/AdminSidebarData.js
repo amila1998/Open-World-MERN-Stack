@@ -20,7 +20,7 @@ export const SidebarData = [
     subNav: [
       {
         title: 'Hotels List',
-        path: '/HotelManagement/adminhotellist',
+        path: '/HotelManagement/hotellist',
         icon: <IoIcons.IoIosPaper />,
         cName: 'sub-nav'
       },

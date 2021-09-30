@@ -48,7 +48,7 @@ UserRouter.route("/signin").post(async (req, res) => {
         email: user.email,
         isAdmin: user.isAdmin,
         isServiceProvider: user.isServiceProvider,
-        haveHotels: user.serviceProvider.haveHotels,
+        haveHotels: user.hotelserviceProvider.haveHotels,
         token: generateToken(user),
       });
       return;

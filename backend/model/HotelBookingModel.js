@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const bookedHotelRoomSchema = new Schema({
     
-    room:{type: mongoose.Schema.Types.ObjectId, ref: 'Hotel.rooms'},
+    room:{type: mongoose.Schema.Types.ObjectId, ref: 'Hotel'},
     starDate:{type: Date, required: true},
    endDate:{type: Date, required: true},
    serviceProviderAcception:{type: Boolean,default:false},
@@ -34,22 +34,8 @@ timestamps: true,
 }
 );
 
-const BookedSchema = new Schema({
-    
-    bookedbyuser:{type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true},
-    hotelBooked:[
-        bookedHodelSchema
-    ],
-    totalPrice:{type: Number}
-    /**payment:{type: mongoose.Schema.Types.ObjectId, ref: 'Payment'}**/
 
-   
-},
-{
-timestamps: true,
-}
-);
 
-const Hotel = mongoose.model('Hotel', hotelSchema);
+const HotelBooking = mongoose.model('Booking', bookedHotelSchema);
 
-module.exports = Hotel;
+module.exports = HotelBooking;
