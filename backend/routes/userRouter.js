@@ -5,12 +5,30 @@ let User = require("../model/userModel.js");
 const generateToken  = require("../utils.js");
 const isAuth  = require("../utils.js");
 //insert
+const multer = require("multer")
+
+const storage=multer.diskStorage({
+  destination:(req,file,callback)=>{
+      callback(null,"../frontend/public/uploads");
+  },
+  filename:(req,file,callback)=>{
+      callback(null,file.originalname);
+  }
+})
+
+const upload=multer({storage:storage});
+
+
+
 UserRouter.route("/adduser").post(async(req, res)=>{
     
     const   name = req.body.name;
     const   email= req.body.email;
     const   password= req.body.password;
     const   isAdmin= req.body.isAdmin;
+    const   ishotelServiceProvider= req.body.ishotelServiceProvider;
+    const   isGuide= req.body.isGuide;
+
   
 
    const newUser = new User({
@@ -18,6 +36,8 @@ UserRouter.route("/adduser").post(async(req, res)=>{
     email,
     password,
     isAdmin,
+    ishotelServiceProvider,
+    isGuide,
     
    })
 
@@ -47,8 +67,8 @@ UserRouter.route("/signin").post(async (req, res) => {
         name: user.name,
         email: user.email,
         isAdmin: user.isAdmin,
-        isServiceProvider: user.isServiceProvider,
-        haveHotels: user.hotelserviceProvider.haveHotels,
+        ishotelServiceProvider: user.ishotelServiceProvider,
+        isGuide:user.isGuide,
         token: generateToken(user),
       });
       return;
@@ -72,7 +92,8 @@ UserRouter.route("/signin").post(async (req, res) => {
         name: createdUser.name,
         email: createdUser.email,
         isAdmin: createdUser.isAdmin,
-        isServiceProvider:createdUser.isServiceProvider,
+        ishotelServiceProvider:createdUser.ishotelServiceProvider,
+        isGuide:createdUser.isGuide,
         token: generateToken(createdUser),
       });
     } 
@@ -83,6 +104,22 @@ UserRouter.route("/signin").post(async (req, res) => {
     if (user) {
       user.name = req.body.name || user.name;
       user.email = req.body.email || user.email;
+      
+      user.ishotelServiceProvider = req.body.ishotelServiceProvider || user.ishotelServiceProvider,
+      user.isAdmin = req.body.isAdmin || user.isAdmin,
+      user.isGuide = req.body.isGuide || user.isGuide,
+
+      user.guide.firstName =req.body.firstName,
+      user.guide.lastName =req.body.lastName,
+      user.guide.age =req.body.age,
+      user.guide.gender =req.body.gender,
+      user.guide.phone =req.body.phone,
+      user.guide.email =req.body.email,
+      user.guide.licence =req.body.licence,
+      user.guide.education =req.body.education, 
+      user.guide.languages =req.body.languages,
+      user.guide.guideImg =req.file.originalname
+      
       if (req.body.password) {
         user.password = bcrypt.hashSync(req.body.password, 8);
       }
@@ -92,6 +129,8 @@ UserRouter.route("/signin").post(async (req, res) => {
         name: updatedUser.name,
         email: updatedUser.email,
         isAdmin: updatedUser.isAdmin,
+        ishotelServiceProvider:updatedUser.ishotelServiceProvider,
+        isGuide:updatedUser.isGuide,
         token: generateToken(updatedUser),
       });
     }

@@ -29,9 +29,11 @@ body {
 header {
   width: 100%;
   grid-area: header;
+  padding: 1rem;
   position: fixed;
   background-color: #0077ff;
   z-index: 5;
+  margin-right: 2rem;
 }
 main {
   grid-area: main;
@@ -133,6 +135,7 @@ a.brand img {
 .row {
   display: flex;
   flex-wrap: wrap;
+  padding: auto;
   justify-content: space-between;
   align-items: center;
 }
@@ -281,18 +284,24 @@ img.large {
 .dropdown {
   display: inline-block;
   position: relative;
+  padding: 1rem;
 }
 .dropdown-content {
   position: absolute;
   display: none;
   right: 0;
-  min-width: 12rem;
+  width: 100%;
   padding: 1rem;
   z-index: 1;
   background-color: #0077ff;
   margin: 0;
   margin-top: 0.4rem;
   border-radius: 0.5rem;
+}
+.dropdown-content  li {
+
+  padding: 1.5rem;
+  
 }
 .dropdown:hover .dropdown-content {
   display: block;

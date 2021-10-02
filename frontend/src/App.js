@@ -20,7 +20,7 @@ import AdminDashboardScreen from './screens/AdminDashboardScreen';
 
 import AdminHotelManagement from './screens/AdminHotelManagement';
 import HotelList from './screens/HotelList';
-import ServiceProviderRoute from './components/ServiceProviderRouter';
+import HotelServiceProviderRoute from './components/HotelServiceProviderRouter';
 import ServiceProviderDashboardScreen from './screens/ServiceProviderDashboardScreen';
 import HotelEditScreen from './screens/HotelEditScreen';
 import RoomAddScreen from './screens/RoomAddScreen';
@@ -48,9 +48,9 @@ function App() {
     
       <div className="grid-container">
       
-      <header className="row">
+      
       <Navigation/>
-      </header>
+     
       <main>
       
       <Route path="/hotels" exact component={HotelsScreen}></Route>
@@ -89,14 +89,15 @@ function App() {
             component={UserProfile}
           ></PrivateRoute>
 
-        <ServiceProviderRoute
+        <HotelServiceProviderRoute
             path="/ServiceProviderDashboard"
             component={ServiceProviderDashboardScreen}
-      ></ServiceProviderRoute>
-      <ServiceProviderRoute
-            path="/ServiceProviderhotellist"
+      ></HotelServiceProviderRoute>
+      <HotelServiceProviderRoute
+            path="/hotellist"
             component={HotelList}
-      ></ServiceProviderRoute>
+      ></HotelServiceProviderRoute>
+      
       <AdminRoute
             path="/adminDashboard"
             component={AdminDashboardScreen}
