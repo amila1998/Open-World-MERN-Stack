@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { signout } from '../../actions/userAction';
-import LoadingBox from '../LoadingBox';
+//import LoadingBox from '../LoadingBox';
 
 
 export default function Navigation() {
@@ -53,43 +53,52 @@ export default function Navigation() {
                 </Link>
                 <ul className="dropdown-content">
                     <li>
-                        <Link to="/profile">User Profile</Link>
+                        <Link to="/profile">Profile</Link>
                     </li>
                     <li>
                         <Link to="/settings">Settings</Link>
                     </li>
                      <li>
                         <Link to="#signout" onClick={signoutHandler}>
-                         Sign Out
+                         Logout
                         </Link>
                      </li>
                 </ul>
               </div>
             ) : (
-              <Link to="/signin">Sign In</Link>
+              <Link to="/signin">SignIn</Link>
             )}
-            {userInfo && userInfo.isServiceProvider? (
+          
+            {userInfo &&  (
               <div className="dropdown">
                 <Link to="#serviceprovider">
                     Work Flow <i className="fa fa-caret-down"></i>
                 </Link>
                 <ul className="dropdown-content">
-                {userInfo && userInfo.isServiceProvider && userInfo.haveHotels ? (
+                {userInfo && userInfo.ishotelServiceProvider ? (
                         <li>
                         <Link to="/hotellist">My Hotels</Link>
                       </li>
                 ):(
                     <li>
-                     <Link to="/adminDashboard">Add a Hotel</Link>
+                     <Link to="/adminDashboard">Register as Hotel's Provider</Link>
+                  </li>
+                )}
+                {userInfo && userInfo.isGuide ? (
+                        <li>
+                        <Link to="/guideProfile">I'm a Guide</Link>
+                      </li>
+                ):(
+                    <li>
+                     <Link to="/guideRegister">Register As Guide</Link>
                   </li>
                 )}
                   
                 </ul>
               </div>
 
-            ):(
-                <Link to="/settings">Become a Service Provider</Link>
-              )}
+            )}
+
             {userInfo && userInfo.isAdmin && (
               
               <Link to="/adminDashboard">Admin</Link>
