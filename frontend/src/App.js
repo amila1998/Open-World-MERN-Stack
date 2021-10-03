@@ -29,6 +29,11 @@ import RoomEditScreen from './screens/RoomEditScreen';
 import Navigation from './components/NavigationBar/Navigation';
 import { useDispatch, useSelector } from 'react-redux';
 import { signout } from './actions/userAction';
+import ServiceProviderCategoryScreen from './screens/ServiceProviderCategoryScreen';
+import GuideRegister from './components/GuidRegister';
+import ServiceProviderLoginCategoryScreen from './screens/ServiceProviderLoginCategoryScreen';
+import GuideSigninScreen from './screens/GuideSigninScreen';
+import GuideRoute from './components/GuideRouter';
 
 
 
@@ -52,7 +57,19 @@ function App() {
       <Navigation/>
      
       <main>
-      
+
+      <Route path="/becomeAServiceProvider" exact component={ServiceProviderCategoryScreen}></Route>
+      <Route path="/ServiseProviderLogingCategory" exact component={ServiceProviderLoginCategoryScreen}></Route>
+    <Route path="/guideRegister" exact  component={GuideRegister}></Route>
+    <Route path="/guidelogin" exact  component={GuideSigninScreen}></Route>
+
+
+
+
+
+
+
+
       <Route path="/hotels" exact component={HotelsScreen}></Route>
       <Route path="/rooms" exact component={RoomsScreen}></Route>
       <Route path="/hotelDetails/:Htlid" exact component={HotelDetailsScreen}></Route>
@@ -79,6 +96,7 @@ function App() {
       <AdminRoute path="/HotelManagement/hotellist" exact component={HotelList}></AdminRoute>
 
       </Switch>
+
 
       <PrivateRoute
             path="/UpdateUserProfile"

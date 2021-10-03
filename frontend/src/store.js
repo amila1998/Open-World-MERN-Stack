@@ -1,5 +1,6 @@
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
+import { guideSigninReducer } from './reducers/guideReducers';
 import { hotelCreateReducer, hotelDeleteReducer, hotelDetailsReducer, hotelListReducer, hotelUpdateReducer } from './reducers/hotelReducers';
 import { roomCreateReducer, roomDeleteReducer, roomDetailsReducer, roomListReducer, roomUpdateReducer } from './reducers/roomReducers';
 import { userRegisterReducer, userSigninReducer, userDetailsReducer, userUpdateProfileReducer } from './reducers/userReducers';
@@ -9,7 +10,22 @@ const initialState = {
     userInfo: localStorage.getItem('userInfo')
       ? JSON.parse(localStorage.getItem('userInfo'))
       : null,
+   /* guideInfo: localStorage.getItem('guideInfo')
+      ? JSON.parse(localStorage.getItem('guideInfo'))
+      : null,*/
+   
   },
+  guideSignin: {
+    guideInfo: localStorage.getItem('guideInfo')
+      ? JSON.parse(localStorage.getItem('guideInfo'))
+      : null,
+   /* guideInfo: localStorage.getItem('guideInfo')
+      ? JSON.parse(localStorage.getItem('guideInfo'))
+      : null,*/
+   
+  },
+ 
+ 
  
   
 };
@@ -22,6 +38,7 @@ const reducer = combineReducers({
   roomdetail:roomDetailsReducer,
   roomUpdate:roomUpdateReducer,
   userSignin:userSigninReducer,
+  guideSignin:guideSigninReducer,
   userRegister: userRegisterReducer,
   userDetails: userDetailsReducer,
   userUpdateProfile: userUpdateProfileReducer,
