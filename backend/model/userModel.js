@@ -14,53 +14,7 @@ const Schema = mongoose.Schema;
             rating: { type: Number, default: 0, required: true },
             numReviews: { type: Number, default: 0, required: true },
           },
-          isGuide: { type: Boolean, default: false, required: true },
-          guide:{
-            firstName:{
-              type:String,
-              
-          },
-      
-          lastName:{
-              type:String,
-             
-          },
-      
-          age:{
-              type:String,
-              
-          },
-      
-          phone:{
-              type:String,
-              
-          },
-          email:{
-              type:String,
-              
-          },
-          gender:{
-              type:String,
-              
-          },
-          licence:{
-              type:String,
-              
-          },
-          education:{
-              type:String,
-             
-          },
-          languages:{
-              type:[{type:String}],
-             
-          },
-          guideImg:{
-              type:String,
-           
-          },
-          }
-
+          
          
         },
        {

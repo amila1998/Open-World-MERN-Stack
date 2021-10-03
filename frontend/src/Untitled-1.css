@@ -1,0 +1,40 @@
+/* Dropdown */
+.dropdown {
+    display: inline-block;
+    position: relative;
+    padding: 1rem;
+  }
+  .dropdown-content {
+    position: absolute;
+    display: none;
+    right: 0;
+    width: 100%;
+    padding: 1rem;
+    z-index: 1;
+    background-color: #c9c9c9;
+    margin: 0;
+    margin-top: 0.4rem;
+    border-radius: 0.5rem;
+  }
+  .dropdown-content  li {
+  
+    padding: 1.5rem;
+    
+  }
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    color: #ee7700;
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+  li {
+    margin-top: 1rem;
+  }

@@ -40,6 +40,9 @@ app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 const hotelRouter =require("./routes/hotelsRouter.js");
 app.use("/hotelR",hotelRouter);
 
+const guideRouter =require("./routes/guideRouter.js");
+app.use("/guideR",guideRouter);
+
 //const bookingRouter =require("./routes/bookingRouter.js");
 //app.use("/bookingR",bookingRouter);
 
