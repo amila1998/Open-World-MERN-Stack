@@ -12,7 +12,7 @@ export default class MyGuideProfile extends Component {
  
   componentDidMount(){
     const id = this.props.match.params.id;
-    axios.get(`http://localhost:8070/guide/${id}`).then((res)=>{
+    axios.get(`http://localhost:8070/guideR/${id}`).then((res)=>{
       if (res.data.success){
          this.setState({
       guide:res.data.guide
@@ -22,15 +22,16 @@ export default class MyGuideProfile extends Component {
   }
 
   onDelete=(id)=>{
-    axios.delete(`http://localhost:8070/guide/delete/${id}`).then((res)=>{
+    axios.delete(`http://localhost:8070/guideR/delete/${id}`).then((res)=>{
       alert("Guide Details Delete SuccessFully");
+      localStorage.removeItem('guideInfo');
       window.location.replace('/');
      
     })
   }
 
   onRequest=(guideemail)=>{
-    window.location.replace(`/viewrequest/${guideemail}`);
+    window.location.replace(`/viewguiderequest/${guideemail}`);
   }
    
 

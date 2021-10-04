@@ -13,7 +13,7 @@ export default function Navigation() {
   //const { guideInfo } = userSignin;
   const guideSignin = useSelector((state) => state.guideSignin);
   const { guideInfo }=guideSignin;
-
+ 
 
   const dispatch = useDispatch();
   const signoutHandler = () => {
@@ -58,6 +58,9 @@ export default function Navigation() {
                   <li>
                     <Link to="/rooms">Rooms</Link>
                   </li>
+                  <li>
+                    <Link to="/guides">Guides</Link>
+                  </li>
                 </ul>
               </div>
             <Link to="/feacures">feacures          
@@ -97,7 +100,7 @@ export default function Navigation() {
                 </Link>
                 <ul className="dropdown-content">
                  <li>
-                        <Link to="/hotellist">My Guide Profile</Link>
+                        <Link  to="/myGuideprofileConformation">My Guide Profile</Link>
                       </li>
                
                       <li>
