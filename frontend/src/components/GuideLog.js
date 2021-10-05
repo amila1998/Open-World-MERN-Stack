@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
+import { useSelector } from 'react-redux';
 
 
 
@@ -9,13 +10,14 @@ export default function InqView (){
     const { guideInfo }=guideSignin;
 	const [email,setEmail] = useState("");
    
-
+   
     const getData =async (e)=>{
-
+        
         e.preventDefault();
 
+
         const email1 = email;
-        const url="http://localhost:8070/guide/view/";
+        const url="http://localhost:8070/guideR/view/";
 
      
         const res = await axios.get(url+email1).then((res)=> {
@@ -36,7 +38,7 @@ export default function InqView (){
        
            if(res=true) {
                 alert("You are a valid user");
-                window.location.replace("/guide/myaccount/" + mongoid)
+                window.location.replace("/guideProfile/" + mongoid)
 
            }
            if(res=false) {
@@ -60,7 +62,7 @@ export default function InqView (){
                 <div ><center>
 		            <form   >
 			
-                    <h3>Comform Your Email</h3>
+                    <h3>Conform Your Email</h3>
                        <br/>
 			            <input class="form-control" style={{width:"350px"}} type="email" id ="email" placeholder="Please Enter Your Email" value={guideInfo.email} onChange={(e)=>{  setEmail(e.target.value) ; }}/>
                         <br/>

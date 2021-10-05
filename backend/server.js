@@ -43,6 +43,12 @@ app.use("/hotelR",hotelRouter);
 const guideRouter =require("./routes/guideRouter.js");
 app.use("/guideR",guideRouter);
 
+const guideReviewRouter =require("./routes/GuideReviewRoute.js");
+app.use("/guideRviewR",guideReviewRouter);
+
+const guidebookingRouter =require("./routes/GuideBookingRoute.js");
+app.use("/guideBookingR",guidebookingRouter);
+
 //const bookingRouter =require("./routes/bookingRouter.js");
 //app.use("/bookingR",bookingRouter);
 

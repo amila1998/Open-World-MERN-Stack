@@ -34,6 +34,11 @@ import GuideRegister from './components/GuidRegister';
 import ServiceProviderLoginCategoryScreen from './screens/ServiceProviderLoginCategoryScreen';
 import GuideSigninScreen from './screens/GuideSigninScreen';
 import GuideRoute from './components/GuideRouter';
+import MyGuideprofileConformation from './components/MyGuideprofileConformation';
+import MyGuideProfile from './components/MyGuideProfile';
+import EditGuide from './components/EditGuideDetails';
+import GuideDisplayList from './components/GuideDisplayList';
+import OneGuide from './components/OneGuide';
 
 
 
@@ -72,6 +77,8 @@ function App() {
 
       <Route path="/hotels" exact component={HotelsScreen}></Route>
       <Route path="/rooms" exact component={RoomsScreen}></Route>
+      <Route path="/guides" exact component={GuideDisplayList}></Route>
+      <PrivateRoute path="/guide/details/:id" exact component={OneGuide}/>
       <Route path="/hotelDetails/:Htlid" exact component={HotelDetailsScreen}></Route>
       
       <Route path="/hotel/hotelDetails/:Htlid"  component={HotelDetailsScreen} exact></Route>
@@ -96,9 +103,12 @@ function App() {
       <AdminRoute path="/HotelManagement/hotellist" exact component={HotelList}></AdminRoute>
 
       </Switch>
-
-
+      <GuideRoute 
+path="/myGuideprofileConformation" exact component={MyGuideprofileConformation}/>
+ <GuideRoute path="/guideProfile/:id" exact component={MyGuideProfile}/>
+ <GuideRoute path="/guide/edit/:id" exact component={EditGuide}/>
       <PrivateRoute
+     
             path="/UpdateUserProfile"
             component={UpdateUserProfile}
           ></PrivateRoute>

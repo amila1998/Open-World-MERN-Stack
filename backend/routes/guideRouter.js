@@ -19,6 +19,7 @@ const storage=multer.diskStorage({
 })
  
 const upload=multer({storage:storage});
+
 router.get('/guidesignin',async(req,res)=>{
 
 
@@ -28,15 +29,7 @@ router.get('/guidesignin',async(req,res)=>{
         res.send({
           _id: guide._id,
           firstName:guide.firstName,
-            lastName:guide.lastName,
-        age:guide.age,
-        gender:guide.gender,
-        phone:guide.phone,
-        email:guide.email,
-        licence:guide.licence,
-        education:guide.education, 
-        languages:guide.languages,
-        guideImg:guide.guideImg
+       
          
           
         });

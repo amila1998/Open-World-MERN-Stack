@@ -121,7 +121,8 @@ const GuideRegister = ()=>{
      
     <br></br>
   
- 
+  
+    
 <div class="row">
   <div class="col">
     <input 
@@ -142,8 +143,29 @@ const GuideRegister = ()=>{
         value={lastName}
         onChange={(e)=>setlastName(e.target.value)}
         required/>
+        
   </div>
 </div>
+
+
+<br/>
+
+<div class="form-floating mb-3">
+  <input 
+         type="email" 
+         class="form-control" 
+         id="floatingInput" 
+         placeholder="Enter Phone Number"
+         name="email"
+         value={email}
+         onChange={(e)=>setemail(e.target.value)}
+         required
+        />
+  <label 
+         for="floatingInput">Email Address</label>
+  </div>
+
+  
 
 <br/>
 <div class="form-floating mb-3">
@@ -191,6 +213,8 @@ const GuideRegister = ()=>{
   <label 
          for="floatingInput">Guide Age</label>
   </div>
+
+  <br/>
  
   <div class="form-floating mb-3">
   <input 
@@ -208,22 +232,7 @@ const GuideRegister = ()=>{
          for="floatingInput">Phone Number</label>
   </div>
 
-  <div class="form-floating mb-3">
-  <input 
-         type="email" 
-         class="form-control" 
-         id="floatingInput" 
-         placeholder="Enter Phone Number"
-         name="email"
-         value={email}
-         onChange={(e)=>setemail(e.target.value)}
-         required
-        />
-  <label 
-         for="floatingInput">Email Address</label>
-  </div>
-
-  
+ 
   <div className="form-check">
   <p>Gender</p>
   &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
