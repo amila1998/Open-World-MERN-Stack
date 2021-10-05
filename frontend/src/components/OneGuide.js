@@ -9,6 +9,8 @@ import { useSelector } from 'react-redux';
 const OneGuide = (props) => {
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
+  const guideSignin = useSelector((state) => state.guideSignin);
+  const { guideInfo }=guideSignin;
 
   const [guide, setguide] = useState([]);
 
@@ -101,9 +103,12 @@ const OneGuide = (props) => {
             </Link>
           </button>
           &nbsp;&nbsp;&nbsp;
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" style={{width:'150px'}}>
-            Request
-          </button>
+         
+             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" style={{width:'150px'}}>
+             Request
+           </button>
+         
+         
 
           
           </ul></center>
