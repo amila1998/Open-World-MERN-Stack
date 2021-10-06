@@ -2,16 +2,20 @@ import React, {Component} from 'react';
 import axios from "axios";
  
 export default class MyGuideProfile extends Component {
- 
+ userData;
   constructor(props){
     super(props);
     this.state={
-      guide:{}
+      guide:{},
+      
+      
     };
+
   }
  
   componentDidMount(){
-    const id = this.props.match.params.id;
+    this.userData =JSON.parse(localStorage.getItem('userInfo'));
+    const id = this.userData.guide;
     axios.get(`http://localhost:8070/guideR/${id}`).then((res)=>{
       if (res.data.success){
          this.setState({
@@ -24,7 +28,7 @@ export default class MyGuideProfile extends Component {
   onDelete=(id)=>{
     axios.delete(`http://localhost:8070/guideR/delete/${id}`).then((res)=>{
       alert("Guide Details Delete SuccessFully");
-      localStorage.removeItem('guideInfo');
+      localStorage.removeItem('userInfo');
       window.location.replace('/');
      
     })
@@ -36,8 +40,8 @@ export default class MyGuideProfile extends Component {
    
 
 render(){
-    const id = this.props.match.params.id;
- 
+  this.userData =JSON.parse(localStorage.getItem('userInfo'));
+    const id = this.userData.guide;
 const {firstName,lastName,age,phone,email,gender,licence,education,languages,guideImg} = this.state.guide;
  
   return(

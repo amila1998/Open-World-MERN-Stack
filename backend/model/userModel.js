@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+
     const userSchema = new Schema(
         {
           name: { type: String, required: true },
@@ -14,8 +15,13 @@ const Schema = mongoose.Schema;
             rating: { type: Number, default: 0, required: true },
             numReviews: { type: Number, default: 0, required: true },
           },
-          
-         
+          isGuide:{type: Boolean, default: false, required: true},
+
+          guide: {
+            type:String
+
+        },
+      
         },
        {
         timestamps: true,

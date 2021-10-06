@@ -13,6 +13,7 @@ const jwt = require("jsonwebtoken");
         expiresIn: '30d',
     });
 }
+
 const isAuth = (req, res, next) => {
     const authorization = req.headers.authorization;
     if (authorization) {
@@ -51,4 +52,12 @@ const isServiceProvider = (req, res, next) => {
     res.status(401).send({ message: 'Invalid Service Provider Token' });
   }
 };
-module.exports = generateToken, isAuth, isAdmin , isServiceProvider;
+
+const isGuide = (req, res, next) => {
+  if (req.user && req.user.isGuide) {
+    next();
+  } else {
+    res.status(401).send({ message: 'Invalid Guide  Token' });
+  }
+};
+module.exports = generateToken, isAuth, isAdmin ,isGuide, isServiceProvider;

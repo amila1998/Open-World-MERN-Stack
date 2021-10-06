@@ -2,10 +2,13 @@ import React,{useReducer, useState} from "react"
 import {useHistory} from 'react-router-dom';
 import axios from "axios";
 import '../styles/guide.css'
+import { useSelector } from "react-redux";
  
 const GuideRegister = ()=>{
  
      let history = useHistory();
+     const userSignin = useSelector((state) => state.userSignin);
+     const { userInfo } = userSignin;
  
      const[firstName,setfirstName]=useState("");
      const[lastName,setlastName]=useState("");
@@ -18,15 +21,14 @@ const GuideRegister = ()=>{
      const[languages,setlanguages]=useState("");
      const[message,setMessage]=useState("");
      const[guideImg,setFileName]=useState("");
-     const[password,setPassword]=useState("");
-     const[repassword,setRePassword]=useState("");
+     //const[password,setPassword]=useState("");
+     //const[repassword,setRePassword]=useState("");
    
      const onChangeFile= e=>{
          setFileName(e.target.files[0]);
      }
    
    const changeOnClick =(e)=>{
-       e.preventDefault();
         var arr=[];
         var s=document.getElementById('Sinhala');
         if(s.checked){
@@ -62,23 +64,20 @@ const GuideRegister = ()=>{
    
     
        
-   if(password!=repassword){
-     alert("Password Not Match")
-   }else{
-
+   
       
     const formData=new FormData();
     formData.append("firstName",firstName);
     formData.append("lastName",lastName);
     formData.append("age",age);
     formData.append("phone",phone);
-    formData.append("email",email);
+    formData.append("email",userInfo.email);
     formData.append("gender",gender);
     formData.append("licence",licence);
     formData.append("education",education);
     formData.append("languages",arr);
     formData.append("guideImg",guideImg);
-    formData.append("password",password);
+    //formData.append("password",password);
 
     setfirstName("");
     setlastName("");
@@ -89,22 +88,30 @@ const GuideRegister = ()=>{
     setlicence("");
     seteducation("");
     setlanguages("");
-    setPassword("");
-    setRePassword("");
+    //setPassword("");
+    //setRePassword("");
 
 
     axios
-    .post("http://localhost:8070/guideR/add",formData)
+    .post(`http://localhost:8070/guideR/add/${userInfo._id}`,formData)
     .then(
-     (res)=>setMessage(res.data))
+     
+      (res)=>{
+        console.log(res.data)
+      setMessage(res.data)
+      localStorage.removeItem('userInfo')
+      alert(" Registeration Successful")
+      
+      history.push("/guideProfile");
+     })
      
     .catch((err)=>{
         console.log(err);
+      alert(" Registeration Failed")
+
     });
-    localStorage.setItem('guideInfo', JSON.stringify(formData));
-    history.push("/");
-    alert(" Registeration Successful")
-   }
+ 
+   
       
    };
 
@@ -115,29 +122,29 @@ const GuideRegister = ()=>{
         <div className="container ">
         <div className="w-75 mx-auto shadow p-5 formbodyadd">
             
-    <form onSubmit={changeOnClick} encType="multipart/form-data" >
-    <h1 >Add New Guide</h1>
+    <div  encType="multipart/form-data" >
+    <h1 >Guide Registration</h1>
   
      
     <br></br>
   
   
     
-<div class="row">
-  <div class="col">
+<div className="row">
+  <div className="col">
     <input 
         type="text" 
-        class="form-control" 
+        className="form-control" 
         placeholder="Enter First Name" 
         name="firstName"
         value={firstName}
         onChange={(e)=>setfirstName(e.target.value)}
         required/>
   </div>
-  <div class="col">
+  <div className="col">
     <input 
         type="text" 
-        class="form-control" 
+        className="form-control" 
         placeholder="Enter Last Name" 
         name="lastName"
         value={lastName}
@@ -150,14 +157,14 @@ const GuideRegister = ()=>{
 
 <br/>
 
-<div class="form-floating mb-3">
+<div className="form-floating mb-3">
   <input 
          type="email" 
-         class="form-control" 
+         className="form-control" 
          id="floatingInput" 
          placeholder="Enter Phone Number"
          name="email"
-         value={email}
+         value={userInfo.email}
          onChange={(e)=>setemail(e.target.value)}
          required
         />
@@ -165,44 +172,11 @@ const GuideRegister = ()=>{
          for="floatingInput">Email Address</label>
   </div>
 
-  
-
-<br/>
-<div class="form-floating mb-3">
-  <input 
-         type="password" 
-         class="form-control" 
-         id="floatingInput" 
-         placeholder="Enter Password "
-         name="password"
-         value={password}
-         onChange={(e)=>setPassword(e.target.value)}
-         required
-         />
-  <label 
-         for="floatingInput"> Password</label>
-  </div>
   <br/>
-<div class="form-floating mb-3">
-  <input 
-         type="password" 
-         class="form-control" 
-         id="floatingInput" 
-         placeholder="Enter Password Again"
-         name="repassword"
-         value={repassword}
-         onChange={(e)=>setRePassword(e.target.value)}
-         required
-         />
-  <label 
-         for="floatingInput">Conform Password </label>
-  </div>
-  
-  <br/>
-<div class="form-floating mb-3">
+<div className="form-floating mb-3">
   <input 
          type="text" 
-         class="form-control" 
+         className="form-control" 
          id="floatingInput" 
          placeholder="Guide Age"
          name="age"
@@ -216,10 +190,10 @@ const GuideRegister = ()=>{
 
   <br/>
  
-  <div class="form-floating mb-3">
+  <div className="form-floating mb-3">
   <input 
          type="text" 
-         class="form-control" 
+         className="form-control" 
          id="floatingInput" 
          placeholder="Enter Phone Number"
          name="phone"
@@ -243,10 +217,10 @@ const GuideRegister = ()=>{
     Male
   </label> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
  
-  <input class="form-check-input" type="radio"  id="flexRadioDefault2" checked={gender==="Female"}
+  <input className="form-check-input" type="radio"  id="flexRadioDefault2" checked={gender==="Female"}
   value="Female" name="gender"
   onChange={(e)=>setgender(e.target.value)}/>
-  <label class="form-check-label" for="flexRadioDefault2">
+  <label className="form-check-label" for="flexRadioDefault2">
     Female
   </label>
 </div>
@@ -264,10 +238,10 @@ const GuideRegister = ()=>{
     Yes
   </label> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
  
-  <input class="form-check-input" type="radio" id="flexRadioDefault2"checked={licence==="No"}
+  <input className="form-check-input" type="radio" id="flexRadioDefault2"checked={licence==="No"}
   value="No"  name="licence"
  onChange={(e)=>setlicence(e.target.value)}/>
-  <label class="form-check-label" for="flexRadioDefault2">
+  <label className="form-check-label" for="flexRadioDefault2">
     No
   </label>
 </div>
@@ -283,10 +257,10 @@ const GuideRegister = ()=>{
     O/L
   </label> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 
  
-  <input class="form-check-input" type="radio"  id="flexRadioDefault2"checked={education==="A/L"}
+  <input className="form-check-input" type="radio"  id="flexRadioDefault2"checked={education==="A/L"}
   value="A/L"  name="education"
  onChange={(e)=>seteducation(e.target.value)}/>
-  <label class="form-check-label" for="flexRadioDefault2">
+  <label className="form-check-label" for="flexRadioDefault2">
     A/L
   </label> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 
  
@@ -310,10 +284,10 @@ const GuideRegister = ()=>{
     Sinhala
   </label> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
  
-  <input class="form-check-input" type="checkbox"  id="English"
+  <input className="form-check-input" type="checkbox"  id="English"
   value="English"    name="languages"
  onChange={(e)=>setlanguages(e.target.value)}/>
-  <label class="form-check-label" for="flexRadioDefault2">
+  <label className="form-check-label" for="flexRadioDefault2">
     English
   </label>
 </div>
@@ -327,10 +301,10 @@ const GuideRegister = ()=>{
     Tamil
   </label> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
  
-  <input class="form-check-input" type="checkbox"  id="Japaneese"
+  <input className="form-check-input" type="checkbox"  id="Japaneese"
   value="Japaneese"   name="languages"
  onChange={(e)=>setlanguages(e.target.value)}/>
-  <label class="form-check-label" for="flexRadioDefault2">
+  <label className="form-check-label" for="flexRadioDefault2">
     Japaneese
   </label>
 </div>
@@ -344,29 +318,29 @@ const GuideRegister = ()=>{
     Chineese
   </label> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
  
-  <input class="form-check-input" type="checkbox"  id="Hindi"
+  <input className="form-check-input" type="checkbox"  id="Hindi"
   value="Hindi" name="languages"
  onChange={(e)=>setlanguages(e.target.value)}/>
-  <label class="form-check-label" for="flexRadioDefault2">
+  <label className="form-check-label" for="flexRadioDefault2">
     Hindi
   </label>
 </div>
  
 <br/>
-<lable class="label-title"><b>Add a Image*</b>
-       <div class="mb-3">
-  <input class="form-control" type="file" id="formFile" filename="packageImage" onChange={onChangeFile}/>
+<lable className="label-title"><b>Add a Image*</b>
+       <div className="mb-3">
+  <input className="form-control" type="file" id="formFile" filename="packageImage" onChange={onChangeFile}/>
 </div></lable>
 
 
 <div>
-<button type="submit" class="primary">Add Guide</button>
+<button onClick={changeOnClick} className="primary">Add Guide</button>
 
 </div>
  
 
  
-</form>
+</div>
 </div>
 </div>
 </div>

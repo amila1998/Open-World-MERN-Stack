@@ -3,13 +3,13 @@ import { useSelector } from 'react-redux';
 import { Redirect, Route } from 'react-router-dom';
 
 export default function GuideRoute({ component: Component, ...rest }) {
-  const guideSignin = useSelector((state) => state.guideSignin);
-  const { guideInfo }=guideSignin;
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
   return (
     <Route
       {...rest}
       render={(props) =>
-        guideInfo ? (
+        userInfo && userInfo.guide && userInfo.isGuide ? (
           <Component {...props}></Component>
         ) : (
           <Redirect to="/signin" />
