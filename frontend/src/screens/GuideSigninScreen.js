@@ -19,11 +19,12 @@ export default function GuideSigninScreen(props) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(guidesignin(email, password));//TODO: signIn action
+    dispatch(guidesignin(email, password,props.history));
+    //TODO: signIn action
   };
   useEffect(() => {
     if (guideInfo) {
-      props.history.push(redirect);
+      props.history.push('/');
     }
   }, [props.history, redirect, guideInfo]);
   return (

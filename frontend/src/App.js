@@ -68,7 +68,7 @@ function App() {
 
       <Route path="/becomeAServiceProvider" exact component={ServiceProviderCategoryScreen}></Route>
       <Route path="/ServiseProviderLogingCategory" exact component={ServiceProviderLoginCategoryScreen}></Route>
-    <Route path="/guideRegister" exact  component={GuideRegister}></Route>
+    <PrivateRoute path="/guideRegister" exact  component={GuideRegister}></PrivateRoute>
     <Route path="/guidelogin" exact  component={GuideSigninScreen}></Route>
 
 
@@ -110,7 +110,7 @@ function App() {
       <GuideRoute 
 path="/myGuideprofileConformation" exact component={MyGuideprofileConformation}/>
 <GuideRoute path="/guide/viewTouristProfile/:userId" exact component={TouristDetails}/>
- <GuideRoute path="/guideProfile/:id" exact component={MyGuideProfile}/>
+ <GuideRoute path="/guideProfile" exact component={MyGuideProfile}/>
  <GuideRoute path="/guide/edit/:id" exact component={EditGuide}/>
       <PrivateRoute
      

@@ -15,15 +15,7 @@ const initialState = {
       : null,*/
    
   },
-  guideSignin: {
-    guideInfo: localStorage.getItem('guideInfo')
-      ? JSON.parse(localStorage.getItem('guideInfo'))
-      : null,
-   /* guideInfo: localStorage.getItem('guideInfo')
-      ? JSON.parse(localStorage.getItem('guideInfo'))
-      : null,*/
-   
-  },
+ 
  
  
  

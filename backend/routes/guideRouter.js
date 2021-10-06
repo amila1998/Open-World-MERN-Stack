@@ -1,5 +1,6 @@
 const express = require('express');
 const Guide = require('../model/GuideModel');
+const User = require('../model/userModel')
 const ReviewData = require('../model/GuideReviewModel')
 const multer = require("multer");
 const { compareSync, hashSync } = require('bcrypt');
@@ -20,27 +21,57 @@ const storage=multer.diskStorage({
  
 const upload=multer({storage:storage});
 
-router.get('/guidesignin',async(req,res)=>{
 
 
-    const guide = await Guide.findOne({ email:req.body.email });
-    if (guide) {
-     if  (compareSync(req.body.password, guide.password)) {
-        res.send({
-          _id: guide._id,
-          firstName:guide.firstName,
-       
-         
+
+  router.post('/add/:userid' , upload.single("guideImg") ,async(req,res)=>{
+    try {
+     const user = await User.findById(req.params.userid);
+     if(user){
+        
+        
+
+            const guideData=new Guide({
+                firstName:req.body.firstName,
+                lastName:req.body.lastName,
+                age:req.body.age,
+                gender:req.body.gender,
+                phone:req.body.phone,
+                email:req.body.email,
+                licence:req.body.licence,
+                education:req.body.education, 
+                languages:req.body.languages,
+               guideImg:req.file.originalname,
+               //guideImg:req.body.guideImg,
+                //password: hashSync(req.body.password, 8),
+            });
+           const createdGuide= await guideData
+            .save();
+            user.isGuide="true",
+            user.guide=createdGuide._id
+            await user.save();
+             res.json(guideData)
+           
+        
           
-        });
-        return;
-      }
+         } else {
+           res.status(404).send({ message: 'user Not Found' });
+         }
+      
+     
+    } catch (error) {
+     console.log(error)
+     res.status(400).json(`Error:${error}`)
     }
-    res.status(401).send({ message: 'Invalid email or password' });
-  })
-  ;
+    
+ }); 
+
+
+
+/*
  
-router.post('/add', upload.single("guideImg") ,(req,res)=>{
+router.post('/add', upload.single("guideImg") ,async(req,res)=>{
+   try {
     const guideData=new Guide({
         firstName:req.body.firstName,
         lastName:req.body.lastName,
@@ -54,15 +85,19 @@ router.post('/add', upload.single("guideImg") ,(req,res)=>{
         guideImg:req.file.originalname,
         password: hashSync(req.body.password, 8),
     });
-    guideData
-    .save()
-    .then(()=>res.json("New Guide Added"))
-    .catch((err)=>res.status(400).json(`Error:${err}`));
+   await guideData
+    .save();
+    res.json(guideData)
+   } catch (error) {
+    console.log(err)
+    res.status(400).json(`Error:${err}`)
+   }
+   
 });
 
 
  
-
+*/
 
 
 
@@ -112,6 +147,7 @@ router.get('/:id',(req,res)=>{
         if(err){
             return res.status(400).json({success:false,err});
         }
+       
         return res.status(200).json({
             success:true,
             guide:guidedata

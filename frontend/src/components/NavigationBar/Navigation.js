@@ -33,20 +33,20 @@ export default function Navigation() {
     return (
 
   <div >
-  <nav class="navbar navbar-expand-lg   fixed-top navbar-light bg-primary">
+  <nav className="navbar navbar-expand-lg   fixed-top navbar-light bg-primary">
  
-  <div class="container-fluid">
-  <div class="navbar-brand">
+  <div className="container-fluid">
+  <div className="navbar-brand">
             <Link className="brand" to="/">
               Open World
             </Link>
           </div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div className="collapse navbar-collapse" id="navbarSupportedContent">
       
-    <div class="flex-row-reverse">
+    <div className="flex-row-reverse">
           <div className="dropdown">
                 <Link to="#Categories">
                 Categories <i className="fa fa-caret-down"></i>
@@ -93,22 +93,30 @@ export default function Navigation() {
             )}
 
           
-            {guideInfo && (
+            {userInfo && (
               <div className="dropdown">
                 <Link to="#serviceprovider">
-                    Guide <i className="fa fa-caret-down"></i>
+                    Work Flow<i className="fa fa-caret-down"></i>
                 </Link>
                 <ul className="dropdown-content">
-                 <li>
-                        <Link  to="/myGuideprofileConformation">My Guide Profile</Link>
-                      </li>
-               
-                      <li>
-                        <Link to="#guidesignout" onClick={guidesignoutHandler}>
-                         Logout
-                        </Link>
-                     </li>
-               
+                  {userInfo.isGuide?(
+                     <li>
+                     <Link  to="/guideProfile">My Guide Profile</Link>
+                   </li>
+                  ):(
+                    <li>
+                    <Link  to="/guideRegister">Guide Registration</Link>
+                  </li>
+                  )}
+                 {userInfo.ishotelServiceProvider?(
+                     <li>
+                     <Link  to="/myGuideprofileConformation">My Hotel Service Provider Profile</Link>
+                   </li>
+                  ):(
+                    <li>
+                    <Link  to="/myGuideprofileConformation">Hotel Service Provider Registration</Link>
+                  </li>
+                  )}
                   
                 </ul>
               </div>
@@ -126,9 +134,9 @@ export default function Navigation() {
                 
             )}
           </div>
-          <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <form className="form-inline my-2 my-lg-0">
+      <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+      <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
     </div>
     
