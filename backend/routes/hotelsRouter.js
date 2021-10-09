@@ -7,7 +7,7 @@ const { isAdmin , isServiceprovider} =  require("../utils.js");
 router.route("/add",isAdmin,isServiceprovider).post(async(req, res)=>{
   const hotel = new Hotel({
     hotelname: 'sample name ' + Date.now(),
-    image: '/images/p1.jpg',
+    image: 'defaultHotel.jpg',
     addressline1: 'Address 1',
     addressline2: 'Address 2',
     city: 'city',
@@ -17,6 +17,7 @@ router.route("/add",isAdmin,isServiceprovider).post(async(req, res)=>{
     rating: 0,
     numReviews: 0,
     description: 'sample description',
+    hotelserviceProvider:req.user._id,
     
   });
   const createdHotel = await hotel.save();
@@ -25,9 +26,9 @@ router.route("/add",isAdmin,isServiceprovider).post(async(req, res)=>{
 
 //find all
 router.route("/displayAll").get(async(req, res)=>{
-  const serviceProvider = req.query.serviceProvider || '';
-  const serviceProviderFilter = serviceProvider ? { serviceProvider } : {};
-  const hotels = await Hotel.find({ ...serviceProviderFilter }).populate(
+  const hotelserviceProvider = req.query.hotelserviceProvider || '';
+  const hotelserviceProviderFilter = hotelserviceProvider ? { hotelserviceProvider } : {};
+  const hotels = await Hotel.find({ ...hotelserviceProviderFilter }).populate(
     'serviceProvider'
     
   ).then((hotels)=>{
@@ -61,7 +62,7 @@ router.route("/displayAll").get(async(req, res)=>{
 
 
 //update
-router.route("/update/:id").put(async (req, res) => {
+router.route("/update/:id",isAdmin,isServiceprovider).put(async (req, res) => {
   const hotelId = req.params.id;
   const hotel = await Hotel.findById(hotelId);
     if (hotel) {
@@ -83,7 +84,7 @@ router.route("/update/:id").put(async (req, res) => {
 //delete
 
     
-router.route("/delete/:id",isAdmin).delete(async (req, res) => {
+router.route("/delete/:id",isAdmin,isServiceprovider).delete(async (req, res) => {
   const hotel = await Hotel.findById(req.params.id);
   if (hotel) {
     

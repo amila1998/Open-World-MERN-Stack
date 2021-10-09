@@ -1,6 +1,6 @@
 const {
 
-  ROOM_LIST_REQUEST, ROOM_LIST_SUCCESS, ROOM_LIST_FAIL, ROOM_DETAILS_REQUEST, ROOM_DETAILS_SUCCESS, ROOM_DETAILS_FAIL, ROOM_CREATE_REQUEST, ROOM_CREATE_SUCCESS, ROOM_CREATE_FAIL, ROOM_CREATE_RESET, ROOM_UPDATE_REQUEST, ROOM_UPDATE_SUCCESS, ROOM_UPDATE_FAIL, ROOM_UPDATE_RESET, ROOM_DELETE_REQUEST, ROOM_DELETE_SUCCESS, ROOM_DELETE_FAIL, ROOM_DELETE_RESET,
+  ROOM_LIST_REQUEST, ROOM_LIST_SUCCESS, ROOM_LIST_FAIL, ROOM_DETAILS_REQUEST, ROOM_DETAILS_SUCCESS, ROOM_DETAILS_FAIL, ROOM_CREATE_REQUEST, ROOM_CREATE_SUCCESS, ROOM_CREATE_FAIL, ROOM_CREATE_RESET, ROOM_UPDATE_REQUEST, ROOM_UPDATE_SUCCESS, ROOM_UPDATE_FAIL, ROOM_UPDATE_RESET, ROOM_DELETE_REQUEST, ROOM_DELETE_SUCCESS, ROOM_DELETE_FAIL, ROOM_DELETE_RESET, ROOM_DETAILSWITHDAYS_REQUEST, ROOM_DETAILSWITHDAYS_SUCCESS, ROOM_DETAILSWITHDAYS_FAIL,
 } = require('../constants/roomConstants');
 
 export const roomListReducer = (
@@ -28,6 +28,20 @@ export const roomDetailsReducer =(state = { room:{},loading: true},
       case ROOM_DETAILS_SUCCESS:
         return{loading: false, room: action.payload};
       case ROOM_DETAILS_FAIL:
+        return {loading: false, error: action.payload};
+      default:
+        return state;
+    }
+
+};
+
+export const roomDetailseWithdaysReducer =(state = { roomwithdays:{},loading: true},action)=>{
+    switch (action.type){
+      case ROOM_DETAILSWITHDAYS_REQUEST:
+        return{loading: true};
+      case ROOM_DETAILSWITHDAYS_SUCCESS:
+        return{loading: false, roomwithdays: action.payload};
+      case ROOM_DETAILSWITHDAYS_FAIL:
         return {loading: false, error: action.payload};
       default:
         return state;

@@ -29,6 +29,7 @@ export default function HotelEditScreen(props) {
   const [image, setImage] = useState('');
 
 
+
   
   const hoteldetail = useSelector((state) => state.hoteldetail);
   const { loading, error, hotel } = hoteldetail;
@@ -85,19 +86,19 @@ export default function HotelEditScreen(props) {
         })
       );
   };
-
   const [loadingUpload, setLoadingUpload] = useState(false);
   const [errorUpload, setErrorUpload] = useState('');
 
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
   const uploadFileHandler = async (e) => {
-  const file = e.target.files[0];
-  const bodyFormData = new FormData();
-  bodyFormData.append('image', file);
+    const file = e.target.files[0];
+    console.log(file)
+    const bodyFormData = new FormData();
+    bodyFormData.append('image', file);
     setLoadingUpload(true);
     try {
-      const { data } = await Axios.post('http://localhost:8070/uploadR', bodyFormData, {
+      const { data } = await Axios.post('/api/uploads', bodyFormData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${userInfo.token}`,
@@ -109,8 +110,10 @@ export default function HotelEditScreen(props) {
       setErrorUpload(error.message);
       setLoadingUpload(false);
     }
-   
   };
+
+
+ 
 
   return (
     <div>
@@ -138,7 +141,6 @@ export default function HotelEditScreen(props) {
                 onChange={(e) => setHotelName(e.target.value)}
               ></input>
             </div>
- 
             <div>
               <label htmlFor="image">Image</label>
               <input

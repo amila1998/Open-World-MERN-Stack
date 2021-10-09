@@ -1,6 +1,23 @@
 const roomRouter = require("express").Router();
 const Hotel = require("../model/HotelModel.js");
+let Booking = require("../model/HotelBookingModel.js");
+const multer = require("multer");
 /*let Room = require("../model/HotelRoomsModel.js");*/
+
+const DateNow = Date.now();
+ 
+const storage=multer.diskStorage({
+    destination:(req,file,callback)=>{
+        callback(null,"../frontend/public/uploads");
+    },
+    filename:(req,file,callback)=>{
+        callback(null,DateNow+file.originalname);
+    }
+})
+ 
+const upload=multer({storage:storage});
+
+
 //insert
 roomRouter.route("/addroom/:HID").post(async(req, res)=>{
     
@@ -9,11 +26,13 @@ roomRouter.route("/addroom/:HID").post(async(req, res)=>{
   if (hotel) {
      const room = {
       roomname: req.body.roomname,
-      image:req.body.image,
+      image1: "defaultRoom.jpg",//DateNow+req.file.originalname ||
       price:req.body.price,
       rating:req.body.rating,
       numReviews:req.body.numReviews,
-      hotel:hotelId
+      hotel:hotelId,
+      category:req.body.category,
+      description:req.body.description,
     };
     
     hotel.rooms.push(room);
@@ -89,8 +108,6 @@ roomRouter.route("/:hotelid/deleteRoom/:Roomid").delete(async (req, res) => {
       }
       
    });
-
-
    roomRouter.route("/:hotelid/FindARoom/:Roomid").get(async (req, res) => {
     let Roomid = req.params.Roomid;
     let hotelId = req.params.hotelid;
@@ -99,6 +116,47 @@ roomRouter.route("/:hotelid/deleteRoom/:Roomid").delete(async (req, res) => {
        const room = await hotel.rooms.find((x) => x._id = Roomid);
       if(room){
         res.send(room );
+       }else{
+        res.send({message: "can't find Room data"});
+       }
+         
+        }else{
+          res.send({message: "can't find Hotel data"});
+        }
+       
+     });
+
+
+   roomRouter.route("/:hotelid/FindARoomwithdays/:Roomid").get(async (req, res) => {
+    let Roomid = req.params.Roomid;
+    let hotelId = req.params.hotelid;
+    const hotel= await Hotel.findById(hotelId);
+     if (hotel) {
+       const room = await hotel.rooms.find((x) => x._id = Roomid);
+      if(room){
+        const hotelroomBooked = await Booking.find({room:Roomid});
+        if(hotelroomBooked){
+          const datelist =hotelroomBooked.map(e => getDates (e.startDate, e.endDate))
+          function getDates (startDate, endDate) {
+            const dates = []
+            let currentDate = startDate
+            const addDays = function (days) {
+              const date = new Date(this.valueOf())
+              date.setDate(date.getDate() + days)
+              return date
+            }
+            while (currentDate <= endDate) {
+              dates.push(currentDate)
+              currentDate = addDays.call(currentDate, 1)
+            }
+            return dates
+          }
+          res.send({room,datelist});
+        }else{
+          res.send(room);
+        }
+
+        
       }else{
        res.send({message: "can't find Room data"});
       }
@@ -106,8 +164,8 @@ roomRouter.route("/:hotelid/deleteRoom/:Roomid").delete(async (req, res) => {
        }else{
          res.send({message: "can't find Hotel data"});
        }
-       
-    });
+      
+    }); 
 
  roomRouter.route("/:hotelId/updateRoom/:roomId").put(async (req, res) => {
       const hotelId = req.params.hotelId;

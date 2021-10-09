@@ -3,14 +3,14 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const roomSchema = new Schema({
-
+    
     roomname: { type: String, required:true  },
-    image: { type: String },
+    image1: { type: String },
     price: { type: Number,required:true },
     description:{type: String,},
+    category:{type: String,},
     rating:{ type: Number},
     numReviews:{ type: Number},
-    availability:{type: Boolean, default: false, required: true},
     hotel: { type: mongoose.Schema.Types.ObjectId, ref: 'Hotel', required:true  },
     
 },
@@ -35,7 +35,7 @@ const hotelSchema = new Schema({
             rooms: [
                 roomSchema
             ],
-            serviceProvider:  { type: mongoose.Schema.Types.ObjectID, ref: 'User' },
+            hotelserviceProvider:  { type: mongoose.Schema.Types.ObjectID, ref: 'User' },
 },
 {
     timestamps: true,

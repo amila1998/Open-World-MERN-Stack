@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { guidesignout } from '../../actions/guideAction';
 import { signout } from '../../actions/userAction';
 //import LoadingBox from '../LoadingBox';
 
@@ -8,6 +9,12 @@ import { signout } from '../../actions/userAction';
 export default function Navigation() {
     const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
+  //const { guideInfo} = guide
+  //const { guideInfo } = userSignin;
+  const guideSignin = useSelector((state) => state.guideSignin);
+  const { guideInfo }=guideSignin;
+ 
+
   const dispatch = useDispatch();
   const signoutHandler = () => {
    
@@ -15,18 +22,31 @@ export default function Navigation() {
       
     }));
   };
+  const guidesignoutHandler = (props) => {
+   
+    dispatch(guidesignout({
+      
+    }));
+    
+  };
 
     return (
 
-       <div>
-        <header className="row">
-          <div>
+  <div >
+  <nav className="navbar navbar-expand-lg   fixed-top navbar-light bg-primary">
+ 
+  <div className="container-fluid">
+  <div className="navbar-brand">
             <Link className="brand" to="/">
               Open World
             </Link>
           </div>
-          
-          <div>
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
+    </button>
+    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+      
+    <div className="flex-row-reverse">
           <div className="dropdown">
                 <Link to="#Categories">
                 Categories <i className="fa fa-caret-down"></i>
@@ -37,6 +57,9 @@ export default function Navigation() {
                   </li>
                   <li>
                     <Link to="/rooms">Rooms</Link>
+                  </li>
+                  <li>
+                    <Link to="/guides">Guides</Link>
                   </li>
                 </ul>
               </div>
@@ -68,36 +91,43 @@ export default function Navigation() {
             ) : (
               <Link to="/signin">SignIn</Link>
             )}
+
           
-            {userInfo &&  (
+            {userInfo && (
               <div className="dropdown">
                 <Link to="#serviceprovider">
-                    Work Flow <i className="fa fa-caret-down"></i>
+                    Work Flow<i className="fa fa-caret-down"></i>
                 </Link>
                 <ul className="dropdown-content">
-                {userInfo && userInfo.ishotelServiceProvider ? (
-                        <li>
-                        <Link to="/hotellist">My Hotels</Link>
-                      </li>
-                ):(
+                  {userInfo.isGuide?(
+                     <li>
+                     <Link  to="/guideProfile">My Guide Profile</Link>
+                   </li>
+                  ):(
                     <li>
-                     <Link to="/adminDashboard">Register as Hotel's Provider</Link>
+                    <Link  to="/guideRegister">Guide Registration</Link>
                   </li>
-                )}
-                {userInfo && userInfo.isGuide ? (
-                        <li>
-                        <Link to="/guideProfile">I'm a Guide</Link>
-                      </li>
-                ):(
+                  )}
+                 {userInfo.ishotelServiceProvider?(
+                     <li>
+                     <Link  to="/hspProfile">I am a Hotel Provider</Link>
+                   </li>
+                  ):(
                     <li>
-                     <Link to="/guideRegister">Register As Guide</Link>
+                       <Link  to="/hspRegister">Hotel Service Provider Registration</Link>
+                   
                   </li>
-                )}
+                  )}
                   
                 </ul>
               </div>
 
             )}
+             
+              
+            
+                
+         
 
             {userInfo && userInfo.isAdmin && (
               
@@ -105,9 +135,17 @@ export default function Navigation() {
                 
             )}
           </div>
-        </header>
-       
-
+          <form className="form-inline my-2 my-lg-0">
+      <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+      <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    </div>
+    
+  </div>
+ 
+</nav>
+          
+        
         </div>
 
     )

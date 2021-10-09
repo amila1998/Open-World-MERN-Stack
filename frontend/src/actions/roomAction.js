@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import { HOTEL_DETAILS_REQUEST, HOTEL_DETAILS_SUCCESS } from '../constants/hotelConstants';
+
 
 import {
   
@@ -10,15 +10,21 @@ import {
   ROOM_LIST_REQUEST,
   ROOM_LIST_SUCCESS,
   ROOM_LIST_FAIL,
+
   ROOM_CREATE_SUCCESS,
   ROOM_CREATE_REQUEST,
   ROOM_CREATE_FAIL,
+
   ROOM_DELETE_REQUEST,
   ROOM_DELETE_SUCCESS,
   ROOM_DELETE_FAIL,
+
   ROOM_UPDATE_REQUEST,
   ROOM_UPDATE_SUCCESS,
   ROOM_UPDATE_FAIL,
+  ROOM_DETAILSWITHDAYS_REQUEST,
+  ROOM_DETAILSWITHDAYS_SUCCESS,
+  ROOM_DETAILSWITHDAYS_FAIL,
 } from '../constants/roomConstants';
 
 export const listRooms = (hotelId) => async (dispatch) => {
@@ -49,7 +55,29 @@ export const detailRoom = (hotelId,roomId) => async(dispatch) => {
   }
 };
 
-export const createRoom = (roomname,price, hotelId) => async (dispatch, getState) => {
+export const detailRoomWithDays = (hotelId,roomId) => async(dispatch) => {
+ 
+  dispatch({ type: ROOM_DETAILSWITHDAYS_REQUEST, payload: roomId,hotelId });
+  
+  try{
+    const{data}=await Axios.get(`http://localhost:8070/roomR/${hotelId}/FindARoomwithdays/${roomId}`);
+    ;
+    dispatch({type:ROOM_DETAILSWITHDAYS_SUCCESS, payload:data});
+  }catch(error){
+    dispatch({type: ROOM_DETAILSWITHDAYS_FAIL, payload:error.response && error.response.data.message
+      ? error.response.data.message
+      :error.message,
+    });
+  }
+};
+
+
+export const createRoom = (roomname,
+  price,
+  hotelId,
+  description,
+  image1,
+  category) => async (dispatch, getState) => {
   dispatch({ type: ROOM_CREATE_REQUEST });
   const {
     userSignin: { userInfo },
@@ -58,8 +86,12 @@ export const createRoom = (roomname,price, hotelId) => async (dispatch, getState
     const { data } = await Axios.post(
       `http://localhost:8070/roomR/addroom/${hotelId}`,
       {
-        roomname,
-        price,
+      roomname,
+      price,
+      hotelId,
+      description,
+      image1,
+      category
       },
       {
         headers: { Authorization: `Bearer ${userInfo.token}` },

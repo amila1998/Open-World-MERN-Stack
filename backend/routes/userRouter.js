@@ -4,6 +4,7 @@ const bcrypt =require("bcryptjs")
 let User = require("../model/userModel.js");
 const generateToken  = require("../utils.js");
 const isAuth  = require("../utils.js");
+const isAdmin  = require("../utils.js");
 //insert
 const multer = require("multer")
 
@@ -18,6 +19,51 @@ const storage=multer.diskStorage({
 
 const upload=multer({storage:storage});
 
+UserRouter.route("/update/:userId", isAuth,isAdmin).put(async(req, res)=>{
+
+    const user = await User.findById(req.params.userId);
+    if (user) {
+      if (user.email === 'worldopen189@gmail.com') {
+        res.status(400).send({ message: 'Can Not Update Admin User' });
+        return;
+      }else{
+        user.name = req.body.name || user.name;
+        user.email = req.body.email || user.email;
+        //user.isSeller = req.body.isSeller || user.isSeller;
+        user.isAdmin = req.body.isAdmin ;
+        const updatedUser = await user.save();
+        res.send({ message: 'User Updated', user: updatedUser });
+      }
+    
+    } else {
+      res.status(404).send({ message: 'User Not Found' });
+    }
+  }
+);
+
+
+UserRouter.route("/delete/:userId", isAuth,isAdmin).delete(async(req, res)=>{
+
+    const user = await User.findById(req.params.userId);
+    if (user) {
+      if (user.email === 'worldopen189@gmail.com') {
+        res.status(400).send({ message: 'Can Not Delete Admin User' });
+        return;
+      }
+      const deleteUser = await user.remove();
+      res.send({ message: 'User Deleted', user: deleteUser });
+    } else {
+      res.status(404).send({ message: 'User Not Found' });
+    }
+  }
+);
+
+UserRouter.route("/", isAuth,isAdmin).get(async(req, res)=>{
+
+    const users = await User.find({});
+    res.send(users);
+  }
+);
 
 
 UserRouter.route("/adduser").post(async(req, res)=>{
@@ -27,7 +73,7 @@ UserRouter.route("/adduser").post(async(req, res)=>{
     const   password= req.body.password;
     const   isAdmin= req.body.isAdmin;
     const   ishotelServiceProvider= req.body.ishotelServiceProvider;
-    const   isGuide= req.body.isGuide;
+    
 
   
 
@@ -37,7 +83,7 @@ UserRouter.route("/adduser").post(async(req, res)=>{
     password,
     isAdmin,
     ishotelServiceProvider,
-    isGuide,
+    
     
    })
 
@@ -69,6 +115,8 @@ UserRouter.route("/signin").post(async (req, res) => {
         isAdmin: user.isAdmin,
         ishotelServiceProvider: user.ishotelServiceProvider,
         isGuide:user.isGuide,
+        guide:user.guide,
+       
         token: generateToken(user),
       });
       return;
@@ -93,7 +141,7 @@ UserRouter.route("/signin").post(async (req, res) => {
         email: createdUser.email,
         isAdmin: createdUser.isAdmin,
         ishotelServiceProvider:createdUser.ishotelServiceProvider,
-        isGuide:createdUser.isGuide,
+        
         token: generateToken(createdUser),
       });
     } 
@@ -106,19 +154,8 @@ UserRouter.route("/signin").post(async (req, res) => {
       user.email = req.body.email || user.email;
       
       user.ishotelServiceProvider = req.body.ishotelServiceProvider || user.ishotelServiceProvider,
-      user.isAdmin = req.body.isAdmin || user.isAdmin,
-      user.isGuide = req.body.isGuide || user.isGuide,
-
-      user.guide.firstName =req.body.firstName,
-      user.guide.lastName =req.body.lastName,
-      user.guide.age =req.body.age,
-      user.guide.gender =req.body.gender,
-      user.guide.phone =req.body.phone,
-      user.guide.email =req.body.email,
-      user.guide.licence =req.body.licence,
-      user.guide.education =req.body.education, 
-      user.guide.languages =req.body.languages,
-      user.guide.guideImg =req.file.originalname
+      user.isAdmin = req.body.isAdmin || user.isAdmin
+     
       
       if (req.body.password) {
         user.password = bcrypt.hashSync(req.body.password, 8);
@@ -130,7 +167,7 @@ UserRouter.route("/signin").post(async (req, res) => {
         email: updatedUser.email,
         isAdmin: updatedUser.isAdmin,
         ishotelServiceProvider:updatedUser.ishotelServiceProvider,
-        isGuide:updatedUser.isGuide,
+       
         token: generateToken(updatedUser),
       });
     }

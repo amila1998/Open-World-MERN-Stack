@@ -3,14 +3,12 @@
 import React, { useEffect,  useState } from 'react';
 import Axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { detailHotel, updateHotel } from '../actions/hotelActions';
+
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import { HOTEL_DELETE_RESET, HOTEL_UPDATE_RESET } from '../constants/hotelConstants';
-import Rating from '../components/Rating';
-import { Link } from 'react-router-dom';
-import { deleteRoom, detailRoom, updateRoom } from '../actions/roomAction';
-import { ROOM_CREATE_RESET, ROOM_DELETE_RESET, ROOM_UPDATE_RESET } from '../constants/roomConstants';
+
+import {  detailRoom, updateRoom } from '../actions/roomAction';
+import { ROOM_UPDATE_RESET } from '../constants/roomConstants';
 
 
 export default function RoomEditScreen(props) {

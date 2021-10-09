@@ -9,7 +9,7 @@ export default function GuideRoute({ component: Component, ...rest }) {
     <Route
       {...rest}
       render={(props) =>
-        userInfo && userInfo.isGuide ? (
+        userInfo && userInfo.guide && userInfo.isGuide ? (
           <Component {...props}></Component>
         ) : (
           <Redirect to="/signin" />

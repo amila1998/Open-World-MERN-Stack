@@ -68,6 +68,13 @@ export default function SigninScreen(props) {
               Create your account
             </Link>
           </div>
+          <label />
+          <div>
+           
+            <Link to={`/ServiseProviderLogingCategory?redirect=${redirect}`}>
+              Service Provider's LogIn
+            </Link>
+          </div>
         </div>
       </form>
     </div>

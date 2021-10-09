@@ -32,16 +32,27 @@ const UserRouter =require("./routes/userRouter.js");
 app.use("/userR",UserRouter);
 
 const uploadRouter =require("./routes/uploadRouter.js");
-app.use("/uploadR",uploadRouter);
+app.use('/api/uploads', uploadRouter);
 
 
-app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 
 const hotelRouter =require("./routes/hotelsRouter.js");
 app.use("/hotelR",hotelRouter);
 
-//const bookingRouter =require("./routes/bookingRouter.js");
-//app.use("/bookingR",bookingRouter);
+const guideRouter =require("./routes/guideRouter.js");
+app.use("/guideR",guideRouter);
+
+const hspRouter =require("./routes/HotelServiceProviderRoute.js");
+app.use("/hspR",hspRouter);
+
+const guideReviewRouter =require("./routes/GuideReviewRoute.js");
+app.use("/guideRviewR",guideReviewRouter);
+
+const guidebookingRouter =require("./routes/GuideBookingRoute.js");
+app.use("/guideBookingR",guidebookingRouter);
+
+const hotelbookingRouter =require("./routes/hotelbookingRouter.js");
+app.use("/hotelbookingR",hotelbookingRouter);
 
 const roomRouter =require("./routes/roomRouter.js");
 app.use("/roomR",roomRouter);
