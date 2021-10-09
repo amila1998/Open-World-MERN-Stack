@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 
 
@@ -43,6 +44,11 @@ import GuideBookingDetailsEdit from './components/GuideBookingDetailsEdit';
 import ProfileScreen from './screens/ProfileScreen';
 import TouristDetails from './screens/TouristDetails';
 
+import UserListScreen from './screens/UserListScreen';
+import UserEditScreen from './screens/UserEditScreen';
+import HSPRegistrationScreen from './screens/HSPRegistrationScreen';
+
+
 
 
 function App() {
@@ -57,6 +63,7 @@ function App() {
   };
 
   return (
+   <div >
     <BrowserRouter>
     
       <div className="grid-container">
@@ -66,7 +73,9 @@ function App() {
      
       <main>
 
-      <Route path="/becomeAServiceProvider" exact component={ServiceProviderCategoryScreen}></Route>
+
+      <Route path="/hspRegister" exact component={HSPRegistrationScreen}></Route>
+
       <Route path="/ServiseProviderLogingCategory" exact component={ServiceProviderLoginCategoryScreen}></Route>
     <PrivateRoute path="/guideRegister" exact  component={GuideRegister}></PrivateRoute>
     <Route path="/guidelogin" exact  component={GuideSigninScreen}></Route>
@@ -90,6 +99,7 @@ function App() {
             component={HotelEditScreen}
             
           ></AdminRoute>
+      
         
       <Route path="/:hotelId/roomDetails/:roomId" exact component={RoomDetailsScreen}></Route>
       <AdminRoute path="/addARoom/:hotelId"  component={RoomAddScreen}></AdminRoute>
@@ -104,8 +114,22 @@ function App() {
 
       <AdminRoute path="/HotelManagement" exact component={AdminHotelManagement}></AdminRoute>
       <AdminRoute path="/HotelManagement/hotellist" exact component={HotelList}></AdminRoute>
+      <AdminRoute path="/UserManagement/userlist" component={UserListScreen}></AdminRoute>
+      
 
       </Switch>
+
+      
+      <Switch>
+
+      <HotelServiceProviderRoute path="/HotelSPDashBoard" exact component={AdminHotelManagement}></HotelServiceProviderRoute>
+      <HotelServiceProviderRoute path="/hotellist/hotelSP" exact component={HotelList}></HotelServiceProviderRoute>
+      <HotelServiceProviderRoute path="/bookingList/hotelSP" component={UserListScreen}></HotelServiceProviderRoute>
+      
+
+      </Switch>
+
+
       <GuideRoute path="/guidebookingdetails/:id" exact component={GuideBookingDetailsEdit}/>
       <GuideRoute 
 path="/myGuideprofileConformation" exact component={MyGuideprofileConformation}/>
@@ -135,12 +159,14 @@ path="/myGuideprofileConformation" exact component={MyGuideprofileConformation}/
             path="/adminDashboard"
             component={AdminDashboardScreen}
       ></AdminRoute>
+      <AdminRoute path="/user/:id/edit"  component={UserEditScreen}></AdminRoute>
         
       <Route path="/" exact component={HomeScreen}></Route>
       </main>
-      <footer className="row center">All right reserved</footer>
+      <footer className="mt-auto">All right reserved</footer>
     </div>
     </BrowserRouter>
+    </div>
   );
   
 }

@@ -1,0 +1,6 @@
+.form{
+    background-color: rgb(255, 255, 255);
+    background-blend-mode: screen;
+    padding: 3rem;
+    border-radius: 25px;
+}

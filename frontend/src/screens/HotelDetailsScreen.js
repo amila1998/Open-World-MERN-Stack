@@ -7,9 +7,9 @@ import Rating from '../components/Rating';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { detailHotel } from '../actions/hotelActions';
-import { listRooms } from '../actions/roomAction';
 import Rooms from '../components/Rooms';
 //import data from '../data';
+import '../styles/hotelsandRooms.css'
 
 
 export default function HotelDetailsScreen(props){
@@ -35,7 +35,7 @@ export default function HotelDetailsScreen(props){
       <Link to="/hotels">Back to result</Link>
       <div className="row top">
         <div className="col-2">
-          <img className="large" src={hotel.image} alt={hotel.hotelname}></img>
+          <img className="large" src={`/uploads/HotelsandRooms/${hotel.image}`} alt={hotel.hotelname}></img>
         </div>
         <div className="col-1">
           <ul>
@@ -69,7 +69,7 @@ export default function HotelDetailsScreen(props){
           )}
           </div>
         
-        )
+        
       </div></div>
       </div>
       

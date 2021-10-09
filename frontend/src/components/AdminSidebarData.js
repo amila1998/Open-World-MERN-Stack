@@ -47,12 +47,6 @@ export const SidebarData = [
         cName: 'sub-nav'
       },
       {
-        title: 'Rooms List',
-        path: '/HotelManagement/RoomsList',
-        icon: <IoIcons.IoIosPaper />,
-        cName: 'sub-nav'
-      },
-      {
         title: 'Reports',
         path: '/HotelManagement/reports',
         icon: <IoIcons.IoIosPaper />

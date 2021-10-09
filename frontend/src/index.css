@@ -10,6 +10,13 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #000000;
+  background-image: url("./assets/bg.jpg");
+  background-position: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: screen;
+  padding: 2rem;
 }
 #root {
   height: 100%;
@@ -26,15 +33,12 @@ body {
   grid-template-rows: 5rem 1fr 5rem;
   height: 100%;
 }
-nav {
-  width: 100%;
-  grid-area: header;
-  padding: 0.5rem;
- 
-}
+
+
+
 main {
   grid-area: main;
-  padding: 1rem;
+  
 }
 footer {
   grid-area: footer;
@@ -108,7 +112,9 @@ button.small {
 /* Header */
 nav a  {
   color: #ffffff;
- padding: 1rem;
+
+ padding: 0.5rem;
+
  
 }
 a.brand {
@@ -223,6 +229,10 @@ img.large {
 }
 
 /* Card */
+.card:hover a {
+  text-decoration: none;
+}
+
 .card {
   border: 0.1rem #c0c0c0 solid;
   background-color: #f8f8f8;
@@ -671,4 +681,14 @@ animation: rotate 5s linear infinite;
 
 #myTable tr.header, #myTable tr:hover {
   background-color: #f1f1f1;
+}
+
+.pageBody{
+  background-color: #ffffff;
+  background-position: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: screen;
+  padding: 0.1rem;
+ 
 }

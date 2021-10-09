@@ -8,7 +8,7 @@ export default function hotel(props) {
       
       <div key={hotel.id} className="card">
        
-       <div className='image'><img className="medium" src={hotel.image} alt={hotel.name} /></div>
+       <div className='image'><img className="medium" src={`/uploads/HotelsandRooms/${hotel.image}`} alt={hotel.name} /></div>
           
         
         <div className="card-body">

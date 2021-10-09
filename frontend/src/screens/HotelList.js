@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { createHotel, listHotels, deleteHotel } from '../actions/hotelActions';
+import Sidebar from '../components/AdminSidebar';
 
 //import Sidebar from '../components/AdminSidebar';
 import LoadingBox from '../components/LoadingBox';
@@ -9,6 +10,8 @@ import { HOTEL_CREATE_RESET, HOTEL_DELETE_RESET } from '../constants/hotelConsta
 
 export default function HotelList(props) {
     const dispatch = useDispatch();
+    const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
     const hotelList = useSelector((state) => state.hotelList);
     const { loading, error, hotels } = hotelList;
     
@@ -53,7 +56,9 @@ export default function HotelList(props) {
 
       <div id="split1">
       <div id="left1">
-          
+          {userInfo.isAdmin &&(
+            <Sidebar/>
+          )}
         </div>
         
             <div class="right1">

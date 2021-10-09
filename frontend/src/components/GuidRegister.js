@@ -92,6 +92,8 @@ const GuideRegister = ()=>{
     //setRePassword("");
 
 
+       // console.log(formData)
+
     axios
     .post(`http://localhost:8070/guideR/add/${userInfo._id}`,formData)
     .then(

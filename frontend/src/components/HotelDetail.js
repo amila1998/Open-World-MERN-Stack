@@ -12,7 +12,7 @@ export default function hotelDetail(props) {
           <div className="col-2">
             <img
               className="large"
-              src={hotel.image}
+              src={`/uploads/HotelsandRooms/${hotel.image}`}
               alt={hotel.hotelname}
             ></img>
           </div>

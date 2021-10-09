@@ -1,21 +1,22 @@
 
 const multer =   require("multer") ;
 const express = require('express');
-const { isAdmin } = require('../utils.js');
+const { isAdmin,isAuth } = require('../utils.js');
 
 const uploadRouter = express.Router();
 
 const storage = multer.diskStorage({
-  destination(req, file, cb) {
-    cb(null, 'uploads/');
+  destination(req, file, callback) {
+    callback(null, 'uploads/');
   },
   filename(req, file, cb) {
-    cb(null, `${Date.now()}.jpg`);
+    callback(null, `${Date.now()}.jpg`);
   },
 });
 
 const upload = multer({ storage });
-uploadRouter.route("/", isAdmin, upload.single('image')).post((req, res)=>{
+uploadRouter.route("/",isAuth, upload.single('image')).post(async(req, res)=>{
+
   res.send(`/${req.file.path}`);
 });
 

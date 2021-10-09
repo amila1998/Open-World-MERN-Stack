@@ -3,12 +3,17 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Rating from '../components/Rating';
+//import Rating from '../components/Rating';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import { detailRoom } from '../actions/roomAction';
-import "react-datepicker/dist/react-datepicker.css";
-import DatePicker from "react-datepicker";
+import {  detailRoomWithDays } from '../actions/roomAction';
+import 'react-date-range/dist/styles.css'; // main style file
+import 'react-date-range/dist/theme/default.css'; // theme css file
+import { DateRange  } from 'react-date-range';
+import { addDays } from 'date-fns';
+//import axios from '../../node_modules/axios/index';
+import { createHotelbooking} from '../actions/hotelBookAroomAction';
+
 
 //import data from '../data';
 
@@ -18,47 +23,152 @@ export default function RoomDetailsScreen(props){
   const hotelId = props.match.params.hotelId;
   const roomId = props.match.params.roomId;
 
-  const roomdetail = useSelector((state) => state.roomdetail);
-  const { loading, error, room } = roomdetail;
- 
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
 
+  const roomdetailwithdays = useSelector((state) => state.roomdetailwithdays);
+  const { loading, error, roomwithdays } = roomdetailwithdays;
+ // console.log(room)
+
+  const HotelbookingCreate =useSelector((state) => state.HotelbookingCreate);
+  const { loading:bookingLoading, error:bookingErr, hotelbook , success:successCreate} = HotelbookingCreate;
+  
+  //const hotelBookingDays =useSelector((state) => state.hotelBookingDays);
+ // const { loading:bookingdayLoading, error:bookingdayErr, hotelbookdays} = hotelBookingDays;
 
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
+  const [message , setMassege] = useState('');
+  const [bookedDateArr, setbookedDateArr] = useState([]);
+  //const [BstartDate, setBStartDate] = useState([]);
+ // const [BendDate, setBEndDate] = useState([]);
+
+      useEffect(()=> {
+      formateBookedDates()
+
+      },[roomwithdays])
+  const formateBookedDates = ()=> {
+    let dateList = [];
+    for (let i=0; i<roomwithdays?.datelist?.length; i++){
+      for (let j=0; j<roomwithdays?.datelist[i]?.length; j++){
+        dateList = [...dateList, new Date(roomwithdays?.datelist?.[i]?.[j])]
+      }
+    }
+    setbookedDateArr(dateList)
+    //console.log(bookedDateArr)
+  }
+  
+
+  
+  const SeletionRange = {
+    startDate:startDate,
+    endDate:endDate,
+    key:"selection",
+  };
+
+  function handleSelect(range){
+    setStartDate(range.selection.startDate);
+    setEndDate(range.selection.endDate);
+  }
+
+  
 
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(detailRoom(hotelId,roomId));
+
+
+
+  const bookNowHandler = (e) => {
     
-  }, [dispatch, hotelId,roomId]);
+    e.preventDefault();
+    if (!userInfo?._id) {
+      props.history.push('/signin');
+    }else{
+      if ((!startDate || !endDate)){
+        alert("Please Select Booking Date Range In Calender");
+      }else{
+        
+        
+          dispatch(createHotelbooking(
+            hotelId,
+            roomId,
+            startDate,
+            endDate,
+            roomwithdays.room.price,
+            message,
+            userInfo._id,
+            ));
+            if(successCreate){
+              alert("Booking Success");
+              props.history.push(`/payment/${hotelbook._id}`);
+            }else{
+              alert("Booking not Success");
+            }
+       
+       
+      }
+
+    }
+    
+    
+  };
+
+
+  
+  
+
+  useEffect(() => {
+  
+   
+      dispatch(detailRoomWithDays(hotelId,roomId));
+ 
+      
+      
+     
+    
+    
+  }, [dispatch, hotelId, roomId,successCreate]);
+
+  
+
+  
+    
+  
     
   return (
-    <div id="split2">
+    <>
+    <div>
+      <Link to="/rooms">Back to result</Link>
+      
         {loading ? (
       <LoadingBox></LoadingBox>
     ) : error ? (
       <MessageBox variant="danger">{error}</MessageBox>
     ) : (
      <>
+     
+          
+      <img className="large" style={{width:'100%', height:'50rem'}} src={`/uploads/HotelsandRooms/${roomwithdays.room.image1}`} alt={roomwithdays.room.roomname}></img>
+      
+      <div id="split2">
       <div id="left2">
-      <div className="col-1">
-          <Link to="/rooms">Back to result</Link>
+      <div className="">
+        
           <div className="row top">
-        <div className="col-2">
-          <img className="large" src={room.image} alt={room.roomname}></img>
-        </div>
-        <div className="col-1">
+       
+        <div className="">
           <ul>
             <li>
               
-              <h1>Room Name:  {room.roomname}</h1>
+              <h1>Room Name:  {roomwithdays.room.roomname}</h1>
             </li>
             
             
             <li>
               
-              <p>Description: {room.description}</p>
+              <p>Description: {roomwithdays.room.description}</p>
+             
             </li>
+          
             
           </ul>
         </div>
@@ -69,50 +179,72 @@ export default function RoomDetailsScreen(props){
     
      </div>
           <div id="right2">
-          <div className="col-1">
+          <div className="">
+         
               <div className="card card-body">
                 <ul>
                   <li>
                     <div className="rowcart">
-                      <div>Price : </div>
-                      <div className="price">${room.price}</div>
+                      <div>Price : ${roomwithdays.room.price}</div>
+                     
                     </div>
                   </li>
                   <li>
                 
                   <div className="rowcart">
-                  
-                    <div>
-                      <div>Check In : </div>
-                  <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
-
-                    </div>
-                    
-                    <div > 
-                    <div>Check Out : </div>
-                      <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} />
-                    </div>
+                  <div>Booking Date: </div>
+              
+                    <DateRange className="row" style={{
+                            width:'100%', position:'relative'
+                            }}
+                      ranges={[SeletionRange]}
+                      onChange={handleSelect}
+                 
+                      format="dd-MM-yyyy"
+                      direction="vertical"
+                      scroll={{ enabled: true }}
+                      minDate={addDays(new Date(), 0)}
+                      
+                      disabledDates={bookedDateArr}
+                     
+                    />
+              
                     </div>
               
                   </li>
                   <li>
                     <div className="rowcart">
-                      <div>Status</div>
+                      <div>Message : </div>
                       <div>
-                        {room.countInStock > 0 ? (
-                          <span className="success">In Stock</span>
-                        ) : (
-                          <span className="error">Unavailable</span>
-                        )}
+                      <textarea 
+                          type="text"
+                          id="message"
+                          placeholder="Enter message"
+                          required
+                          onChange={(e) => setMassege(e.target.value)}
+                       ></textarea >
                       </div>
                     </div>
                   </li>
                   <li>
-                    <div><button className="primary block">Book Now</button></div>
-                    <div><button className="primary block">Add to Cart</button></div>
+                     <>
+                    {bookingLoading ? (
+                  <LoadingBox></LoadingBox>
+                ) : bookingErr &&(
+                  <MessageBox variant="danger">{bookingErr}</MessageBox>
+                )}
+                </>
                     
                   </li>
                   <li>
+                    <div><button className="primary block" onClick={bookNowHandler}>Book Now</button></div>
+                    <div><button className="primary block">Add to Cart</button></div>
+
+                    
+                  </li>
+                  <li>
+                
+                    
                     
                   </li>
                   <li>
@@ -120,10 +252,16 @@ export default function RoomDetailsScreen(props){
                   </li>
                 </ul>
               </div>
+            
             </div>
           </div>
+          </div>
           </>
+         
     )}
+   
+
     </div>
+    </>
   );
 }

@@ -4,6 +4,7 @@ const bcrypt =require("bcryptjs")
 let User = require("../model/userModel.js");
 const generateToken  = require("../utils.js");
 const isAuth  = require("../utils.js");
+const isAdmin  = require("../utils.js");
 //insert
 const multer = require("multer")
 
@@ -18,6 +19,51 @@ const storage=multer.diskStorage({
 
 const upload=multer({storage:storage});
 
+UserRouter.route("/update/:userId", isAuth,isAdmin).put(async(req, res)=>{
+
+    const user = await User.findById(req.params.userId);
+    if (user) {
+      if (user.email === 'worldopen189@gmail.com') {
+        res.status(400).send({ message: 'Can Not Update Admin User' });
+        return;
+      }else{
+        user.name = req.body.name || user.name;
+        user.email = req.body.email || user.email;
+        //user.isSeller = req.body.isSeller || user.isSeller;
+        user.isAdmin = req.body.isAdmin ;
+        const updatedUser = await user.save();
+        res.send({ message: 'User Updated', user: updatedUser });
+      }
+    
+    } else {
+      res.status(404).send({ message: 'User Not Found' });
+    }
+  }
+);
+
+
+UserRouter.route("/delete/:userId", isAuth,isAdmin).delete(async(req, res)=>{
+
+    const user = await User.findById(req.params.userId);
+    if (user) {
+      if (user.email === 'worldopen189@gmail.com') {
+        res.status(400).send({ message: 'Can Not Delete Admin User' });
+        return;
+      }
+      const deleteUser = await user.remove();
+      res.send({ message: 'User Deleted', user: deleteUser });
+    } else {
+      res.status(404).send({ message: 'User Not Found' });
+    }
+  }
+);
+
+UserRouter.route("/", isAuth,isAdmin).get(async(req, res)=>{
+
+    const users = await User.find({});
+    res.send(users);
+  }
+);
 
 
 UserRouter.route("/adduser").post(async(req, res)=>{

@@ -45,11 +45,11 @@ const isAdmin = (req, res, next) => {
 
 
   
-const isServiceProvider = (req, res, next) => {
-  if (req.user && req.user.isServiceProvider) {
+const ishotelServiceProvider = (req, res, next) => {
+  if (req.user && req.user.ishotelServiceProvider) {
     next();
   } else {
-    res.status(401).send({ message: 'Invalid Service Provider Token' });
+    res.status(401).send({ message: 'Invalid Hotel Service Provider Token' });
   }
 };
 
@@ -60,4 +60,6 @@ const isGuide = (req, res, next) => {
     res.status(401).send({ message: 'Invalid Guide  Token' });
   }
 };
-module.exports = generateToken, isAuth, isAdmin ,isGuide, isServiceProvider;
+
+module.exports = generateToken, isAuth, isAdmin ,isGuide, ishotelServiceProvider;
+

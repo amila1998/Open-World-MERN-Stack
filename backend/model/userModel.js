@@ -9,7 +9,8 @@ const Schema = mongoose.Schema;
           isAdmin: { type: Boolean, default: false, required: true },
           ishotelServiceProvider: { type: Boolean, default: false, required: true },
           hotelserviceProvider: {
-            name: String,
+            firstname: String,
+            lastname: String,
             logo: String,
             description: { type: String,},
             rating: { type: Number, default: 0, required: true },

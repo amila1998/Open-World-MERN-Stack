@@ -110,11 +110,14 @@ export default function Navigation() {
                   )}
                  {userInfo.ishotelServiceProvider?(
                      <li>
-                     <Link  to="/myGuideprofileConformation">My Hotel Service Provider Profile</Link>
+
+                     <Link  to="/hspProfile">I am a Hotel Provider</Link>
                    </li>
                   ):(
                     <li>
-                    <Link  to="/myGuideprofileConformation">Hotel Service Provider Registration</Link>
+                       <Link  to="/hspRegister">Hotel Service Provider Registration</Link>
+                   
+
                   </li>
                   )}
                   

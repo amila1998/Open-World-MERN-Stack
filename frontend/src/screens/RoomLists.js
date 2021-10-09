@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteRoom, listRooms } from '../actions/roomAction';
+import Sidebar from '../components/AdminSidebar';
 //import Sidebar from '../components/AdminSidebar';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
@@ -10,6 +11,8 @@ import { ROOM_CREATE_RESET, ROOM_DELETE_RESET } from '../constants/roomConstants
 
 export default function RoomList(props) {
   const hotelId = props.match.params.hotelId;
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
  
     const roomList = useSelector((state) => state.roomList);
     const { loading, error, rooms } = roomList;
@@ -63,7 +66,9 @@ export default function RoomList(props) {
 
       <div id="split1">
       <div id="left1">
-          
+      {userInfo.isAdmin &&(
+            <Sidebar/>
+          )}
         </div>
         
             <div class="right1">
