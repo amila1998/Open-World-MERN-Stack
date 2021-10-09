@@ -30,6 +30,18 @@ export const listHotels = () => async (dispatch) => {
   }
 };
 
+export const listHotelsforhsp = (userId) => async (dispatch) => {
+  dispatch({
+    type: HOTEL_LIST_REQUEST,
+  });
+  try {
+    const { data } = await Axios.get(`http://localhost:8070/hotelR/displayAllforHSP/${userId}`);
+    dispatch({ type: HOTEL_LIST_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: HOTEL_LIST_FAIL, payload: error.message });
+  }
+};
+
 export const detailHotel = (hotelId) => async(dispatch) => {
   dispatch({ type: HOTEL_DETAILS_REQUEST, payload: hotelId });
   try{
