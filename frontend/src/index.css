@@ -684,8 +684,9 @@ animation: rotate 5s linear infinite;
 }
 
 .pageBody{
-  background-color: #ffffff;
+  background-color: rgba(243, 243, 243, 0.5);;
   background-position: fixed;
+  box-shadow: 10px 10px 5px grey;
   background-repeat: no-repeat;
   background-size: cover;
   background-blend-mode: screen;
