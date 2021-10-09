@@ -60,4 +60,6 @@ const isGuide = (req, res, next) => {
     res.status(401).send({ message: 'Invalid Guide  Token' });
   }
 };
+
 module.exports = generateToken, isAuth, isAdmin ,isGuide, ishotelServiceProvider;
+
