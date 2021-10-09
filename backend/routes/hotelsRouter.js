@@ -25,19 +25,29 @@ router.route("/add",isAdmin,isServiceprovider).post(async(req, res)=>{
 });
 
 //find all
-router.route("/displayAll").get(async(req, res)=>{
-  const hotelserviceProvider = req.query.hotelserviceProvider || '';
-  const hotelserviceProviderFilter = hotelserviceProvider ? { hotelserviceProvider } : {};
-  const hotels = await Hotel.find({ ...hotelserviceProviderFilter }).populate(
-    'serviceProvider'
-    
-  ).then((hotels)=>{
+router.route("/displayAll" ).get(async(req, res)=>{
+  //const hotelserviceProvider = req.query.hotelserviceProvider || '';
+ // const hotelserviceProviderFilter = hotelserviceProvider ? { hotelserviceProvider } : {};
+  const hotels = await Hotel.find().then((hotels)=>{
      res.send(hotels)
    }).catch((err)=>{
      console.log(err)
      
    })
   })
+
+  router.route("/displayAllforHSP/:userID" ).get(async(req, res)=>{
+    let userId = req.params.userID;
+    //const hotelserviceProvider = req.query.hotelserviceProvider || '';
+   // const hotelserviceProviderFilter = hotelserviceProvider ? { hotelserviceProvider } : {};
+    const hotels = await Hotel.find({hotelserviceProvider:userId}).then((hotels)=>{
+       res.send(hotels)
+     }).catch((err)=>{
+       console.log(err)
+       
+     })
+    })
+
 //find one
   router.route("/fetechHotelbyId/:Htlid").get(async (req, res) => {
   let hotelId = req.params.Htlid;
