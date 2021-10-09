@@ -1,0 +1,86 @@
+<header className="row">
+          <div>
+            <Link className="brand" to="/">
+              Open World
+            </Link>
+          </div>
+          
+          <div>
+          <div className="dropdown">
+                <Link to="#Categories">
+                Categories <i className="fa fa-caret-down"></i>
+                </Link>
+                <ul className="dropdown-content">
+                  <li>
+                    <Link to="/hotels">Hotels</Link>
+                  </li>
+                  <li>
+                    <Link to="/rooms">Rooms</Link>
+                  </li>
+                </ul>
+              </div>
+            <Link to="/feacures">feacures          
+            </Link>
+            <Link to="/aboutus">About Us           
+            </Link>
+            <Link to="/cart">Cart            
+            </Link>
+            {userInfo ? (
+              <div className="dropdown">
+                <Link to="#">
+                  {userInfo.name} <i className="fa fa-caret-down"></i>{' '}
+                </Link>
+                <ul className="dropdown-content">
+                    <li>
+                        <Link to="/profile">Profile</Link>
+                    </li>
+                    <li>
+                        <Link to="/settings">Settings</Link>
+                    </li>
+                     <li>
+                        <Link to="#signout" onClick={signoutHandler}>
+                         Logout
+                        </Link>
+                     </li>
+                </ul>
+              </div>
+            ) : (
+              <Link to="/signin">SignIn</Link>
+            )}
+
+          
+            {guideInfo && (
+              <div className="dropdown">
+                <Link to="#serviceprovider">
+                    Guide <i className="fa fa-caret-down"></i>
+                </Link>
+                <ul className="dropdown-content">
+                 <li>
+                        <Link to="/hotellist">My Guide Profile</Link>
+                      </li>
+               
+                      <li>
+                        <Link to="#guidesignout" onClick={guidesignoutHandler}>
+                         Logout
+                        </Link>
+                     </li>
+               
+                  
+                </ul>
+              </div>
+
+            )}
+             
+              
+            
+                
+         
+
+            {userInfo && userInfo.isAdmin && (
+              
+              <Link to="/adminDashboard">Admin</Link>
+                
+            )}
+          </div>
+        </header>
+       

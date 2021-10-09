@@ -34,6 +34,8 @@ body {
   height: 100%;
 }
 
+
+
 main {
   grid-area: main;
   
@@ -110,7 +112,9 @@ button.small {
 /* Header */
 nav a  {
   color: #ffffff;
+
  padding: 0.5rem;
+
  
 }
 a.brand {

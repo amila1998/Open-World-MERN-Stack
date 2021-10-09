@@ -43,9 +43,11 @@ import OneGuide from './components/OneGuide';
 import GuideBookingDetailsEdit from './components/GuideBookingDetailsEdit';
 import ProfileScreen from './screens/ProfileScreen';
 import TouristDetails from './screens/TouristDetails';
+
 import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
 import HSPRegistrationScreen from './screens/HSPRegistrationScreen';
+
 
 
 
@@ -71,7 +73,9 @@ function App() {
      
       <main>
 
+
       <Route path="/hspRegister" exact component={HSPRegistrationScreen}></Route>
+
       <Route path="/ServiseProviderLogingCategory" exact component={ServiceProviderLoginCategoryScreen}></Route>
     <PrivateRoute path="/guideRegister" exact  component={GuideRegister}></PrivateRoute>
     <Route path="/guidelogin" exact  component={GuideSigninScreen}></Route>
@@ -124,7 +128,6 @@ function App() {
       
 
       </Switch>
-
 
 
       <GuideRoute path="/guidebookingdetails/:id" exact component={GuideBookingDetailsEdit}/>

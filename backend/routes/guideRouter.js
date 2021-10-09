@@ -8,14 +8,18 @@ const { compareSync, hashSync } = require('bcrypt');
 
 
 const router =express.Router();
+
 const DateNow = Date.now();
+
  
 const storage=multer.diskStorage({
     destination:(req,file,callback)=>{
         callback(null,"../frontend/public/uploads");
     },
     filename:(req,file,callback)=>{
+
         callback(null,DateNow+file.originalname);
+
     }
 })
  
@@ -41,7 +45,9 @@ const upload=multer({storage:storage});
                 licence:req.body.licence,
                 education:req.body.education, 
                 languages:req.body.languages,
+
                 guideImg:DateNow+req.file.originalname,
+
                //guideImg:req.body.guideImg,
                 //password: hashSync(req.body.password, 8),
             });

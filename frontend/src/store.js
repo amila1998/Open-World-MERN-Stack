@@ -1,7 +1,9 @@
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { guideSigninReducer } from './reducers/guideReducers';
+
 import { hotelBookingCreateReducer, hotelBookingDaysReducer, hotelBookingDetailsReducer } from './reducers/hotelbookingReducers';
+
 import { hotelCreateReducer, hotelDeleteReducer, hotelDetailsReducer, hotelListReducer, hotelUpdateReducer } from './reducers/hotelReducers';
 import { hspRegisterReducer } from './reducers/hotelSPReducers';
 import { roomCreateReducer, roomDeleteReducer, roomDetailseWithdaysReducer, roomDetailsReducer, roomListReducer, roomUpdateReducer } from './reducers/roomReducers';
@@ -38,9 +40,11 @@ const reducer = combineReducers({
   roomUpdate:roomUpdateReducer,
   
   userSignin:userSigninReducer,
+
   
   guideSignin:guideSigninReducer,
   
+
   userRegister: userRegisterReducer,
   userDetails: userDetailsReducer,
   userDelete: userDeleteReducer,
