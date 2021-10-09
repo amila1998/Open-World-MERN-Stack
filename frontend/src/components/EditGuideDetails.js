@@ -61,7 +61,7 @@ const EditGuide = ()=>{
  const onSubmit=async e =>{
      e.preventDefault();
      await axios.put(`http://localhost:8070/guideR/update/${id}`,guide);
-     history.push(`/guideProfile/${id}`);
+     history.push(`/guideProfile`);
      alert(" Successfully Updated Guide Details")
  }
 
