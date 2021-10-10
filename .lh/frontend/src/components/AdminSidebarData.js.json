@@ -1,0 +1,62 @@
+{
+    "sourceFile": "frontend/src/components/AdminSidebarData.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 11,
+            "patches": [
+                {
+                    "date": 1633898511958,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1633898529403,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -151,9 +151,8 @@\n \r\n   \r\n \r\n \r\n-\r\n   {\r\n     title: 'Support',\r\n     path: '/support',\r\n     icon: <IoIcons.IoMdHelpCircle />\r\n"
+                },
+                {
+                    "date": 1633898547098,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -147,9 +147,8 @@\n         icon: <IoIcons.IoIosPaper />\r\n       }\r\n     ]\r\n   },\r\n-\r\n   \r\n \r\n \r\n   {\r\n"
+                },
+                {
+                    "date": 1633898583085,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -147,8 +147,31 @@\n         icon: <IoIcons.IoIosPaper />\r\n       }\r\n     ]\r\n   },\r\n+\r\n+  {\r\n+    title: 'Adventure Management',\r\n+    path: '#GuideManagement',\r\n+    icon: <IoIcons.IoIosPaper />,\r\n+    iconClosed: <RiIcons.RiArrowDownSFill />,\r\n+    iconOpened: <RiIcons.RiArrowUpSFill />,\r\n+\r\n+    subNav: [\r\n+      {\r\n+        title: 'Adventure List',\r\n+        path: '/Adventure',\r\n+        icon: <IoIcons.IoIosPaper />,\r\n+        cName: 'sub-nav'\r\n+      },\r\n+      \r\n+      {\r\n+        title: 'Bookings',\r\n+        path: '/adminbooking',\r\n+        icon: <IoIcons.IoIosPaper />\r\n+      }\r\n+    ]\r\n+  },\r\n   \r\n \r\n \r\n   {\r\n"
+                },
+                {
+                    "date": 1633898596291,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -149,29 +149,27 @@\n     ]\r\n   },\r\n \r\n   {\r\n-    title: 'Adventure Management',\r\n-    path: '#GuideManagement',\r\n+    title: 'Destination Management',\r\n+    path: '#DestinationManagement',\r\n     icon: <IoIcons.IoIosPaper />,\r\n     iconClosed: <RiIcons.RiArrowDownSFill />,\r\n     iconOpened: <RiIcons.RiArrowUpSFill />,\r\n \r\n     subNav: [\r\n       {\r\n-        title: 'Adventure List',\r\n-        path: '/Adventure',\r\n+        title: 'Destination List',\r\n+        path: '/FFMM1',\r\n         icon: <IoIcons.IoIosPaper />,\r\n         cName: 'sub-nav'\r\n       },\r\n-      \r\n       {\r\n-        title: 'Bookings',\r\n-        path: '/adminbooking',\r\n-        icon: <IoIcons.IoIosPaper />\r\n-      }\r\n-    ]\r\n-  },\r\n+        title: 'Destination Map',\r\n+        path: '/Map_admin',\r\n+        icon: <IoIcons.IoIosPaper />,\r\n+        cName: 'sub-nav'\r\n+      },\r\n   \r\n \r\n \r\n   {\r\n"
+                },
+                {
+                    "date": 1633898612468,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -150,26 +150,28 @@\n   },\r\n \r\n   {\r\n     title: 'Destination Management',\r\n-    path: '#DestinationManagement',\r\n+    path: '#GuideManagement',\r\n     icon: <IoIcons.IoIosPaper />,\r\n     iconClosed: <RiIcons.RiArrowDownSFill />,\r\n     iconOpened: <RiIcons.RiArrowUpSFill />,\r\n \r\n     subNav: [\r\n       {\r\n-        title: 'Destination List',\r\n-        path: '/FFMM1',\r\n+        title: 'Adventure List',\r\n+        path: '/Adventure',\r\n         icon: <IoIcons.IoIosPaper />,\r\n         cName: 'sub-nav'\r\n       },\r\n+      \r\n       {\r\n-        title: 'Destination Map',\r\n-        path: '/Map_admin',\r\n-        icon: <IoIcons.IoIosPaper />,\r\n-        cName: 'sub-nav'\r\n-      },\r\n+        title: 'Bookings',\r\n+        path: '/adminbooking',\r\n+        icon: <IoIcons.IoIosPaper />\r\n+      }\r\n+    ]\r\n+  },\r\n   \r\n \r\n \r\n   {\r\n"
+                },
+                {
+                    "date": 1633898620322,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -150,9 +150,9 @@\n   },\r\n \r\n   {\r\n     title: 'Destination Management',\r\n-    path: '#GuideManagement',\r\n+    path: '#DestinationManagement',\r\n     icon: <IoIcons.IoIosPaper />,\r\n     iconClosed: <RiIcons.RiArrowDownSFill />,\r\n     iconOpened: <RiIcons.RiArrowUpSFill />,\r\n \r\n"
+                },
+                {
+                    "date": 1633898629515,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -157,9 +157,9 @@\n     iconOpened: <RiIcons.RiArrowUpSFill />,\r\n \r\n     subNav: [\r\n       {\r\n-        title: 'Adventure List',\r\n+        title: 'Destination List',\r\n         path: '/Adventure',\r\n         icon: <IoIcons.IoIosPaper />,\r\n         cName: 'sub-nav'\r\n       },\r\n"
+                },
+                {
+                    "date": 1633898635794,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -158,9 +158,9 @@\n \r\n     subNav: [\r\n       {\r\n         title: 'Destination List',\r\n-        path: '/Adventure',\r\n+        path: '/FFMM1',\r\n         icon: <IoIcons.IoIosPaper />,\r\n         cName: 'sub-nav'\r\n       },\r\n       \r\n"
+                },
+                {
+                    "date": 1633898656137,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -163,8 +163,9 @@\n         icon: <IoIcons.IoIosPaper />,\r\n         cName: 'sub-nav'\r\n       },\r\n       \r\n+      \r\n       {\r\n         title: 'Bookings',\r\n         path: '/adminbooking',\r\n         icon: <IoIcons.IoIosPaper />\r\n"
+                },
+                {
+                    "date": 1633898669008,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -162,12 +162,17 @@\n         path: '/FFMM1',\r\n         icon: <IoIcons.IoIosPaper />,\r\n         cName: 'sub-nav'\r\n       },\r\n+      {\r\n+        title: 'Destination Map',\r\n+        path: '/Map_admin',\r\n+        icon: <IoIcons.IoIosPaper />,\r\n+        cName: 'sub-nav'\r\n+      },\r\n       \r\n-      \r\n       {\r\n-        title: 'Bookings',\r\n+        title: 'Reports',\r\n         path: '/adminbooking',\r\n         icon: <IoIcons.IoIosPaper />\r\n       }\r\n     ]\r\n"
+                },
+                {
+                    "date": 1633898675614,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -171,9 +171,9 @@\n       },\r\n       \r\n       {\r\n         title: 'Reports',\r\n-        path: '/adminbooking',\r\n+        path: '/Reports',\r\n         icon: <IoIcons.IoIosPaper />\r\n       }\r\n     ]\r\n   },\r\n"
+                }
+            ],
+            "date": 1633898511958,
+            "name": "Commit-0",
+            "content": "import React from 'react';\r\n//import * as FaIcons from 'react-icons/fa';\r\nimport * as AiIcons from 'react-icons/ai';\r\nimport * as IoIcons from 'react-icons/io';\r\nimport * as RiIcons from 'react-icons/ri';\r\n\r\nexport const SidebarData = [\r\n  {\r\n    title: 'Dashboard',\r\n    path: '/adminDashboard',\r\n    icon: <AiIcons.AiOutlineUser />,\r\n  },\r\n  {\r\n    title: 'User Management',\r\n    path: '#UserManagement',\r\n    icon: <IoIcons.IoIosPaper />,\r\n    iconClosed: <RiIcons.RiArrowDownSFill />,\r\n    iconOpened: <RiIcons.RiArrowUpSFill />,\r\n\r\n    subNav: [\r\n      {\r\n        title: 'Users List',\r\n        path: '/UserManagement/userlist',\r\n        icon: <IoIcons.IoIosPaper />,\r\n        cName: 'sub-nav'\r\n      },\r\n      \r\n      {\r\n        title: 'Reports',\r\n        path: '/HotelManagement/reports',\r\n        icon: <IoIcons.IoIosPaper />\r\n      }\r\n    ]\r\n  },\r\n  {\r\n    title: 'Hotel Management',\r\n    path: '#HotelManagement',\r\n    icon: <IoIcons.IoIosPaper />,\r\n    iconClosed: <RiIcons.RiArrowDownSFill />,\r\n    iconOpened: <RiIcons.RiArrowUpSFill />,\r\n\r\n    subNav: [\r\n      {\r\n        title: 'Hotels List',\r\n        path: '/HotelManagement/hotellist',\r\n        icon: <IoIcons.IoIosPaper />,\r\n        cName: 'sub-nav'\r\n      },\r\n      {\r\n        title: 'Reports',\r\n        path: '/HotelManagement/reports',\r\n        icon: <IoIcons.IoIosPaper />\r\n      }\r\n    ]\r\n  },\r\n  {\r\n    title: 'Guide Management',\r\n    path: '#GuideManagement',\r\n    icon: <IoIcons.IoIosPaper />,\r\n    iconClosed: <RiIcons.RiArrowDownSFill />,\r\n    iconOpened: <RiIcons.RiArrowUpSFill />,\r\n\r\n    subNav: [\r\n      {\r\n        title: 'Guide List',\r\n        path: '/GuideManagement/guidelist',\r\n        icon: <IoIcons.IoIosPaper />,\r\n        cName: 'sub-nav'\r\n      },\r\n      \r\n      {\r\n        title: 'Reports',\r\n        path: '/HotelManagement/reports',\r\n        icon: <IoIcons.IoIosPaper />\r\n      }\r\n    ]\r\n  },\r\n  {\r\n    title: 'Rent Vehicle Management',\r\n    path: '#UserManagement',\r\n    icon: <IoIcons.IoIosPaper />,\r\n    iconClosed: <RiIcons.RiArrowDownSFill />,\r\n    iconOpened: <RiIcons.RiArrowUpSFill />,\r\n\r\n    subNav: [\r\n      {\r\n        title: 'Rent Vehicle List',\r\n        path: '/vehicle',\r\n        icon: <IoIcons.IoIosPaper />,\r\n        cName: 'sub-nav'\r\n      },\r\n      \r\n      {\r\n        title: 'Vehicle Booking List',\r\n        path: '/vbookings',\r\n        icon: <IoIcons.IoIosPaper />\r\n      },\r\n    ]\r\n  },\r\n  {\r\n    title: 'Payment Management',\r\n    path: '#PaymentManagement',\r\n    icon: <IoIcons.IoIosPaper />,\r\n    iconClosed: <RiIcons.RiArrowDownSFill />,\r\n    iconOpened: <RiIcons.RiArrowUpSFill />,\r\n\r\n    subNav: [\r\n      {\r\n        title: 'Cards List',\r\n        path: '/PaymentManagement/cardslist',\r\n        icon: <IoIcons.IoIosPaper />,\r\n        cName: 'sub-nav'\r\n      },\r\n      {\r\n        title: 'Booking Details',\r\n        path: '/PaymentManagement/HotelRoomBookingpayment',\r\n        icon: <IoIcons.IoIosPaper />,\r\n        cName: 'sub-nav'\r\n      },\r\n      {\r\n        title: 'Reports',\r\n        path: '/HotelManagement/reports',\r\n        icon: <IoIcons.IoIosPaper />\r\n      }\r\n    ]\r\n  },\r\n\r\n\r\n  {\r\n    title: 'Adventure Management',\r\n    path: '#GuideManagement',\r\n    icon: <IoIcons.IoIosPaper />,\r\n    iconClosed: <RiIcons.RiArrowDownSFill />,\r\n    iconOpened: <RiIcons.RiArrowUpSFill />,\r\n\r\n    subNav: [\r\n      {\r\n        title: 'Adventure List',\r\n        path: '/Adventure',\r\n        icon: <IoIcons.IoIosPaper />,\r\n        cName: 'sub-nav'\r\n      },\r\n      \r\n      {\r\n        title: 'Bookings',\r\n        path: '/adminbooking',\r\n        icon: <IoIcons.IoIosPaper />\r\n      }\r\n    ]\r\n  },\r\n\r\n  \r\n\r\n\r\n\r\n  {\r\n    title: 'Support',\r\n    path: '/support',\r\n    icon: <IoIcons.IoMdHelpCircle />\r\n  }\r\n];\r\n\r\n\r\n"
+        }
+    ]
+}

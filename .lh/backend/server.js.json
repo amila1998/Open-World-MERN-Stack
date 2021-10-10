@@ -1,0 +1,22 @@
+{
+    "sourceFile": "backend/server.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1633897640831,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1633897651233,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -73,18 +73,23 @@\n app.use(express.static('public'))\r\n \r\n \r\n \r\n+const userRoute = require(\"./routes/users\");\r\n+const pinRoute = require(\"./routes/pins\");\r\n+const destinationRoutes = require('./routes/destinations');\r\n \r\n+app.use(\"/api/users\", userRoute);\r\n+app.use(\"/api/pins\", pinRoute);\r\n+app.use(destinationRoutes);\r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n-\r\n const CardDetailsRouter =require(\"./routes/cartControl.js\");\r\n app.use(\"/cardR\",CardDetailsRouter);\r\n \r\n \r\n@@ -104,5 +109,6 @@\n     console.log(`Server at http://localhost:${PORT}`)\r\n })\r\n \r\n \r\n-app.use(express.static('RV_image'))\n\\ No newline at end of file\n+app.use(express.static('RV_image'))\r\n+app.use(express.static('desti_img'))\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1633897640831,
+            "name": "Commit-0",
+            "content": "const express = require(\"express\");\r\nconst mongoose = require(\"mongoose\");\r\nconst bodyParser = require(\"body-parser\");\r\nconst cors = require(\"cors\");\r\nconst dotenv = require(\"dotenv\");\r\nconst app = express();\r\nrequire(\"dotenv\").config();\r\nconst path = require('path');\r\n\r\n\r\ndotenv.config();\r\n\r\n\r\nconst PORT = process.env.PORT || 8070;\r\n\r\napp.use(cors());\r\napp.use(bodyParser.json());\r\n\r\nconst URL = process.env.MONGODB_URL;\r\n\r\nmongoose.connect(URL,err => {\r\n    if(err) throw err;\r\n    console.log('connected to MongoDB')\r\n});\r\n\r\nconst connection = mongoose.connection;\r\nconnection.once(\"open\",()=>{\r\n    console.log(\"mongodb Connection Success!\");\r\n})\r\n\r\nconst UserRouter =require(\"./routes/userRouter.js\");\r\napp.use(\"/userR\",UserRouter);\r\n\r\nconst uploadRouter =require(\"./routes/uploadRouter.js\");\r\napp.use('/api/uploads', uploadRouter);\r\n\r\n\r\nconst vbookingRoutes = require('./routes/vbookings.js');\r\napp.use(vbookingRoutes);\r\n\r\nconst vehicleRoutes = require('./routes/vehicles.js');\r\napp.use(vehicleRoutes);\r\n\r\n\r\n\r\nconst hotelRouter =require(\"./routes/hotelsRouter.js\");\r\napp.use(\"/hotelR\",hotelRouter);\r\n\r\nconst guideRouter =require(\"./routes/guideRouter.js\");\r\napp.use(\"/guideR\",guideRouter);\r\n\r\n\r\nconst hspRouter =require(\"./routes/HotelServiceProviderRoute.js\");\r\napp.use(\"/hspR\",hspRouter);\r\n\r\nconst guideReviewRouter =require(\"./routes/GuideReviewRoute.js\");\r\napp.use(\"/guideRviewR\",guideReviewRouter);\r\n\r\nconst guidebookingRouter =require(\"./routes/GuideBookingRoute.js\");\r\napp.use(\"/guideBookingR\",guidebookingRouter);\r\n\r\n\r\nconst hotelbookingRouter =require(\"./routes/hotelbookingRouter.js\");\r\napp.use(\"/hotelbookingR\",hotelbookingRouter);\r\n\r\n\r\nvar activityRoutes = require('./routes/activityController')\r\nvar BookingRoutes = require('./routes/BookingController')\r\n\r\n\r\napp.use('/Booking',BookingRoutes)\r\napp.use('/adventure',activityRoutes)\r\napp.use(express.static('public'))\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nconst CardDetailsRouter =require(\"./routes/cartControl.js\");\r\napp.use(\"/cardR\",CardDetailsRouter);\r\n\r\n\r\nconst paymentRouter =require(\"./routes/paymentRoute.js\");\r\napp.use(\"/paymentR\",paymentRouter);\r\n\r\n//const bookingRouter =require(\"./routes/bookingRouter.js\");\r\n//app.use(\"/bookingR\",bookingRouter);\r\n\r\n\r\nconst roomRouter =require(\"./routes/roomRouter.js\");\r\napp.use(\"/roomR\",roomRouter);\r\n\r\n\r\n\r\napp.listen(PORT,()=>{\r\n    console.log(`Server at http://localhost:${PORT}`)\r\n})\r\n\r\n\r\napp.use(express.static('RV_image'))"
+        }
+    ]
+}
