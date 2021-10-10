@@ -42,7 +42,7 @@ export default function RoomAddScreen(props) {
   }
  
     return (
-        <div>
+        <div className="pageBody">
         <form className="form" onSubmit={submitHandler}>
         <div>
           <h1>Add a Room</h1>
@@ -71,12 +71,12 @@ export default function RoomAddScreen(props) {
         </div>
         <div>
           <label htmlFor="category">Category</label>
-          <select
+          <select id="category"
         onChange={(e) => {
           setCategory(e.target.value);
         }}
       >
-        <option value='Single'>Single: A room assigned to one person.</option>
+        <option value='Single' selected="selected">Single: A room assigned to one person.</option>
         <option value='Double'>Double: A room assigned to two people.</option>
         <option value='Triple'>Triple: A room assigned to three people.</option>
         <option value='Quad'>Quad: A room assigned to four people.</option>

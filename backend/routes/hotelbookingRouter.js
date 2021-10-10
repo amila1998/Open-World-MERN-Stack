@@ -5,9 +5,12 @@ let Hotel = require("../model/HotelModel.js");
 
 const {isAuth, isAdmin , ishotelServiceProvider} =  require("../utils.js");
 
-HotelBookingrouter.route("/addaHotelRoomBooking", isAuth, ).post(async(req, res)=>{
-  
-   const hotelbook = new Booking({
+HotelBookingrouter.route("/addaHotelRoomBooking/:hotelID", isAuth, ).post(async(req, res)=>{
+  try {
+  const hoteldata = await Hotel.findById(req.params.hotelID);
+  console.log(hoteldata);
+  if(hoteldata){
+    const hotelbook = new Booking({
       hotel:req.body.hotel,
       room:req.body.room,
       startDate:req.body.startDate,
@@ -15,14 +18,44 @@ HotelBookingrouter.route("/addaHotelRoomBooking", isAuth, ).post(async(req, res)
       price:req.body.price,
       message:req.body.message,
       userID:req.body.userID,
-      
+      hotelOwner:hoteldata.hotelserviceProvider,
             
     });
     const hotelbooked = await hotelbook.save();
-    res.send({ message: 'Hotel Created', hotelbook: hotelbooked });
+    res.send({ message: 'Hotel booking success', hotelbook: hotelbooked });
+  }else{
+    console.log(err);
+  }
+  
+  } catch (error) {
+    console.log(error);
+  }
+  
  
   
 });
+HotelBookingrouter.route("/get/:bookingID"   ).get(async(req, res)=>{
+  
+
+  try{
+    
+      await Booking.findById(req.params.bookingID ,(err,bookingData)=>{
+        if (err){
+          return res.status(400).json({success:false,err})
+        }
+
+        return res.status(200).json({success:true,bookingDetails:bookingData});
+      });
+
+     
+
+  }catch (err) {
+    console.log(err)
+  }
+ 
+});
+
+
 HotelBookingrouter.route("/get" ,isAdmin ).get(async(req, res)=>{
   
 

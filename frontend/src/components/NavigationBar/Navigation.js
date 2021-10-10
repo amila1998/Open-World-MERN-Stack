@@ -40,7 +40,6 @@ export default function Navigation() {
             <Link className="brand" to="/">
               Open World
             </Link>
-            
           </div>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
@@ -63,12 +62,11 @@ export default function Navigation() {
                     <Link to="/guides">Guides</Link>
                   </li>
                   <li>
-                    <Link to="/VehicleHomeScreen">Rent Vehicles</Link>
+                    <Link to="/AdventureList">Adventure</Link>
                   </li>
-                  
                 </ul>
               </div>
-            <Link to="/feacures">feacures          
+            <Link to="/feature">Feature        
             </Link>
             <Link to="/aboutus">About Us           
             </Link>
@@ -82,6 +80,9 @@ export default function Navigation() {
                 <ul className="dropdown-content">
                     <li>
                         <Link to="/profile">Profile</Link>
+                    </li>
+                    <li>
+                        <Link to="/myBookings">My Bookings</Link>
                     </li>
                     <li>
                         <Link to="/settings">Settings</Link>
