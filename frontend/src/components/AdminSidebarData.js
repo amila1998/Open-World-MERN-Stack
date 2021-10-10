@@ -75,6 +75,34 @@ export const SidebarData = [
       }
     ]
   },
+  {
+    title: 'Payment Management',
+    path: '#PaymentManagement',
+    icon: <IoIcons.IoIosPaper />,
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+
+    subNav: [
+      {
+        title: 'Cards List',
+        path: '/PaymentManagement/cardslist',
+        icon: <IoIcons.IoIosPaper />,
+        cName: 'sub-nav'
+      },
+      {
+        title: 'Booking Details',
+        path: '/PaymentManagement/HotelRoomBookingpayment',
+        icon: <IoIcons.IoIosPaper />,
+        cName: 'sub-nav'
+      },
+      {
+        title: 'Reports',
+        path: '/HotelManagement/reports',
+        icon: <IoIcons.IoIosPaper />
+      }
+    ]
+  },
+
 
   {
     title: 'Adventure Management',

@@ -56,6 +56,7 @@ app.use("/guideBookingR",guidebookingRouter);
 const hotelbookingRouter =require("./routes/hotelbookingRouter.js");
 app.use("/hotelbookingR",hotelbookingRouter);
 
+
 var activityRoutes = require('./routes/activityController')
 var BookingRoutes = require('./routes/BookingController')
 
@@ -70,6 +71,14 @@ app.use(express.static('public'))
 
 
 
+
+
+const CardDetailsRouter =require("./routes/cartControl.js");
+app.use("/cardR",CardDetailsRouter);
+
+
+const paymentRouter =require("./routes/paymentRoute.js");
+app.use("/paymentR",paymentRouter);
 
 //const bookingRouter =require("./routes/bookingRouter.js");
 //app.use("/bookingR",bookingRouter);

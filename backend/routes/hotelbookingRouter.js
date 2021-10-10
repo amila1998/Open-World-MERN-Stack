@@ -34,6 +34,28 @@ HotelBookingrouter.route("/addaHotelRoomBooking/:hotelID", isAuth, ).post(async(
  
   
 });
+HotelBookingrouter.route("/get/:bookingID"   ).get(async(req, res)=>{
+  
+
+  try{
+    
+      await Booking.findById(req.params.bookingID ,(err,bookingData)=>{
+        if (err){
+          return res.status(400).json({success:false,err})
+        }
+
+        return res.status(200).json({success:true,bookingDetails:bookingData});
+      });
+
+     
+
+  }catch (err) {
+    console.log(err)
+  }
+ 
+});
+
+
 HotelBookingrouter.route("/get" ,isAdmin ).get(async(req, res)=>{
   
 
