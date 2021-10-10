@@ -1,0 +1,33 @@
+SubmitForm = async(e) => {
+        e.preventDefault();
+        this.validation();
+        if(this.state.adventure_name && this.state.image1 && this.state.image2  && this.state.city  && this.state.province && this.state.description  && this.state.adventure_type){
+            console.log(this.state);
+            const url = 'http://localhost:3500/adventure';
+            if(!this.state.id){
+                var data = JSON.stringify({ adventure_name: this.state.adventure_name , image1: this.state.image1 , image2: this.state.image2 , province: this.state.province , city: this.state.city ,  description: this.state.description ,  adventure_type: this.state.adventure_type   });
+                console.log(data);
+                await axios.post(url,data,{
+                    headers: {'Content-Type': 'application/json'}
+                })
+                .then(res => {
+                    console.log(res.data);
+                    this.setState(initialState)
+                    this.componentDidMount()
+                    swal("Success!", "Add Successful!", "success")
+                })
+            }else{
+                var datas = JSON.stringify({ adventure_name: this.state.adventure_name ,  image1: this.state.image1 , image2: this.state.image2 , province: this.state.province , city: this.state.city ,  description: this.state.description ,  adventure_type: this.state.adventure_type });
+                console.log(datas);
+                await axios.put(url+"/"+this.state.id,datas,{
+                    headers: {'Content-Type': 'application/json'}
+                })
+                .then(res => {
+                    console.log(res.data);
+                    this.setState(initialState)
+                    this.componentDidMount()
+                    swal("Success!", "Edit Successful!", "success")
+                })
+            }
+        }
+    }

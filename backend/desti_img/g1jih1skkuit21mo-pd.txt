@@ -1,0 +1,60 @@
+d1=library("wooldridge")
+data("wage2")
+head(wage2)
+wage2
+class(wage2)
+dim(wage2)
+summary(wage2)
+str(wage2)
+any (is.na(wage2))
+sum(is.na(wage2))
+na.omit(wage2)
+
+#mean of wage..............
+mean (wage2$wage)
+
+#mean of IQ..............
+mean(wage2$IQ)
+
+sd(wage2$IQ)
+
+d2=rnorm(n=1000, mean=100,sd=15)
+d2
+
+plot (wage~IQ, data=wage2)
+scatter.smooth(wage2$IQ,wage2$wage)
+
+head(wage2)
+colnames(wage2)
+
+#one sample t test......
+# THO SAMPLE INDEPENDENT T TEST..
+#ASSUNE WAGE & IQ ARË INDEPENDENT..... 
+
+#MU(WAGE)< MU(IQ)
+t.test(wage2$wage,wage2$IQ, MU=0,alternative="less")
+
+#regression.......
+#y= wage, x=IQ.. 
+x<-wage2$IQ 
+y<-wage2$wage 
+relation<-lm(y~x) 
+print(relation) 
+print(summary(relation))
+
+
+png=(file="inearregression.png")
+plot(y,x,col="blue", main="the relationship between wage and 1Q", abline(lm(x~y)),xlab="IQ"
+     
+     
+#F test
+
+#var(wage)>var(IQ)
+var.test(wage2$wage,wage2$IQ,alternative="greater")
+
+#prediction IQ level......
+#previously we found intercept=116.992 & coefficient of IQ=8.303
+
+
+y=116.992+(8.303*IQ)
+y=241.537
