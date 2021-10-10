@@ -168,7 +168,7 @@ HotelBookingDetailsretrieve(){
                     console.log(res.data);
                     this.setState(initialState)
                     this.componentDidMount()
-                    swal("success!", "We will contact you soon!", "success")
+                    swal("success!", "Add Card Details to confirm!", "success")
                 })
            
             }else{
@@ -228,9 +228,9 @@ HotelBookingDetailsretrieve(){
                     <hr/>
                     <div class="x_scroll"></div>
                     <br></br>
-                     
+                     <div>
                     <form autoComplete="off" onSubmit={this.SubmitForm}>
-                        <div class="form-group row">
+                        <div hidden class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right font-weight-bold">userid</label>
                             <div class="col-md-6">
                                 <input disable="true" type="(text)" class="form-control" name="userid" value={this.state.userid} onChange={this.handleChange} />
@@ -238,10 +238,10 @@ HotelBookingDetailsretrieve(){
                             </div>
                         </div>
                         <br/>
-                        <div class="form-group row">
+                        <div  class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right font-weight-bold">Hotel</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="Hotelid" value={this.state.Hotelid} onChange={this.handleChange} />
+                                <input disable="true" type="text" class="form-control" name="Hotelid" value={this.state.Hotelid} onChange={this.handleChange} />
                                 <div style={{color : "red"}}>{this.state.HotelidError}</div>
                             </div>
                         </div>
@@ -252,8 +252,8 @@ HotelBookingDetailsretrieve(){
                         <br/>
                         <div class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right font-weight-bold">total</label>
-                            <div class="col-md-2">                                
-                                <input type="number" class="form-control" name="total" value={this.state.total} onChange={this.handleChange} />
+                            <div class="col-md-6">                                
+                                <input disable="true" type="number" class="form-control" name="total" value={this.state.total} onChange={this.handleChange} />
                                 <div style={{color : "red"}}>{this.state.totalError}</div>
                             </div>
                         </div>
@@ -263,9 +263,10 @@ HotelBookingDetailsretrieve(){
                         <br/>   
                         <div class=" offset-md-6">
                             <input type="submit" class="btn btn-success" value={this.state.confirmButton} />&nbsp;
-                            <NavLink className={'btn btn-danger'} to={'/quotation'}>   card details</NavLink>
+                            <NavLink className={'btn btn-danger'} to={'/addanewcard'}>   card details</NavLink>
                         </div>
                     </form>
+                    </div>
                   <br></br>
                     <hr/>
                     <br></br><br></br> <br></br><br></br> 
