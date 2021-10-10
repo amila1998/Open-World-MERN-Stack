@@ -1,0 +1,26 @@
+{
+    "sourceFile": "frontend/src/components/AdminSidebarData.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1633811216935,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1633812011364,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,10 +74,29 @@\n         icon: <IoIcons.IoIosPaper />\r\n       }\r\n     ]\r\n   },\r\n-  \r\n+  {\r\n+    title: 'Destination Management',\r\n+    path: '#DestinationManagement',\r\n+    icon: <IoIcons.IoIosPaper />,\r\n+    iconClosed: <RiIcons.RiArrowDownSFill />,\r\n+    iconOpened: <RiIcons.RiArrowUpSFill />,\r\n \r\n+    subNav: [\r\n+      {\r\n+        title: 'Destination List',\r\n+        path: '/FFMM1',\r\n+        icon: <IoIcons.IoIosPaper />,\r\n+        cName: 'sub-nav'\r\n+      },\r\n+      {\r\n+        title: 'Destination Map',\r\n+        path: '/Map_admin',\r\n+        icon: <IoIcons.IoIosPaper />,\r\n+        cName: 'sub-nav'\r\n+      }\r\n+\r\n   {\r\n     title: 'Support',\r\n     path: '/support',\r\n     icon: <IoIcons.IoMdHelpCircle />\r\n"
+                },
+                {
+                    "date": 1633812081901,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -93,9 +93,17 @@\n         title: 'Destination Map',\r\n         path: '/Map_admin',\r\n         icon: <IoIcons.IoIosPaper />,\r\n         cName: 'sub-nav'\r\n+      },\r\n+      \r\n+      {\r\n+        title: 'Reports',\r\n+        path: '/Map_admin',\r\n+        icon: <IoIcons.IoIosPaper />\r\n       }\r\n+    ]    \r\n+  },\r\n \r\n   {\r\n     title: 'Support',\r\n     path: '/support',\r\n"
+                }
+            ],
+            "date": 1633811216935,
+            "name": "Commit-0",
+            "content": "import React from 'react';\r\n//import * as FaIcons from 'react-icons/fa';\r\nimport * as AiIcons from 'react-icons/ai';\r\nimport * as IoIcons from 'react-icons/io';\r\nimport * as RiIcons from 'react-icons/ri';\r\n\r\nexport const SidebarData = [\r\n  {\r\n    title: 'Dashboard',\r\n    path: '/adminDashboard',\r\n    icon: <AiIcons.AiOutlineUser />,\r\n  },\r\n  {\r\n    title: 'User Management',\r\n    path: '#UserManagement',\r\n    icon: <IoIcons.IoIosPaper />,\r\n    iconClosed: <RiIcons.RiArrowDownSFill />,\r\n    iconOpened: <RiIcons.RiArrowUpSFill />,\r\n\r\n    subNav: [\r\n      {\r\n        title: 'Users List',\r\n        path: '/UserManagement/userlist',\r\n        icon: <IoIcons.IoIosPaper />,\r\n        cName: 'sub-nav'\r\n      },\r\n      \r\n      {\r\n        title: 'Reports',\r\n        path: '/HotelManagement/reports',\r\n        icon: <IoIcons.IoIosPaper />\r\n      }\r\n    ]\r\n  },\r\n  {\r\n    title: 'Hotel Management',\r\n    path: '#HotelManagement',\r\n    icon: <IoIcons.IoIosPaper />,\r\n    iconClosed: <RiIcons.RiArrowDownSFill />,\r\n    iconOpened: <RiIcons.RiArrowUpSFill />,\r\n\r\n    subNav: [\r\n      {\r\n        title: 'Hotels List',\r\n        path: '/HotelManagement/hotellist',\r\n        icon: <IoIcons.IoIosPaper />,\r\n        cName: 'sub-nav'\r\n      },\r\n      {\r\n        title: 'Reports',\r\n        path: '/HotelManagement/reports',\r\n        icon: <IoIcons.IoIosPaper />\r\n      }\r\n    ]\r\n  },\r\n  {\r\n    title: 'Guide Management',\r\n    path: '#GuideManagement',\r\n    icon: <IoIcons.IoIosPaper />,\r\n    iconClosed: <RiIcons.RiArrowDownSFill />,\r\n    iconOpened: <RiIcons.RiArrowUpSFill />,\r\n\r\n    subNav: [\r\n      {\r\n        title: 'Guide List',\r\n        path: '/GuideManagement/guidelist',\r\n        icon: <IoIcons.IoIosPaper />,\r\n        cName: 'sub-nav'\r\n      },\r\n      \r\n      {\r\n        title: 'Reports',\r\n        path: '/HotelManagement/reports',\r\n        icon: <IoIcons.IoIosPaper />\r\n      }\r\n    ]\r\n  },\r\n  \r\n\r\n  {\r\n    title: 'Support',\r\n    path: '/support',\r\n    icon: <IoIcons.IoMdHelpCircle />\r\n  }\r\n];"
+        }
+    ]
+}

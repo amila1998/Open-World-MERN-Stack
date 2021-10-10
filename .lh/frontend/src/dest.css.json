@@ -1,0 +1,422 @@
+{
+    "sourceFile": "frontend/src/dest.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 101,
+            "patches": [
+                {
+                    "date": 1633815277803,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1633815358399,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,9 @@\n   background: rgba(0, 0, 0, 0.3);\n   margin-top: 200px;\n   width: 100%;\n   padding :20px;\n-  padding-right: 20px;\n+  padding-right: 200px;\n   box-sizing: border-bod;\n   position: absolute;\n   bottom: 142px;\n \n"
+                },
+                {
+                    "date": 1633815366380,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,9 @@\n   background: rgba(0, 0, 0, 0.3);\n   margin-top: 200px;\n   width: 100%;\n   padding :20px;\n-  padding-right: 200px;\n+  padding-right: 20px;\n   box-sizing: border-bod;\n   position: absolute;\n   bottom: 142px;\n \n"
+                },
+                {
+                    "date": 1633815375317,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,9 +54,9 @@\n   padding :20px;\n   padding-right: 20px;\n   box-sizing: border-bod;\n   position: absolute;\n-  bottom: 142px;\n+  bottom: 14px;\n \n \n   \n }\n"
+                },
+                {
+                    "date": 1633815385011,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,9 +54,9 @@\n   padding :20px;\n   padding-right: 20px;\n   box-sizing: border-bod;\n   position: absolute;\n-  bottom: 14px;\n+  bottom: 1420px;\n \n \n   \n }\n"
+                },
+                {
+                    "date": 1633815390186,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,9 +54,9 @@\n   padding :20px;\n   padding-right: 20px;\n   box-sizing: border-bod;\n   position: absolute;\n-  bottom: 1420px;\n+  bottom: 150px;\n \n \n   \n }\n"
+                },
+                {
+                    "date": 1633815400720,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n }\n \n \n #slide{\n-  background: rgba(0, 0, 0, 0.3);\n+  background: rgba(63, 60, 60, 0.3);\n   margin-top: 200px;\n   width: 100%;\n   padding :20px;\n   padding-right: 20px;\n"
+                },
+                {
+                    "date": 1633815445529,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n }\n \n \n #slide{\n-  background: rgba(63, 60, 60, 0.3);\n+  background: rgba(87, 87, 87, 0);\n   margin-top: 200px;\n   width: 100%;\n   padding :20px;\n   padding-right: 20px;\n@@ -200,9 +200,5 @@\n }\n \n \n \n-.formcontrol{\n \n-  width: 70rem;\n-\n-}\n"
+                },
+                {
+                    "date": 1633815461909,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,12 +54,9 @@\n   padding :20px;\n   padding-right: 20px;\n   box-sizing: border-bod;\n   position: absolute;\n-  bottom: 150px;\n-\n-\n-  \n+  bottom: 150px;  \n }\n \n #openworld{\n   \n"
+                },
+                {
+                    "date": 1633815468405,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -57,8 +57,14 @@\n   position: absolute;\n   bottom: 150px;  \n }\n \n+\n+.formcontrol{\n+  width: 70rem;\n+}\n+\n+\n #openworld{\n   \n   width: 100%;\n   position: absolute;\n"
+                },
+                {
+                    "date": 1633815479487,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -59,9 +59,9 @@\n }\n \n \n .formcontrol{\n-  width: 70rem;\n+  width: 90rem;\n }\n \n \n #openworld{\n"
+                },
+                {
+                    "date": 1633815487205,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -59,9 +59,9 @@\n }\n \n \n .formcontrol{\n-  width: 90rem;\n+  width: 85rem;\n }\n \n \n #openworld{\n"
+                },
+                {
+                    "date": 1633815504272,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,9 +54,9 @@\n   padding :20px;\n   padding-right: 20px;\n   box-sizing: border-bod;\n   position: absolute;\n-  bottom: 150px;  \n+  bottom: 155px;  \n }\n \n \n .formcontrol{\n"
+                },
+                {
+                    "date": 1633815510588,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,9 +54,9 @@\n   padding :20px;\n   padding-right: 20px;\n   box-sizing: border-bod;\n   position: absolute;\n-  bottom: 155px;  \n+  bottom: 15px;  \n }\n \n \n .formcontrol{\n"
+                },
+                {
+                    "date": 1633815517998,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,9 +54,9 @@\n   padding :20px;\n   padding-right: 20px;\n   box-sizing: border-bod;\n   position: absolute;\n-  bottom: 15px;  \n+  bottom: 157px;  \n }\n \n \n .formcontrol{\n"
+                },
+                {
+                    "date": 1633815581415,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,14 +54,14 @@\n   padding :20px;\n   padding-right: 20px;\n   box-sizing: border-bod;\n   position: absolute;\n-  bottom: 157px;  \n+  bottom: 156px;  \n }\n \n \n .formcontrol{\n-  width: 85rem;\n+  width: 86rem;\n }\n \n \n #openworld{\n"
+                },
+                {
+                    "date": 1633863126906,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -158,9 +158,9 @@\n }\n \n .container_map{\n   margin: 1rem;\n-  width: 39.5rem;\n+  width: 390rem;\n   height: calc(100% + 2rem);\n }\n .map-input-box {\n   \n"
+                },
+                {
+                    "date": 1633863147640,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -158,9 +158,9 @@\n }\n \n .container_map{\n   margin: 1rem;\n-  width: 390rem;\n+  width: 100rem;\n   height: calc(100% + 2rem);\n }\n .map-input-box {\n   \n"
+                },
+                {
+                    "date": 1633863278010,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -159,9 +159,9 @@\n \n .container_map{\n   margin: 1rem;\n   width: 100rem;\n-  height: calc(100% + 2rem);\n+  height: calc(10% + 2rem);\n }\n .map-input-box {\n   \n   width: 100rem;\n"
+                },
+                {
+                    "date": 1633863296789,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -159,9 +159,9 @@\n \n .container_map{\n   margin: 1rem;\n   width: 100rem;\n-  height: calc(10% + 2rem);\n+  height: 100rem;\n }\n .map-input-box {\n   \n   width: 100rem;\n"
+                },
+                {
+                    "date": 1633863306495,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -159,9 +159,9 @@\n \n .container_map{\n   margin: 1rem;\n   width: 100rem;\n-  height: 100rem;\n+  height: calc(10% + 2rem);\n }\n .map-input-box {\n   \n   width: 100rem;\n"
+                },
+                {
+                    "date": 1633863311611,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -159,9 +159,9 @@\n \n .container_map{\n   margin: 1rem;\n   width: 100rem;\n-  height: calc(10% + 2rem);\n+  height: calc(100% + 20rem);\n }\n .map-input-box {\n   \n   width: 100rem;\n"
+                },
+                {
+                    "date": 1633863326526,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -159,9 +159,9 @@\n \n .container_map{\n   margin: 1rem;\n   width: 100rem;\n-  height: calc(100% + 20rem);\n+  height: calc(100% + 2rem);\n }\n .map-input-box {\n   \n   width: 100rem;\n"
+                },
+                {
+                    "date": 1633863333804,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -158,9 +158,9 @@\n }\n \n .container_map{\n   margin: 1rem;\n-  width: 100rem;\n+  width: 80rem;\n   height: calc(100% + 2rem);\n }\n .map-input-box {\n   \n"
+                },
+                {
+                    "date": 1633863373070,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -158,9 +158,9 @@\n }\n \n .container_map{\n   margin: 1rem;\n-  width: 80rem;\n+  width: 50rem;\n   height: calc(100% + 2rem);\n }\n .map-input-box {\n   \n"
+                },
+                {
+                    "date": 1633863383269,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -158,9 +158,9 @@\n }\n \n .container_map{\n   margin: 1rem;\n-  width: 50rem;\n+  width: rem;\n   height: calc(100% + 2rem);\n }\n .map-input-box {\n   \n"
+                },
+                {
+                    "date": 1633863408997,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -158,9 +158,9 @@\n }\n \n .container_map{\n   margin: 1rem;\n-  width: rem;\n+  width: 60rem;\n   height: calc(100% + 2rem);\n }\n .map-input-box {\n   \n@@ -198,9 +198,9 @@\n }\n \n .vl {\n   border-left: 4px solid green;\n-  height: 750px;\n+  height: 7px;\n }\n \n \n \n"
+                },
+                {
+                    "date": 1633863465015,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -158,9 +158,9 @@\n }\n \n .container_map{\n   margin: 1rem;\n-  width: 60rem;\n+  width: 70rem;\n   height: calc(100% + 2rem);\n }\n .map-input-box {\n   \n@@ -198,9 +198,9 @@\n }\n \n .vl {\n   border-left: 4px solid green;\n-  height: 7px;\n+  height: 730px;\n }\n \n \n \n"
+                },
+                {
+                    "date": 1633863474493,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -158,9 +158,9 @@\n }\n \n .container_map{\n   margin: 1rem;\n-  width: 70rem;\n+  width: 80rem;\n   height: calc(100% + 2rem);\n }\n .map-input-box {\n   \n"
+                },
+                {
+                    "date": 1633863544046,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -159,9 +159,9 @@\n \n .container_map{\n   margin: 1rem;\n   width: 80rem;\n-  height: calc(100% + 2rem);\n+  height: calc(00% + 2rem);\n }\n .map-input-box {\n   \n   width: 100rem;\n"
+                },
+                {
+                    "date": 1633863560271,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -159,9 +159,9 @@\n \n .container_map{\n   margin: 1rem;\n   width: 80rem;\n-  height: calc(00% + 2rem);\n+  height: calc(2rem);\n }\n .map-input-box {\n   \n   width: 100rem;\n"
+                },
+                {
+                    "date": 1633863576871,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -159,9 +159,9 @@\n \n .container_map{\n   margin: 1rem;\n   width: 80rem;\n-  height: calc(2rem);\n+  height: calc(10rem);\n }\n .map-input-box {\n   \n   width: 100rem;\n"
+                },
+                {
+                    "date": 1633863587633,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -159,9 +159,9 @@\n \n .container_map{\n   margin: 1rem;\n   width: 80rem;\n-  height: calc(10rem);\n+  height: calc(100rem);\n }\n .map-input-box {\n   \n   width: 100rem;\n"
+                },
+                {
+                    "date": 1633863603238,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -159,9 +159,9 @@\n \n .container_map{\n   margin: 1rem;\n   width: 80rem;\n-  height: calc(100rem);\n+  height: calc(100% + 2rem);\n }\n .map-input-box {\n   \n   width: 100rem;\n"
+                },
+                {
+                    "date": 1633863620972,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -159,9 +159,9 @@\n \n .container_map{\n   margin: 1rem;\n   width: 80rem;\n-  height: calc(100% + 2rem);\n+  height: calc( 200rem);\n }\n .map-input-box {\n   \n   width: 100rem;\n"
+                },
+                {
+                    "date": 1633863630747,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -159,9 +159,9 @@\n \n .container_map{\n   margin: 1rem;\n   width: 80rem;\n-  height: calc( 200rem);\n+  height: calc(100% + 200rem);\n }\n .map-input-box {\n   \n   width: 100rem;\n"
+                },
+                {
+                    "date": 1633863636759,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -159,9 +159,9 @@\n \n .container_map{\n   margin: 1rem;\n   width: 80rem;\n-  height: calc(100% + 200rem);\n+  height: calc(100% + 4rem);\n }\n .map-input-box {\n   \n   width: 100rem;\n"
+                },
+                {
+                    "date": 1633863843703,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -198,9 +198,9 @@\n }\n \n .vl {\n   border-left: 4px solid green;\n-  height: 730px;\n+  height: 720px;\n }\n \n \n \n"
+                },
+                {
+                    "date": 1633863858435,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -198,9 +198,9 @@\n }\n \n .vl {\n   border-left: 4px solid green;\n-  height: 720px;\n+  height: 7px;\n }\n \n \n \n"
+                },
+                {
+                    "date": 1633863867332,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -198,9 +198,9 @@\n }\n \n .vl {\n   border-left: 4px solid green;\n-  height: 7px;\n+  height: 6px;\n }\n \n \n \n"
+                },
+                {
+                    "date": 1633863980226,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -159,9 +159,9 @@\n \n .container_map{\n   margin: 1rem;\n   width: 80rem;\n-  height: calc(100% + 4rem);\n+  height: 100% + 4rem);\n }\n .map-input-box {\n   \n   width: 100rem;\n@@ -198,9 +198,9 @@\n }\n \n .vl {\n   border-left: 4px solid green;\n-  height: 6px;\n+  height: 690px;\n }\n \n \n \n"
+                },
+                {
+                    "date": 1633863994965,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -159,9 +159,9 @@\n \n .container_map{\n   margin: 1rem;\n   width: 80rem;\n-  height: 100% + 4rem);\n+  height: calc(100% + 4rem);\n }\n .map-input-box {\n   \n   width: 100rem;\n"
+                },
+                {
+                    "date": 1633864154984,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -198,9 +198,9 @@\n }\n \n .vl {\n   border-left: 4px solid green;\n-  height: 690px;\n+  height: 700px;\n }\n \n \n \n"
+                },
+                {
+                    "date": 1633864167488,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -198,9 +198,9 @@\n }\n \n .vl {\n   border-left: 4px solid green;\n-  height: 700px;\n+  height: 710px;\n }\n \n \n \n"
+                },
+                {
+                    "date": 1633864175618,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -198,9 +198,9 @@\n }\n \n .vl {\n   border-left: 4px solid green;\n-  height: 710px;\n+  height: 730px;\n }\n \n \n \n"
+                },
+                {
+                    "date": 1633869891261,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n /*destination-card*/\n .destination-card{\n     border:0.1rem #c0c0c0 solid;\n     background-color: #f8f8f8;\n-    border-radius: 0.8rem;\n+    border-radius: 10rem;\n     margin: 1rem;\n     width: auto;\n     margin-bottom: 0.1rem;\n     \n"
+                },
+                {
+                    "date": 1633869897298,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n /*destination-card*/\n .destination-card{\n     border:0.1rem #c0c0c0 solid;\n     background-color: #f8f8f8;\n-    border-radius: 10rem;\n+    border-radius: 0.8rem;\n     margin: 1rem;\n     width: auto;\n     margin-bottom: 0.1rem;\n     \n"
+                },
+                {
+                    "date": 1633869904965,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n     background-color: #f8f8f8;\n     border-radius: 0.8rem;\n     margin: 1rem;\n     width: auto;\n-    margin-bottom: 0.1rem;\n+    margin-bottom: 10.1rem;\n     \n     \n }\n .destination-card-body{\n"
+                },
+                {
+                    "date": 1633869916960,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n     background-color: #f8f8f8;\n     border-radius: 0.8rem;\n     margin: 1rem;\n     width: auto;\n-    margin-bottom: 10.1rem;\n+    margin-bottom: 0.1rem;\n     \n     \n }\n .destination-card-body{\n"
+                },
+                {
+                    "date": 1633869923661,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n .destination-card{\n     border:0.1rem #c0c0c0 solid;\n     background-color: #f8f8f8;\n     border-radius: 0.8rem;\n-    margin: 1rem;\n+    margin: 100rem;\n     width: auto;\n     margin-bottom: 0.1rem;\n     \n     \n"
+                },
+                {
+                    "date": 1633869930544,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n .destination-card{\n     border:0.1rem #c0c0c0 solid;\n     background-color: #f8f8f8;\n     border-radius: 0.8rem;\n-    margin: 100rem;\n+    margin: 1rem;\n     width: auto;\n     margin-bottom: 0.1rem;\n     \n     \n"
+                },
+                {
+                    "date": 1633869950898,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n     border:0.1rem #c0c0c0 solid;\n     background-color: #f8f8f8;\n     border-radius: 0.8rem;\n     margin: 1rem;\n-    width: auto;\n+    width: 20;\n     margin-bottom: 0.1rem;\n     \n     \n }\n"
+                },
+                {
+                    "date": 1633869959350,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n     border:0.1rem #c0c0c0 solid;\n     background-color: #f8f8f8;\n     border-radius: 0.8rem;\n     margin: 1rem;\n-    width: 20;\n+    width: 2000px;\n     margin-bottom: 0.1rem;\n     \n     \n }\n"
+                },
+                {
+                    "date": 1633869973967,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n     border:0.1rem #c0c0c0 solid;\n     background-color: #f8f8f8;\n     border-radius: 0.8rem;\n     margin: 1rem;\n-    width: 2000px;\n+    width: px;\n     margin-bottom: 0.1rem;\n     \n     \n }\n"
+                },
+                {
+                    "date": 1633870002407,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,10 @@\n     border:0.1rem #c0c0c0 solid;\n     background-color: #f8f8f8;\n     border-radius: 0.8rem;\n     margin: 1rem;\n-    width: px;\n+    width: 300px;\n+    he\n     margin-bottom: 0.1rem;\n     \n     \n }\n"
+                },
+                {
+                    "date": 1633870008715,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n     background-color: #f8f8f8;\n     border-radius: 0.8rem;\n     margin: 1rem;\n     width: 300px;\n-    he\n+    height: 200px;\n     margin-bottom: 0.1rem;\n     \n     \n }\n"
+                },
+                {
+                    "date": 1633870017198,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n     background-color: #f8f8f8;\n     border-radius: 0.8rem;\n     margin: 1rem;\n     width: 300px;\n-    height: 200px;\n+    height: 500px;\n     margin-bottom: 0.1rem;\n     \n     \n }\n"
+                },
+                {
+                    "date": 1633870036350,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n     background-color: #f8f8f8;\n     border-radius: 0.8rem;\n     margin: 1rem;\n     width: 300px;\n-    height: 500px;\n+    height: 00px;\n     margin-bottom: 0.1rem;\n     \n     \n }\n"
+                },
+                {
+                    "date": 1633870050491,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n     background-color: #f8f8f8;\n     border-radius: 0.8rem;\n     margin: 1rem;\n     width: 300px;\n-    height: 00px;\n+    height: 3500px;\n     margin-bottom: 0.1rem;\n     \n     \n }\n"
+                },
+                {
+                    "date": 1633870056043,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n     background-color: #f8f8f8;\n     border-radius: 0.8rem;\n     margin: 1rem;\n     width: 300px;\n-    height: 3500px;\n+    height: 350px;\n     margin-bottom: 0.1rem;\n     \n     \n }\n"
+                },
+                {
+                    "date": 1633870065679,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n     background-color: #f8f8f8;\n     border-radius: 0.8rem;\n     margin: 1rem;\n     width: 300px;\n-    height: 350px;\n+    height: 3500px;\n     margin-bottom: 0.1rem;\n     \n     \n }\n"
+                },
+                {
+                    "date": 1633870071255,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,8 @@\n     background-color: #f8f8f8;\n     border-radius: 0.8rem;\n     margin: 1rem;\n     width: 300px;\n-    height: 3500px;\n     margin-bottom: 0.1rem;\n     \n     \n }\n"
+                },
+                {
+                    "date": 1633870076472,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n     border:0.1rem #c0c0c0 solid;\n     background-color: #f8f8f8;\n     border-radius: 0.8rem;\n     margin: 1rem;\n-    width: 300px;\n+    width: auto;\n     margin-bottom: 0.1rem;\n     \n     \n }\n"
+                },
+                {
+                    "date": 1633870106021,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n img {\n   border-radius: 0.5rem;;\n }\n img.destination-medium {\n-  max-width: 20rem;\n+  max-width: 200rem;\n   width: 100%;\n   height: 50%;\n }\n \n"
+                },
+                {
+                    "date": 1633870112282,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n img {\n   border-radius: 0.5rem;;\n }\n img.destination-medium {\n-  max-width: 200rem;\n+  max-width: 20rem;\n   width: 100%;\n   height: 50%;\n }\n \n"
+                },
+                {
+                    "date": 1633870127276,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,11 +20,11 @@\n img {\n   border-radius: 0.5rem;;\n }\n img.destination-medium {\n-  max-width: 20rem;\n+  max-width: 30rem;\n   width: 100%;\n-  height: 50%;\n+  height: 56%;\n }\n \n /*destination-card*/\n .destination-card{\n"
+                },
+                {
+                    "date": 1633870162269,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n }\n img.destination-medium {\n   max-width: 30rem;\n   width: 100%;\n-  height: 56%;\n+  height: 50%;\n }\n \n /*destination-card*/\n .destination-card{\n"
+                },
+                {
+                    "date": 1633870231078,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,8 +46,11 @@\n     margin-bottom: 0.1rem;\n }\n \n \n+\n+\n+\n #slide{\n   background: rgba(87, 87, 87, 0);\n   margin-top: 200px;\n   width: 100%;\n"
+                },
+                {
+                    "date": 1633870240862,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,11 +46,13 @@\n     margin-bottom: 0.1rem;\n }\n \n \n+#destitle{\n+  font\n+}\n \n \n-\n #slide{\n   background: rgba(87, 87, 87, 0);\n   margin-top: 200px;\n   width: 100%;\n"
+                },
+                {
+                    "date": 1633870248405,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n }\n \n \n #destitle{\n-  font\n+  font-size: 50;\n }\n \n \n #slide{\n"
+                },
+                {
+                    "date": 1633870267277,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n }\n \n \n #destitle{\n-  font-size: 50;\n+  font-size: px;\n }\n \n \n #slide{\n"
+                },
+                {
+                    "date": 1633870318859,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,12 +47,14 @@\n }\n \n \n #destitle{\n-  font-size: px;\n+  font-size: 30px;\n }\n \n+deshoombtn\n \n+\n #slide{\n   background: rgba(87, 87, 87, 0);\n   margin-top: 200px;\n   width: 100%;\n"
+                },
+                {
+                    "date": 1633870324016,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,11 @@\n #destitle{\n   font-size: 30px;\n }\n \n-deshoombtn\n+#deshoombtn{\n+  \n+}\n \n \n #slide{\n   background: rgba(87, 87, 87, 0);\n"
+                },
+                {
+                    "date": 1633870329540,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,9 @@\n   font-size: 30px;\n }\n \n #deshoombtn{\n-  \n+  width: 50;\n }\n \n \n #slide{\n"
+                },
+                {
+                    "date": 1633870337711,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,10 @@\n   font-size: 30px;\n }\n \n #deshoombtn{\n-  width: 50;\n+  width: 50px;\n+  \n }\n \n \n #slide{\n"
+                },
+                {
+                    "date": 1633870343312,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,9 +52,9 @@\n }\n \n #deshoombtn{\n   width: 50px;\n-  \n+  height: 70;\n }\n \n \n #slide{\n"
+                },
+                {
+                    "date": 1633870356069,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,10 +51,10 @@\n   font-size: 30px;\n }\n \n #deshoombtn{\n-  width: 50px;\n-  height: 70;\n+  width: px;\n+  height: 70px;\n }\n \n \n #slide{\n"
+                },
+                {
+                    "date": 1633870371256,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,10 +51,10 @@\n   font-size: 30px;\n }\n \n #deshoombtn{\n-  width: px;\n-  height: 70px;\n+  width: 100px;\n+  height: px;\n }\n \n \n #slide{\n"
+                },
+                {
+                    "date": 1633870381516,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,10 +51,10 @@\n   font-size: 30px;\n }\n \n #deshoombtn{\n-  width: 100px;\n-  height: px;\n+  width: 500px;\n+  height: 30px;\n }\n \n \n #slide{\n"
+                },
+                {
+                    "date": 1633870387313,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,9 @@\n   font-size: 30px;\n }\n \n #deshoombtn{\n-  width: 500px;\n+  width: 300px;\n   height: 30px;\n }\n \n \n"
+                },
+                {
+                    "date": 1633870393941,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,9 @@\n   font-size: 30px;\n }\n \n #deshoombtn{\n-  width: 300px;\n+  width: 250px;\n   height: 30px;\n }\n \n \n"
+                },
+                {
+                    "date": 1633870540109,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,8 +50,10 @@\n #destitle{\n   font-size: 30px;\n }\n \n+\n+\n #deshoombtn{\n   width: 250px;\n   height: 30px;\n }\n"
+                },
+                {
+                    "date": 1633870548137,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,10 +50,12 @@\n #destitle{\n   font-size: 30px;\n }\n \n+#descr1{\n+  font-size: 30px\n+}\n \n-\n #deshoombtn{\n   width: 250px;\n   height: 30px;\n }\n"
+                },
+                {
+                    "date": 1633870555306,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,9 @@\n   font-size: 30px;\n }\n \n #descr1{\n-  font-size: 30px\n+  font-size: 10px\n }\n \n #deshoombtn{\n   width: 250px;\n"
+                },
+                {
+                    "date": 1633870562101,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,9 @@\n   font-size: 30px;\n }\n \n #descr1{\n-  font-size: 10px\n+  font-size: 20px\n }\n \n #deshoombtn{\n   width: 250px;\n"
+                },
+                {
+                    "date": 1633870583238,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,9 @@\n   font-size: 30px;\n }\n \n #descr1{\n-  font-size: 20px\n+  font-size: 15px\n }\n \n #deshoombtn{\n   width: 250px;\n"
+                },
+                {
+                    "date": 1633870610929,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,8 +54,10 @@\n #descr1{\n   font-size: 15px\n }\n \n+#descr2\n+\n #deshoombtn{\n   width: 250px;\n   height: 30px;\n }\n"
+                },
+                {
+                    "date": 1633870617981,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,9 +54,11 @@\n #descr1{\n   font-size: 15px\n }\n \n-#descr2\n+#descr2{\n+  font-size: 15px\n+}\n \n #deshoombtn{\n   width: 250px;\n   height: 30px;\n"
+                },
+                {
+                    "date": 1633870631041,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,12 +54,10 @@\n #descr1{\n   font-size: 15px\n }\n \n-#descr2{\n-  font-size: 15px\n-}\n \n+\n #deshoombtn{\n   width: 250px;\n   height: 30px;\n }\n"
+                },
+                {
+                    "date": 1633870687708,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,9 @@\n #destitle{\n   font-size: 30px;\n }\n \n-#descr1{\n+#descr{\n   font-size: 15px\n }\n \n \n@@ -62,8 +62,11 @@\n   height: 30px;\n }\n \n \n+#\n+\n+\n #slide{\n   background: rgba(87, 87, 87, 0);\n   margin-top: 200px;\n   width: 100%;\n"
+                },
+                {
+                    "date": 1633870699842,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,9 +62,12 @@\n   height: 30px;\n }\n \n \n-#\n+#detailsbtn{\n+  width: 250px;\n+  height: 30px;\n+}\n \n \n #slide{\n   background: rgba(87, 87, 87, 0);\n"
+                },
+                {
+                    "date": 1633870966249,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -65,8 +65,9 @@\n \n #detailsbtn{\n   width: 250px;\n   height: 30px;\n+  font-size:24px\n }\n \n \n #slide{\n"
+                },
+                {
+                    "date": 1633870988271,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -64,9 +64,9 @@\n \n \n #detailsbtn{\n   width: 250px;\n-  height: 30px;\n+  height: 20px;\n   font-size:24px\n }\n \n \n"
+                },
+                {
+                    "date": 1633871118217,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -181,9 +181,9 @@\n }\n \n .container_map{\n   margin: 1rem;\n-  width: 80rem;\n+  width: 800rem;\n   height: calc(100% + 4rem);\n }\n .map-input-box {\n   \n"
+                },
+                {
+                    "date": 1633871137827,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -181,9 +181,9 @@\n }\n \n .container_map{\n   margin: 1rem;\n-  width: 800rem;\n+  width: 100rem;\n   height: calc(100% + 4rem);\n }\n .map-input-box {\n   \n"
+                },
+                {
+                    "date": 1633871152389,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -181,9 +181,9 @@\n }\n \n .container_map{\n   margin: 1rem;\n-  width: 100rem;\n+  width: 80rem;\n   height: calc(100% + 4rem);\n }\n .map-input-box {\n   \n"
+                },
+                {
+                    "date": 1633871171825,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -181,9 +181,9 @@\n }\n \n .container_map{\n   margin: 1rem;\n-  width: 80rem;\n+  width: rem;\n   height: calc(100% + 4rem);\n }\n .map-input-box {\n   \n"
+                },
+                {
+                    "date": 1633871186357,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -181,9 +181,9 @@\n }\n \n .container_map{\n   margin: 1rem;\n-  width: rem;\n+  width: 1rem;\n   height: calc(100% + 4rem);\n }\n .map-input-box {\n   \n"
+                },
+                {
+                    "date": 1633871194805,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -181,9 +181,9 @@\n }\n \n .container_map{\n   margin: 1rem;\n-  width: 1rem;\n+  width: 125rem;\n   height: calc(100% + 4rem);\n }\n .map-input-box {\n   \n"
+                },
+                {
+                    "date": 1633871201263,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -181,9 +181,9 @@\n }\n \n .container_map{\n   margin: 1rem;\n-  width: 125rem;\n+  width: 120rem;\n   height: calc(100% + 4rem);\n }\n .map-input-box {\n   \n"
+                },
+                {
+                    "date": 1633871285067,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -181,9 +181,9 @@\n }\n \n .container_map{\n   margin: 1rem;\n-  width: 120rem;\n+  width: 122rem;\n   height: calc(100% + 4rem);\n }\n .map-input-box {\n   \n"
+                },
+                {
+                    "date": 1633871404413,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -183,9 +183,9 @@\n .container_map{\n   margin: 1rem;\n   width: 122rem;\n   height: calc(100% + 4rem);\n-  m\n+  ma\n }\n .map-input-box {\n   \n   width: 100rem;\n"
+                }
+            ],
+            "date": 1633815277803,
+            "name": "Commit-0",
+            "content": "@import '~mdb-ui-kit/css/mdb.min.css';\n\n.d-block{\n  max-width: 500%;\n  height: auto;\n}\n\n.row {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n  align-items: center;\n  \n}\n.row.center {\n  justify-content: center;\n}\n\n/*image*/\nimg {\n  border-radius: 0.5rem;;\n}\nimg.destination-medium {\n  max-width: 20rem;\n  width: 100%;\n  height: 50%;\n}\n\n/*destination-card*/\n.destination-card{\n    border:0.1rem #c0c0c0 solid;\n    background-color: #f8f8f8;\n    border-radius: 0.8rem;\n    margin: 1rem;\n    width: auto;\n    margin-bottom: 0.1rem;\n    \n    \n}\n.destination-card-body{\n    padding: 0.5rem;\n    \n}\n.destination-card-body > *{\n  \n    margin-bottom: 0.1rem;\n}\n\n\n#slide{\n  background: rgba(0, 0, 0, 0.3);\n  margin-top: 200px;\n  width: 100%;\n  padding :20px;\n  padding-right: 20px;\n  box-sizing: border-bod;\n  position: absolute;\n  bottom: 142px;\n\n\n  \n}\n\n#openworld{\n  \n  width: 100%;\n  position: absolute;\n  bottom: 80px;\n  transform: translateY(-50%);\n  text-align: center;\n  color: rgb(255, 255, 255);\n  font-size: 50px;\n  margin-top: 50px;\n  line-height: 25px;\n}\n\n#Destination-add{\n  border-radius: 0.5rem;\n  max-width: 50rem;\n  width: 100%;\n  padding: 10px 10px;\n}\n\n\n\n\n.wrapper{\n  width: 100%;\n  \n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n\n\n\n.wrapper .youtube-box{\n  width: 50%;\n  height: 0px;\n  background-color: #e4e4e4;\n}\n\n@media(max-width: 768px){\n  .wrapper .form, .wrapper .youtube-box{\n    width: 100%;\n  }\n}\n\n.wrapper .youtube-box .video{\n  width: 100%;\n  height: 100%;\n  min-height: 100%;\n  max-height: 100%;\n  max-width: 100%;\n  min-width: 100%;\n}\n\n.error-msg{\n  width: 50%;\n  font-size: 14px;\n  font-weight: 600;\n  color: red;\n}\n\n@media(max-width: 768px){\n  .error-msg{\n    width: 100%;\n  }\n}\n\n\n\n\n#Details-Image{\n  max-width: 98.5%;\n  height: auto;\n  border-radius: 0.1rem;\n}\n\n\n\n#header{\n  max-width: 100%;\n}\n\n\n\n\n\n.full-container {\n  margin: 1rem;\n  width: 20.5rem;\n  height: calc(100% + 2rem);\n}\n\n.container_map{\n  margin: 1rem;\n  width: 39.5rem;\n  height: calc(100% + 2rem);\n}\n.map-input-box {\n  \n  width: 100rem;\n  height: 100rem;\n  display: flex;\n}\n\n.map-input-box {\n  \n  width: 1rem;\n  height: 22.5rem;\n  \n}\n\n.map-input-box input {\n  border-radius: 1rem 0 0 1rem;\n  border-right: 0;\n}\n.map-input-box button {\n  border-radius: 0 1rem 1rem 0;\n  border-left: 0;\n}\n\n.visit{\n  width:100%; \n  padding: 10px;\n  margin-left: 150px;\n  margin-top: -60px;\n}\n\n.des_details{\n  width: 95%;\n\n}\n\n.vl {\n  border-left: 4px solid green;\n  height: 750px;\n}\n\n\n\n.formcontrol{\n\n  width: 70rem;\n\n}\n"
+        }
+    ]
+}

@@ -1,0 +1,66 @@
+{
+    "sourceFile": "frontend/src/components/Register.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 12,
+            "patches": [
+                {
+                    "date": 1633860487401,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1633860765451,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n       password: passwordRef.current.value,\n     };\n \n     try {\n-      await axios.post(\"http://localhost:8070/users/register\", newUser);\n+      await axios.post(\"http://localhost:8070//api/users\", newUser);\n       setError(false);\n       setSuccess(true);\n     } catch (err) {\n       setError(true);\n"
+                },
+                {
+                    "date": 1633860784738,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n       password: passwordRef.current.value,\n     };\n \n     try {\n-      await axios.post(\"http://localhost:8070//api/users\", newUser);\n+      await axios.post(\"http://localhost:8070//api/usersusers/register\", newUser);\n       setError(false);\n       setSuccess(true);\n     } catch (err) {\n       setError(true);\n"
+                },
+                {
+                    "date": 1633860790223,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n       password: passwordRef.current.value,\n     };\n \n     try {\n-      await axios.post(\"http://localhost:8070//api/usersusers/register\", newUser);\n+      await axios.post(\"http://localhost:8070/api/users/users/register\", newUser);\n       setError(false);\n       setSuccess(true);\n     } catch (err) {\n       setError(true);\n"
+                },
+                {
+                    "date": 1633860797898,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n       password: passwordRef.current.value,\n     };\n \n     try {\n-      await axios.post(\"http://localhost:8070/api/users/users/register\", newUser);\n+      await axios.post(\"http://localhost:8070/api/users/register\", newUser);\n       setError(false);\n       setSuccess(true);\n     } catch (err) {\n       setError(true);\n"
+                },
+                {
+                    "date": 1633860851550,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n       password: passwordRef.current.value,\n     };\n \n     try {\n-      await axios.post(\"http://localhost:8070/api/users/register\", newUser);\n+      await axios.post(\"http://localhost:8070/api/users\", newUser);\n       setError(false);\n       setSuccess(true);\n     } catch (err) {\n       setError(true);\n"
+                },
+                {
+                    "date": 1633860994980,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n       password: passwordRef.current.value,\n     };\n \n     try {\n-      await axios.post(\"http://localhost:8070/api/users\", newUser);\n+      await axios.post(\"http://localhost:8070/users/register\", newUser);\n       setError(false);\n       setSuccess(true);\n     } catch (err) {\n       setError(true);\n"
+                },
+                {
+                    "date": 1633861000385,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n       password: passwordRef.current.value,\n     };\n \n     try {\n-      await axios.post(\"http://localhost:8070/users/register\", newUser);\n+      await axios.post(\"/users/register\", newUser);\n       setError(false);\n       setSuccess(true);\n     } catch (err) {\n       setError(true);\n"
+                },
+                {
+                    "date": 1633861025521,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n       password: passwordRef.current.value,\n     };\n \n     try {\n-      await axios.post(\"/users/register\", newUser);\n+      await axios.post(\"http://localhost:8070//users/register\", newUser);\n       setError(false);\n       setSuccess(true);\n     } catch (err) {\n       setError(true);\n"
+                },
+                {
+                    "date": 1633861545050,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,58 @@\n+import { Cancel, Room } from \"@material-ui/icons\";\n+import axios from \"axios\";\n+import { useRef, useState } from \"react\";\n+import \"./register.css\";\n+\n+export default function Register({ setShowRegister }) {\n+  const [success, setSuccess] = useState(false);\n+  const [error, setError] = useState(false);\n+  const usernameRef = useRef();\n+  const emailRef = useRef();\n+  const passwordRef = useRef();\n+\n+  const handleSubmit = async (e) => {\n+    e.preventDefault();\n+    const newUser = {\n+      username: usernameRef.current.value,\n+      email: emailRef.current.value,\n+      password: passwordRef.current.value,\n+    };\n+\n+    try {\n+      await axios.post(\"http://localhost:8070/Musers/register\", newUser);\n+      setError(false);\n+      setSuccess(true);\n+    } catch (err) {\n+      setError(true);\n+    }\n+  };\n+  return (\n+    <div className=\"registerContainer\">\n+      <div className=\"logo\">\n+        <Room className=\"logoIcon\" />\n+        <span>LamaPin</span>\n+      </div>\n+      <form onSubmit={handleSubmit}>\n+        <input autoFocus placeholder=\"username\" ref={usernameRef} />\n+        <input type=\"email\" placeholder=\"email\" ref={emailRef} />\n+        <input\n+          type=\"password\"\n+          min=\"6\"\n+          placeholder=\"password\"\n+          ref={passwordRef}\n+        />\n+        <button className=\"registerBtn\" type=\"submit\">\n+          Register\n+        </button>\n+        {success && (\n+          <span className=\"success\">Successfull. You can login now!</span>\n+        )}\n+        {error && <span className=\"failure\">Something went wrong!</span>}\n+      </form>\n+      <Cancel\n+        className=\"registerCancel\"\n+        onClick={() => setShowRegister(false)}\n+      />\n+    </div>\n+  );\n+}\n"
+                },
+                {
+                    "date": 1633861643708,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n       password: passwordRef.current.value,\n     };\n \n     try {\n-      await axios.post(\"http://localhost:8070/Musers/register\", newUser);\n+      await axios.post(\"http://localhost:8070/api/map_users\", newUser);\n       setError(false);\n       setSuccess(true);\n     } catch (err) {\n       setError(true);\n@@ -55,62 +55,4 @@\n       />\n     </div>\n   );\n }\n-import { Cancel, Room } from \"@material-ui/icons\";\n-import axios from \"axios\";\n-import { useRef, useState } from \"react\";\n-import \"./register.css\";\n-\n-export default function Register({ setShowRegister }) {\n-  const [success, setSuccess] = useState(false);\n-  const [error, setError] = useState(false);\n-  const usernameRef = useRef();\n-  const emailRef = useRef();\n-  const passwordRef = useRef();\n-\n-  const handleSubmit = async (e) => {\n-    e.preventDefault();\n-    const newUser = {\n-      username: usernameRef.current.value,\n-      email: emailRef.current.value,\n-      password: passwordRef.current.value,\n-    };\n-\n-    try {\n-      await axios.post(\"http://localhost:8070//users/register\", newUser);\n-      setError(false);\n-      setSuccess(true);\n-    } catch (err) {\n-      setError(true);\n-    }\n-  };\n-  return (\n-    <div className=\"registerContainer\">\n-      <div className=\"logo\">\n-        <Room className=\"logoIcon\" />\n-        <span>LamaPin</span>\n-      </div>\n-      <form onSubmit={handleSubmit}>\n-        <input autoFocus placeholder=\"username\" ref={usernameRef} />\n-        <input type=\"email\" placeholder=\"email\" ref={emailRef} />\n-        <input\n-          type=\"password\"\n-          min=\"6\"\n-          placeholder=\"password\"\n-          ref={passwordRef}\n-        />\n-        <button className=\"registerBtn\" type=\"submit\">\n-          Register\n-        </button>\n-        {success && (\n-          <span className=\"success\">Successfull. You can login now!</span>\n-        )}\n-        {error && <span className=\"failure\">Something went wrong!</span>}\n-      </form>\n-      <Cancel\n-        className=\"registerCancel\"\n-        onClick={() => setShowRegister(false)}\n-      />\n-    </div>\n-  );\n-}\n"
+                },
+                {
+                    "date": 1633861688168,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n       password: passwordRef.current.value,\n     };\n \n     try {\n-      await axios.post(\"http://localhost:8070/api/map_users\", newUser);\n+      await axios.post(\"http://localhost:8070/users/register\", newUser);\n       setError(false);\n       setSuccess(true);\n     } catch (err) {\n       setError(true);\n"
+                },
+                {
+                    "date": 1633862020630,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n       password: passwordRef.current.value,\n     };\n \n     try {\n-      await axios.post(\"http://localhost:8070/users/register\", newUser);\n+      await axios.post(\"http://localhost:8070/api/users/register\", newUser);\n       setError(false);\n       setSuccess(true);\n     } catch (err) {\n       setError(true);\n"
+                }
+            ],
+            "date": 1633860487401,
+            "name": "Commit-0",
+            "content": "import { Cancel, Room } from \"@material-ui/icons\";\nimport axios from \"axios\";\nimport { useRef, useState } from \"react\";\nimport \"./register.css\";\n\nexport default function Register({ setShowRegister }) {\n  const [success, setSuccess] = useState(false);\n  const [error, setError] = useState(false);\n  const usernameRef = useRef();\n  const emailRef = useRef();\n  const passwordRef = useRef();\n\n  const handleSubmit = async (e) => {\n    e.preventDefault();\n    const newUser = {\n      username: usernameRef.current.value,\n      email: emailRef.current.value,\n      password: passwordRef.current.value,\n    };\n\n    try {\n      await axios.post(\"http://localhost:8070/users/register\", newUser);\n      setError(false);\n      setSuccess(true);\n    } catch (err) {\n      setError(true);\n    }\n  };\n  return (\n    <div className=\"registerContainer\">\n      <div className=\"logo\">\n        <Room className=\"logoIcon\" />\n        <span>LamaPin</span>\n      </div>\n      <form onSubmit={handleSubmit}>\n        <input autoFocus placeholder=\"username\" ref={usernameRef} />\n        <input type=\"email\" placeholder=\"email\" ref={emailRef} />\n        <input\n          type=\"password\"\n          min=\"6\"\n          placeholder=\"password\"\n          ref={passwordRef}\n        />\n        <button className=\"registerBtn\" type=\"submit\">\n          Register\n        </button>\n        {success && (\n          <span className=\"success\">Successfull. You can login now!</span>\n        )}\n        {error && <span className=\"failure\">Something went wrong!</span>}\n      </form>\n      <Cancel\n        className=\"registerCancel\"\n        onClick={() => setShowRegister(false)}\n      />\n    </div>\n  );\n}\n"
+        }
+    ]
+}

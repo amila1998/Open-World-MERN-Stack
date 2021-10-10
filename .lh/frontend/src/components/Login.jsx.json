@@ -1,0 +1,54 @@
+{
+    "sourceFile": "frontend/src/components/Login.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 9,
+            "patches": [
+                {
+                    "date": 1633860494420,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1633860861998,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n       username: usernameRef.current.value,\n       password: passwordRef.current.value,\n     };\n     try {\n-      const res = await axios.post(\"http://localhost:8070/users/login\", user);\n+      const res = await axios.post(\"http://localhost:8070//api/\", user);\n       setCurrentUsername(res.data.username);\n       myStorage.setItem('user', res.data.username);\n       setShowLogin(false)\n     } catch (err) {\n"
+                },
+                {
+                    "date": 1633860878241,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n       username: usernameRef.current.value,\n       password: passwordRef.current.value,\n     };\n     try {\n-      const res = await axios.post(\"http://localhost:8070//api/\", user);\n+      const res = await axios.post(\"http://localhost:8070/api/users\", user);\n       setCurrentUsername(res.data.username);\n       myStorage.setItem('user', res.data.username);\n       setShowLogin(false)\n     } catch (err) {\n"
+                },
+                {
+                    "date": 1633860975905,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n       username: usernameRef.current.value,\n       password: passwordRef.current.value,\n     };\n     try {\n-      const res = await axios.post(\"http://localhost:8070/api/users\", user);\n+      const res = await axios.post(\"/users/login\", user);\n       setCurrentUsername(res.data.username);\n       myStorage.setItem('user', res.data.username);\n       setShowLogin(false)\n     } catch (err) {\n"
+                },
+                {
+                    "date": 1633861035185,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n       username: usernameRef.current.value,\n       password: passwordRef.current.value,\n     };\n     try {\n-      const res = await axios.post(\"/users/login\", user);\n+      const res = await axios.post(\"http://localhost:8070/users/login\", user);\n       setCurrentUsername(res.data.username);\n       myStorage.setItem('user', res.data.username);\n       setShowLogin(false)\n     } catch (err) {\n"
+                },
+                {
+                    "date": 1633861554510,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n       username: usernameRef.current.value,\n       password: passwordRef.current.value,\n     };\n     try {\n-      const res = await axios.post(\"http://localhost:8070/users/login\", user);\n+      const res = await axios.post(\"http://localhost:8070/map_users/login\", user);\n       setCurrentUsername(res.data.username);\n       myStorage.setItem('user', res.data.username);\n       setShowLogin(false)\n     } catch (err) {\n"
+                },
+                {
+                    "date": 1633861630909,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n       username: usernameRef.current.value,\n       password: passwordRef.current.value,\n     };\n     try {\n-      const res = await axios.post(\"http://localhost:8070/map_users/login\", user);\n+      const res = await axios.post(\"http://localhost:8070/api/map_users\", user);\n       setCurrentUsername(res.data.username);\n       myStorage.setItem('user', res.data.username);\n       setShowLogin(false)\n     } catch (err) {\n"
+                },
+                {
+                    "date": 1633861678716,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n       username: usernameRef.current.value,\n       password: passwordRef.current.value,\n     };\n     try {\n-      const res = await axios.post(\"http://localhost:8070/api/map_users\", user);\n+      const res = await axios.post(\"http://localhost:8070/map_users/login\", user);\n       setCurrentUsername(res.data.username);\n       myStorage.setItem('user', res.data.username);\n       setShowLogin(false)\n     } catch (err) {\n"
+                },
+                {
+                    "date": 1633861970302,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n       username: usernameRef.current.value,\n       password: passwordRef.current.value,\n     };\n     try {\n-      const res = await axios.post(\"http://localhost:8070/map_users/login\", user);\n+      const res = await axios.post(\"http://localhost:8070//api/users\", user);\n       setCurrentUsername(res.data.username);\n       myStorage.setItem('user', res.data.username);\n       setShowLogin(false)\n     } catch (err) {\n"
+                },
+                {
+                    "date": 1633862008739,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n       username: usernameRef.current.value,\n       password: passwordRef.current.value,\n     };\n     try {\n-      const res = await axios.post(\"http://localhost:8070//api/users\", user);\n+      const res = await axios.post(\"http://localhost:8070/api/users/login\", user);\n       setCurrentUsername(res.data.username);\n       myStorage.setItem('user', res.data.username);\n       setShowLogin(false)\n     } catch (err) {\n"
+                }
+            ],
+            "date": 1633860494420,
+            "name": "Commit-0",
+            "content": "import { Cancel, Room } from \"@material-ui/icons\";\nimport axios from \"axios\";\nimport { useRef, useState } from \"react\";\nimport \"./login.css\";\n\nexport default function Login({ setShowLogin, setCurrentUsername,myStorage }) {\n  const [error, setError] = useState(false);\n  const usernameRef = useRef();\n  const passwordRef = useRef();\n\n  const handleSubmit = async (e) => {\n    e.preventDefault();\n    const user = {\n      username: usernameRef.current.value,\n      password: passwordRef.current.value,\n    };\n    try {\n      const res = await axios.post(\"http://localhost:8070/users/login\", user);\n      setCurrentUsername(res.data.username);\n      myStorage.setItem('user', res.data.username);\n      setShowLogin(false)\n    } catch (err) {\n      setError(true);\n    }\n  };\n\n  return (\n    <div className=\"loginContainer\">\n      <div className=\"logo\">\n        <Room className=\"logoIcon\" />\n        <span>LamaPin</span>\n      </div>\n      <form onSubmit={handleSubmit}>\n        <input autoFocus placeholder=\"username\" ref={usernameRef} />\n        <input\n          type=\"password\"\n          min=\"6\"\n          placeholder=\"password\"\n          ref={passwordRef}\n        />\n        <button className=\"loginBtn\" type=\"submit\">\n          Login\n        </button>\n        {error && <span className=\"failure\">Something went wrong!</span>}\n      </form>\n      <Cancel className=\"loginCancel\" onClick={() => setShowLogin(false)} />\n    </div>\n  );\n}\n"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+pk.eyJ1IjoiaGFyc2hha3Vua3VtYTk4IiwiYSI6ImNrdGNzYTFsYzI4bjYydmxhOXVuOTF3M2QifQ.XgV8mwRusVduFE_coYD2yg
+
+
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+
+
+
+
+var mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
+
+mapboxgl.accessToken = 'pk.eyJ1IjoiaGFyc2hha3Vua3VtYTk4IiwiYSI6ImNrdGNzYTFsYzI4bjYydmxhOXVuOTF3M2QifQ.XgV8mwRusVduFE_coYD2yg';
+var map = new mapboxgl.Map({
+  container: 'YOUR_CONTAINER_ELEMENT_ID',
+  style: 'mapbox://styles/mapbox/streets-v11'
+});
+
+
+
