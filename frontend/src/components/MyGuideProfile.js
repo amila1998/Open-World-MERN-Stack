@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import axios from "axios";
+import { signout } from '../actions/userAction';
+
  
 export default class MyGuideProfile extends Component {
  userData;
@@ -31,6 +33,8 @@ export default class MyGuideProfile extends Component {
     axios.delete(`http://localhost:8070/guideR/delete/${id}/${uid}`).then((res)=>{
       alert("Guide Details Delete SuccessFully");
       //localStorage.removeItem('userInfo');
+      
+      //store.dispatch(signout({}));
       window.location.replace('/');
      
     })

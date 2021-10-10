@@ -228,10 +228,18 @@ router.delete('/delete/:id/:uid',(req,res)=>{
         if(err) return res.status(400).json({
           message:"Guide Data Delete unsuccesful",err
         });
+    User.findOneAndUpdate({_id:req.params.uid}, {$set:{isGuide:"false"}}, {new: true}, (err, doc) => {
+            if (err) {
+                console.log("Something wrong when updating data!");
+            }
+        
+            console.log(doc);
+        });
         return res.json({
             message:"Guide data Delete succesful",deleteguide
         });
     });
+   
 });
 
 

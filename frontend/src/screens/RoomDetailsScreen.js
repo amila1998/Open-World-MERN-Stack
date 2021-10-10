@@ -98,21 +98,29 @@ export default function RoomDetailsScreen(props){
         alert("Please Select Booking Date Range In Calender");
       }else{
         if(roomwithdays.room.avalability){
-          dispatch(createHotelbooking(
-            hotelId,
-            roomId,
-            startDate,
-            endDate,
-            roomwithdays.room.price*bookingDayCount,
-            message,
-            userInfo._id,
-            ));
-            if(successCreate){
-              alert("Booking Success");
-              props.history.push(`/payment/${hotelbook._id}`);
+          
+
+            var today = new Date();
+            //var todaydate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+            if(startDate !== today ){
+              dispatch(createHotelbooking(
+                hotelId,
+                roomId,
+                startDate,
+                endDate,
+                roomwithdays.room.price*bookingDayCount,
+                message,
+                userInfo._id,
+                ));
+                
+                  alert("Booking Success");
+                  props.history.push(`/payment/${hotelbook._id}`);
             }else{
-              alert("Booking not Success");
+              alert("can't book Today");
             }
+
+         
+           
         }else{
           alert("This room is Unavailable");
         }
