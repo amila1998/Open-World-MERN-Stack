@@ -72,6 +72,14 @@ import AdventureOne from './components/adventureOne';
 import adminbooking from './components/adminbooking';
 import adventureadd from './components/adventureadd';
 
+import Vehicle from './components/Vehicle';
+import vbookings from './components/vbookings';
+import VehicleHomeScreen from './components/VehicleHomeScreen';
+import CreateVehicle from './components/CreateVehicle';
+import CreateV_bookings from './components/CreateV_bookings';
+import EditVehicle from './components/EditVehicle';
+import VehicleScreen from './components/VehicleScreen';
+
 
 
 
@@ -97,6 +105,21 @@ function App() {
       <Navigation/>
      
       <main>
+
+
+
+      <br/>
+        <br/>
+
+      
+        <Route path="/vehicle" exact component={Vehicle}></Route>
+      <Route path="/vbookings" exact component={vbookings}></Route>
+      <Route path="/VehicleHomeScreen" exact component={VehicleHomeScreen}></Route>
+      <Route path="/CreateVehicle" exact component={CreateVehicle}></Route>
+      <Route path="/CreateV_bookings" exact component={CreateV_bookings}></Route>
+      <Route path="/EditVehicle/:id" exact component={EditVehicle}></Route>
+      <Route path="/VehicleScreen/:id" exact component={VehicleScreen}></Route>
+
 
       <Switch>
           <Route path="/one_adventures/:id" component={ AdventureOne }></Route>

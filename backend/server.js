@@ -35,6 +35,13 @@ const uploadRouter =require("./routes/uploadRouter.js");
 app.use('/api/uploads', uploadRouter);
 
 
+const vbookingRoutes = require('./routes/vbookings.js');
+app.use(vbookingRoutes);
+
+const vehicleRoutes = require('./routes/vehicles.js');
+app.use(vehicleRoutes);
+
+
 
 const hotelRouter =require("./routes/hotelsRouter.js");
 app.use("/hotelR",hotelRouter);
@@ -94,3 +101,4 @@ app.listen(PORT,()=>{
 })
 
 
+app.use(express.static('RV_image'))
