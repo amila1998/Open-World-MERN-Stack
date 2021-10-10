@@ -13,7 +13,7 @@ import SubMenu from './HotelServiceProviderSubMenu';
 const SidebarNav = styled.nav`
   background: #15171c;
   width: 95%;
-  height: 100%;
+  height: 95vh;
   display: flex;
   justify-content: center;
  

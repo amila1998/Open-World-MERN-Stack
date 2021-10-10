@@ -17,6 +17,9 @@ const {
     HOTEL_DELETE_SUCCESS,
     HOTEL_DELETE_FAIL,
     HOTEL_DELETE_RESET,
+    HOTEL_LISTFORHSP_REQUEST,
+    HOTEL_LISTFORHSP_SUCCESS,
+    HOTEL_LISTFORHSP_FAIL,
   } = require('../constants/hotelConstants');
   
   export const hotelListReducer = (state = { loading: true }, action) => {
@@ -26,6 +29,20 @@ const {
       case HOTEL_LIST_SUCCESS:
         return { loading: false, hotels: action.payload };
       case HOTEL_LIST_FAIL:
+        return { loading: false, error: action.payload };
+      default:
+        return state;
+    }
+  };
+
+
+  export const hotelListforhspReducer = (state = { loading: true }, action) => {
+    switch (action.type) {
+      case HOTEL_LISTFORHSP_REQUEST:
+        return { loading: true };
+      case HOTEL_LISTFORHSP_SUCCESS:
+        return { loading: false, hotels: action.payload };
+      case HOTEL_LISTFORHSP_FAIL:
         return { loading: false, error: action.payload };
       default:
         return state;

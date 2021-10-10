@@ -19,7 +19,7 @@ export default function HotelsScreen(props){
    
   }, [dispatch]);
     return(
-        <div>
+        <div className="pageBody">
           {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (

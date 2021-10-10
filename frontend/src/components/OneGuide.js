@@ -98,7 +98,7 @@ const OneGuide = (props) => {
           <center>
     <ul> 
           <button type='submit' class='btn btn-primary'style={{width:'150px'}}>
-            <Link to='/' style={{ textDecoration: 'none', color: 'white' }}>
+            <Link to='/guides' style={{ textDecoration: 'none', color: 'white' }}>
               Back
             </Link>
           </button>

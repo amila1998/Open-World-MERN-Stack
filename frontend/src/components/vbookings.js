@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import '../vehicleDetails.css';
-import '../RV_booking.css';
-
+import '../styles/vehicleDetails.css';
+import '../styles/RV_booking.css';
 
 export default class vbookings extends Component {
 

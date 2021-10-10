@@ -33,6 +33,7 @@ roomRouter.route("/addroom/:HID").post(async(req, res)=>{
       hotel:hotelId,
       category:req.body.category,
       description:req.body.description,
+      avalability:req.body.avalability,
     };
     
     hotel.rooms.push(room);
@@ -176,6 +177,9 @@ roomRouter.route("/:hotelid/deleteRoom/:Roomid").delete(async (req, res) => {
           if(room){
             room.roomname = req.body.roomname;
             room.price = req.body.price;
+            room.description=req.body.description ;
+            room.category=req.body.category; 
+            room.avalability=req.body.avalability;
             
             const updatedRoom = await room.save();
             hotel.save();
