@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from 'react-redux';
 //import { listRooms } from '../actions/roomAction';
 import { listHotels } from '../actions/hotelActions';
 
-
 export default function RoomsScreen(){
   const dispatch = useDispatch();
   const hotelList = useSelector((state) => state.hotelList);

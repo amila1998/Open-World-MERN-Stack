@@ -28,13 +28,13 @@ const deleteHandler = (userId) => {
   }
 };
   return (
-    <div >
+    <div className="pageBody">
           <div id="split1">
       <div id="left1">
           <Sidebar/>
         </div>
         
-            <div class="right1 pageBody">
+            <div class="right1">
             <h1>Users</h1>
       {loadingDelete && <LoadingBox></LoadingBox>}
       {errorDelete && <MessageBox variant="danger">{errorDelete}</MessageBox>}

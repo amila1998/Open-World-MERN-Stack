@@ -61,7 +61,7 @@ const EditGuide = ()=>{
  const onSubmit=async e =>{
      e.preventDefault();
      await axios.put(`http://localhost:8070/guideR/update/${id}`,guide);
-     history.push(`/guideProfile`);
+     history.push(`/guideProfile/${id}`);
      alert(" Successfully Updated Guide Details")
  }
 
@@ -124,8 +124,8 @@ const EditGuide = ()=>{
          value={age}
          onChange={e=>onInputChange(e)}
          required/>
-  <label style={{fontSize:'10px'}}
-         for="floatingInput">Age</label>
+  <label 
+         for="floatingInput">Guide Age</label>
   </div>
  
   <div class="form-floating mb-3">
@@ -133,13 +133,12 @@ const EditGuide = ()=>{
          type="text" 
          class="form-control" 
          id="floatingInput" 
-         style={{fontSize:'10px'}}
          placeholder="Enter Phone Number"
          name="phone"
          value={phone}
          onChange={e=>onInputChange(e)}
          required/>
-  <label style={{fontSize:'10px'}}
+  <label 
          for="floatingInput">Phone Number</label>
   </div>
 
@@ -156,7 +155,7 @@ const EditGuide = ()=>{
          disabled
          required
         />
-  <label style={{fontSize:'10px'}}
+  <label 
          for="floatingInput">Email Address</label>
   </div>
 

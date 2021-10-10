@@ -47,30 +47,13 @@ import TouristDetails from './screens/TouristDetails';
 import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
 import HSPRegistrationScreen from './screens/HSPRegistrationScreen';
-
-import Feature from './screens/Feature';
-import AboutUsScreen from './screens/AboutUsScreen';
-
-import MyBookingsScreen from './screens/MyBookingsScreen';
-import HSPDashBoardScreen from './screens/HSPDashBoardScreen';
-import MyHotelsScreen from './screens/MyHotelsScreen';
-import MyRoomList from './screens/MyRoomLists';
-import HSPRoomAddScreen from './screens/HSPRoomAddScreen';
-import HSPRoomEditScreen from './screens/HSPRoomEditScreen';
-import HSPHotelEditScreen from './screens/HSPHotelEditScreen';
-import cart from './components/cart';
-import app from './creditcard/app';
-import mypaymentDetails from './screens/mypaymentDetails';
-import HotelRoomBookingpayment from './components/HotelRoomBookingpayment';
-import HotelRoomBookingpaymentList from './components/mypay';
-
-
-import Adventure from './components/adventure';
-import Booking from './components/Booking';
-import AdventureList from './components/adventureList';
-import AdventureOne from './components/adventureOne';
-import adminbooking from './components/adminbooking';
-import adventureadd from './components/adventureadd';
+import Vehicle from './components/Vehicle';
+import vbookings from './components/vbookings';
+import VehicleHomeScreen from './components/VehicleHomeScreen';
+import CreateVehicle from './components/CreateVehicle';
+import CreateV_bookings from './components/CreateV_bookings';
+import EditVehicle from './components/EditVehicle';
+import VehicleScreen from './components/VehicleScreen';
 
 
 
@@ -95,37 +78,28 @@ function App() {
       
       
       <Navigation/>
-     
       <main>
+      <br/>
+        <br/>
 
-      <Switch>
-          <Route path="/one_adventures/:id" component={ AdventureOne }></Route>
-          <Route path="/AdventureList" component={ AdventureList }></Route>
-          <Route path="/Booking/:id" component={ Booking }></Route>
-          <Route path="/adminbooking" component={ adminbooking }></Route>
-          <Route path="/adventureadd" component={ adventureadd }></Route>
-          <Route path="/Adventure" component={ Adventure }></Route>
-        </Switch>
+      
+        <Route path="/vehicle" exact component={Vehicle}></Route>
+      <Route path="/vbookings" exact component={vbookings}></Route>
+      <Route path="/VehicleHomeScreen" exact component={VehicleHomeScreen}></Route>
+      <Route path="/CreateVehicle" exact component={CreateVehicle}></Route>
+      <Route path="/CreateV_bookings" exact component={CreateV_bookings}></Route>
+      <Route path="/EditVehicle/:id" exact component={EditVehicle}></Route>
+      <Route path="/VehicleScreen/:id" exact component={VehicleScreen}></Route>
 
 
 
-
-      <Route path="/aboutus"exact component={AboutUsScreen}></Route>
-      <Route path="/feature" exact component={Feature}></Route>
+      
+      
       <Route path="/hspRegister" exact component={HSPRegistrationScreen}></Route>
 
       <Route path="/ServiseProviderLogingCategory" exact component={ServiceProviderLoginCategoryScreen}></Route>
-
-      <PrivateRoute path="/myBookings" exact  component={MyBookingsScreen}></PrivateRoute>
-
     <PrivateRoute path="/guideRegister" exact  component={GuideRegister}></PrivateRoute>
     <Route path="/guidelogin" exact  component={GuideSigninScreen}></Route>
-
-
-
-
-
-
 
 
       <Route path="/hotels" exact component={HotelsScreen}></Route>
@@ -137,48 +111,35 @@ function App() {
       <Route path="/hotel/hotelDetails/:Htlid"  component={HotelDetailsScreen} exact></Route>
       <AdminRoute
             path="/hotel/hotelDetails/:Htlid/edit"
-            exact  component={HotelEditScreen}
+            component={HotelEditScreen}
             
           ></AdminRoute>
-
-      
-        <HotelServiceProviderRoute
-            path="/hotel/hotelDetails/:Htlid/edit/hsp"
-            exact  component={HSPHotelEditScreen}
-            
-          ></HotelServiceProviderRoute>
       
         
       <Route path="/:hotelId/roomDetails/:roomId" exact component={RoomDetailsScreen}></Route>
-      <AdminRoute path="/addARoom/:hotelId" exact  component={RoomAddScreen}></AdminRoute>
+      <AdminRoute path="/addARoom/:hotelId"  component={RoomAddScreen}></AdminRoute>
       <AdminRoute path="/room/:hotelId/roomDetails/:roomId/edit" exact component={RoomEditScreen}></AdminRoute>
-      <AdminRoute path="/roomlist/:hotelId" exact  component={RoomList}></AdminRoute>
+      <AdminRoute path="/roomlist/:hotelId"  component={RoomList}></AdminRoute>
+      <Route path="/register" component={RegisterScreen}></Route>
+      <Route path="/signin" component={SigninScreen}></Route>
       
-      <HotelServiceProviderRoute path="/addARoom/:hotelId/hsp" exact component={HSPRoomAddScreen}></HotelServiceProviderRoute>
-      <HotelServiceProviderRoute path="/room/:hotelId/roomDetails/:roomId/edit/hsp" exact component={HSPRoomEditScreen}></HotelServiceProviderRoute>
-      <HotelServiceProviderRoute path="/myroomlist/:hotelId" exact  component={MyRoomList}></HotelServiceProviderRoute>
-
-      <Route path="/register" exact component={RegisterScreen}></Route>
-      <Route path="/signin" exact component={SigninScreen}></Route>
-      
-      <Route path="/settings" exact component={Settings}></Route>
+      <Route path="/settings" component={Settings}></Route>
 
       <Switch>
 
       <AdminRoute path="/HotelManagement" exact component={AdminHotelManagement}></AdminRoute>
       <AdminRoute path="/HotelManagement/hotellist" exact component={HotelList}></AdminRoute>
-      <AdminRoute path="/UserManagement/userlist" exact component={UserListScreen}></AdminRoute>
-      <AdminRoute path="/PaymentManagement/cardslist" exact component={cart}/>
-      <AdminRoute path="/PaymentManagement/HotelRoomBookingpayment" exact component={HotelRoomBookingpaymentList}/>
+      <AdminRoute path="/UserManagement/userlist" component={UserListScreen}></AdminRoute>
       
+
       </Switch>
 
       
       <Switch>
 
-      <HotelServiceProviderRoute path="/hspProfile" exact component={HSPDashBoardScreen}></HotelServiceProviderRoute>
-      <HotelServiceProviderRoute path="/myHotels" exact component={MyHotelsScreen}></HotelServiceProviderRoute>
-      <HotelServiceProviderRoute path="/bookingList/hotelSP" exact component={UserListScreen}></HotelServiceProviderRoute>
+      <HotelServiceProviderRoute path="/HotelSPDashBoard" exact component={AdminHotelManagement}></HotelServiceProviderRoute>
+      <HotelServiceProviderRoute path="/hotellist/hotelSP" exact component={HotelList}></HotelServiceProviderRoute>
+      <HotelServiceProviderRoute path="/bookingList/hotelSP" component={UserListScreen}></HotelServiceProviderRoute>
       
 
       </Switch>
@@ -193,37 +154,31 @@ path="/myGuideprofileConformation" exact component={MyGuideprofileConformation}/
       <PrivateRoute
      
             path="/UpdateUserProfile"
-            exact   component={UpdateUserProfile}
+            component={UpdateUserProfile}
           ></PrivateRoute>
-          <PrivateRoute path="/mypaymentDetails" exact component={mypaymentDetails}/>
-          <PrivateRoute path="/addanewcard" exact component={app}/>
           <PrivateRoute
             path="/profile"
-            exact   component={UserProfile}
+            component={UserProfile}
           ></PrivateRoute>
-
-        <PrivateRoute path="/payment/:hbid" exact component={HotelRoomBookingpayment}/>
-
-
-
-
-
 
         <HotelServiceProviderRoute
             path="/ServiceProviderDashboard"
-            exact  component={ServiceProviderDashboardScreen}
+            component={ServiceProviderDashboardScreen}
       ></HotelServiceProviderRoute>
-    
+      <HotelServiceProviderRoute
+            path="/hotellist"
+            component={HotelList}
+      ></HotelServiceProviderRoute>
       
       <AdminRoute
             path="/adminDashboard"
-            exact    component={AdminDashboardScreen}
+            component={AdminDashboardScreen}
       ></AdminRoute>
-      <AdminRoute path="/user/:id/edit" exact  component={UserEditScreen}></AdminRoute>
+      <AdminRoute path="/user/:id/edit"  component={UserEditScreen}></AdminRoute>
         
       <Route path="/" exact component={HomeScreen}></Route>
       </main>
-      <footer className="mt-auto">All right reserved</footer>
+      <footer className="mt-auto"><center>All right reserved</center></footer>
     </div>
     </BrowserRouter>
     </div>

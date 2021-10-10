@@ -16,9 +16,6 @@ import {
   HOTEL_DELETE_REQUEST,
   HOTEL_DELETE_FAIL,
   HOTEL_DELETE_SUCCESS,
-  HOTEL_LISTFORHSP_REQUEST,
-  HOTEL_LISTFORHSP_SUCCESS,
-  HOTEL_LISTFORHSP_FAIL,
 } from '../constants/hotelConstants';
 
 export const listHotels = () => async (dispatch) => {
@@ -35,13 +32,13 @@ export const listHotels = () => async (dispatch) => {
 
 export const listHotelsforhsp = (userId) => async (dispatch) => {
   dispatch({
-    type: HOTEL_LISTFORHSP_REQUEST,
+    type: HOTEL_LIST_REQUEST,
   });
   try {
     const { data } = await Axios.get(`http://localhost:8070/hotelR/displayAllforHSP/${userId}`);
-    dispatch({ type: HOTEL_LISTFORHSP_SUCCESS, payload: data });
+    dispatch({ type: HOTEL_LIST_SUCCESS, payload: data });
   } catch (error) {
-    dispatch({ type: HOTEL_LISTFORHSP_FAIL, payload: error.message });
+    dispatch({ type: HOTEL_LIST_FAIL, payload: error.message });
   }
 };
 
@@ -58,8 +55,6 @@ export const detailHotel = (hotelId) => async(dispatch) => {
   }
 };
 
-
-
 export const createHotel = () => async (dispatch, getState) => {
   dispatch({ type: HOTEL_CREATE_REQUEST });
   const {
@@ -67,7 +62,7 @@ export const createHotel = () => async (dispatch, getState) => {
   } = getState();
   try {
     const { data } = await Axios.post(
-      `http://localhost:8070/hotelR/add/${userInfo._id}`,
+      'http://localhost:8070/hotelR/add',
       {},
       {
         headers: { Authorization: `Bearer ${userInfo.token}` },

@@ -16,10 +16,7 @@ export default function RoomEditScreen(props) {
   const roomId = props.match.params.roomId;
   
   const [roomname, setRoomName] = useState('');
-  const [description, setDescription] = useState('');
-  const [category, setCategory] = useState('');
   const [price, setPrice] = useState('');
-  const [avalability, setAvalability] = useState('');
  
   
 
@@ -53,9 +50,6 @@ export default function RoomEditScreen(props) {
     } else {
       setRoomName(room.roomname);
       setPrice(room.price)
-      setDescription(room.description);
-      setCategory(room.category);
-      setAvalability(room.avalability);
      
     }
   }, [room, dispatch, hotelId,roomId, successUpdate, props.history]);
@@ -67,10 +61,7 @@ export default function RoomEditScreen(props) {
           hotel:hotelId,
           _id: roomId,
           roomname,
-          price,
-          description,
-          category,
-          avalability,
+          price
 
 
 
@@ -107,7 +98,7 @@ export default function RoomEditScreen(props) {
 
  
   return (
-    <div className="pageBody">
+    <div>
          {loadingUpdate && <LoadingBox></LoadingBox>}
         {errorUpdate && <MessageBox variant="danger">{errorUpdate}</MessageBox>}
         {loading ? (
@@ -118,11 +109,11 @@ export default function RoomEditScreen(props) {
           <>
       <form className="form" onSubmit={submitHandler}>
         <div>
-          <h1>Edit Room {hotelId}</h1>
+          <h1>Edit Hotel {hotelId}</h1>
         </div>
      
             <div>
-              <label htmlFor="name">Room Name</label>
+              <label htmlFor="name">Name</label>
               <input
                 id="name"
                 type="text"
@@ -132,45 +123,7 @@ export default function RoomEditScreen(props) {
               ></input>
             </div>
             <div>
-              <label htmlFor="avalability">Avalability</label>
-              <input
-                id="avalability"
-                type="checkbox"
-                checked={avalability}
-                onChange={(e) => setAvalability(e.target.checked)}
-              ></input>
-            </div>
-            <div>
-          <label htmlFor="name">Description</label>
-          <textarea 
-            type="text"
-            id="description"
-            placeholder="Enter Description"
-            required
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          ></textarea >
-        </div>
-        <div>
-          <label htmlFor="category">Category</label>
-          <select id="category"
-        onChange={(e) => {
-          setCategory(e.target.value);
-        }}
-      >
-        <option value='Single'>Single: A room assigned to one person.</option>
-        <option value='Double'>Double: A room assigned to two people.</option>
-        <option value='Triple'>Triple: A room assigned to three people.</option>
-        <option value='Quad'>Quad: A room assigned to four people.</option>
-        <option value='Queen'>Queen: A room with a queen-sized bed.</option>
-        <option value='Queen'>King: A room with a king-sized bed. </option>
-        <option value='Twin'>Twin: A room with two beds.</option>
-        <option value='Double-double'>Double-double: A room with two double (or perhaps queen) beds.</option>
-        <option value='Studio'>Studio: A room with a studio bed – a couch that can be converted into a bed. May also have an additional bed</option>
-      </select>
-        </div>
-            <div>
-              <label htmlFor="name">Room Price pre Day price</label>
+              <label htmlFor="name">price</label>
               <input
                 id="price"
                 type="number"

@@ -17,7 +17,6 @@ const bookedHotelRoomSchema = new Schema({
    paidprice:{type:Number},
    message:{type: String},
    userID:{type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-   hotelOwner:{type: mongoose.Schema.Types.ObjectId, ref: 'User'},
    
     
     

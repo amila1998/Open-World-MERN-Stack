@@ -1,0 +1,216 @@
+body {background-color: #455F51;}
+
+#but{
+  margin-left: 200px;
+  height: 40px;
+  padding: 5px 6px;
+}
+
+#search{
+  margin-left: 350px;
+  width: 400px;
+  height: 40px;
+}
+
+#search1{
+  margin-left: 450px;
+  width: 500px;
+  height: 40px;
+}
+#search2{
+  margin-left: 50px;
+  width: 300px;
+  height: 40px;
+}
+.container{
+  
+  max-width: auto;
+  min-height: auto;
+  width: auto;
+  background-color: rgb(255, 253, 253);
+  padding: 5px 6px;
+  border-radius: 6px;
+}
+
+
+#VS-main {
+    background-color: rgb(255, 255, 255);
+    height: 1070px;
+  
+  }
+  
+  #RV-slider-booking {
+    background-color: rgb(255, 255, 255);
+    width: 800px;
+    float:left;
+    height: 950px;
+  }
+  
+  #RV-details-add {
+    background-color: rgb(255, 255, 255);
+    height: auto;
+    margin-left: auto;
+  }
+  
+  #RV-slider{
+    background-color: rgb(255, 255, 255);
+    height: auto;
+    
+  }
+  
+  #RV-booking{
+    background-color: rgb(255, 255, 255);
+    height: 200px;
+  }
+  
+  #RV-details {
+    background-color: rgb(255, 255, 255);
+    height: auto;
+    
+  }
+  
+  #RV-add {
+    background-color: rgb(255, 255, 255);
+    height: auto;
+  }
+
+  
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .row.center {
+    justify-content: center;
+  }
+
+  /*image*/
+  img {
+    border-radius: 0.5rem;;
+  }
+  img.medium {
+    max-width: 20rem;
+    width: 100%;
+  }
+
+  #bigimg{
+    border-radius: 0.5rem;
+    max-width: 60rem;
+    width: 100%;
+  }
+
+  #add{
+    border-radius: 0.5rem;
+    max-width: 35rem;
+    width: 100%;
+    padding: 5px 6px;
+  }
+
+  #add1{
+    border-radius: 0.5rem;
+    margin-left: 160px;
+    max-width: 50rem;
+    width: 100%;
+    padding: 2px 10px;
+  }
+
+  #add3{
+    border-radius: 0.5rem;
+    max-width: 50rem;
+    width: 100%;
+    padding: 10px 10px;
+  }
+
+  /*vehiclecard*/
+  .vehiclecard{
+      border:0.1rem #7e7878 solid;
+      background-color: #ffffff;
+      border-radius: 0.8rem;
+      margin: 1rem;
+      width: auto;
+      max-width: 100rem;
+  }
+  .vehiclecardbody{
+      padding: 0.5rem;
+  }
+  .vehiclecardbody > *{
+      margin-bottom: 0rem;
+  }
+  #homecl{
+    background-color: #fdfffe;
+  }
+  .price{
+      font-size: 1.5rem;
+  }
+  .headname{
+    font-size:2rem;
+  }
+
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .desc {
+    padding: 15px;
+    text-align: center;
+  }
+
+
+
+ 
+ 
+  
+  .overlay {
+    position: absolute;
+    height: auto;
+    width: auto;
+    opacity: 0;
+    transition: .5s ease;
+  }
+  
+  .containerx:hover .overlay {
+    opacity: 1;
+  }
+  
+  .centered {
+    position: absolute;
+    top: 36%;
+    left: 38.5%;
+    transform: translate(-50%, -50%);
+  }
+
+  #arrow{
+      border:0.1rem #f8f4f4 ;
+      border-radius: 0.8rem;
+      margin: 1rem;
+      max-height: 50rem;
+      max-width: 15rem;
+  }
+
+  #h66 {
+    font-size: 25px;
+  }
+
+  #h666 {
+    font-size: 20px;
+  }
+
+  .formcontrol{
+    width: 70rem;
+  }

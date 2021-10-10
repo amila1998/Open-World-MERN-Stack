@@ -7,7 +7,7 @@ import MessageBox from '../components/MessageBox';
 
 export default function HSPRegistrationScreen(props) {
 
-  const userSignin = useSelector((state) => state.userSignin);
+    const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
 
     const [firstname, setfirstname] = useState('');
@@ -28,9 +28,9 @@ export default function HSPRegistrationScreen(props) {
       e.preventDefault();
       
         dispatch(registerhsp(firstname, lastname, logo,description,userInfo._id));
-       
-        signout();
-      
+        if(hsp){
+            signout();
+        }
       
     };
     useEffect(() => {
@@ -41,7 +41,7 @@ export default function HSPRegistrationScreen(props) {
 
 
     return (
-        <div className="pageBody">
+        <div>
             <form className="form" onSubmit={submitHandler}>
         <div>
           <h1>Create Tourist Account</h1>

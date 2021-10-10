@@ -2,10 +2,10 @@ import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { guideSigninReducer } from './reducers/guideReducers';
 
-import { hotelBookingCreateReducer, hotelBookingDaysReducer, hotelBookingDetailsReducer, myhotelBookingListReducer } from './reducers/hotelbookingReducers';
+import { hotelBookingCreateReducer, hotelBookingDaysReducer, hotelBookingDetailsReducer } from './reducers/hotelbookingReducers';
 
-import { hotelCreateReducer, hotelDeleteReducer, hotelDetailsReducer, hotelListforhspReducer, hotelListReducer, hotelUpdateReducer } from './reducers/hotelReducers';
-import { hspDetailsReducer, hspRegisterReducer, hspUpdateProfileReducer } from './reducers/hotelSPReducers';
+import { hotelCreateReducer, hotelDeleteReducer, hotelDetailsReducer, hotelListReducer, hotelUpdateReducer } from './reducers/hotelReducers';
+import { hspRegisterReducer } from './reducers/hotelSPReducers';
 import { roomCreateReducer, roomDeleteReducer, roomDetailseWithdaysReducer, roomDetailsReducer, roomListReducer, roomUpdateReducer } from './reducers/roomReducers';
 import { userRegisterReducer, userSigninReducer, userDetailsReducer, userUpdateProfileReducer, userListReducer, userDeleteReducer, userUpdateReducer } from './reducers/userReducers';
 
@@ -30,12 +30,8 @@ const reducer = combineReducers({
   HotelbookingCreate:hotelBookingCreateReducer,
   hotelBookingDays:hotelBookingDaysReducer,
   roomdetailwithdays:roomDetailseWithdaysReducer,
-  listHotelbookingmy:myhotelBookingListReducer,
 
   hspRegister:hspRegisterReducer,
-  hspDetails:hspDetailsReducer,
-  hspUpdateProfile:hspUpdateProfileReducer,
-  hotelListforhsp:hotelListforhspReducer,
   
   roomList:roomListReducer,
   roomCreate:roomCreateReducer,

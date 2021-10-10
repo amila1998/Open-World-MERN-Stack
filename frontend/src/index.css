@@ -12,8 +12,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #000000;
   background-image: url("./assets/bg.jpg");
-  background-position: center;
-  background-attachment: fixed;
+  background-position: fixed;
   background-repeat: no-repeat;
   background-size: cover;
   background-blend-mode: screen;
@@ -685,14 +684,11 @@ animation: rotate 5s linear infinite;
 }
 
 .pageBody{
-  background-color: rgba(243, 243, 243, 0.5);;
+  background-color: #ffffff;
   background-position: fixed;
-  box-shadow: 10px 10px 5px grey;
   background-repeat: no-repeat;
   background-size: cover;
   background-blend-mode: screen;
-  padding: 2rem;
-  border-radius: 3rem;
-  margin: auto;
+  padding: 0.1rem;
  
 }

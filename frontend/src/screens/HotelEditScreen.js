@@ -116,7 +116,7 @@ export default function HotelEditScreen(props) {
  
 
   return (
-    <div className="pageBody">
+    <div>
         {loadingUpdate && <LoadingBox></LoadingBox>}
         {errorUpdate && <MessageBox variant="danger">{errorUpdate}</MessageBox>}
         
@@ -128,11 +128,11 @@ export default function HotelEditScreen(props) {
           <>
       <form className="form" onSubmit={submitHandler}>
         <div>
-          <h1>Edit Hotel</h1>
+          <h1>Edit Hotel {hotelId}</h1>
         </div>
      
             <div>
-              <label htmlFor="name">Hotel Name</label>
+              <label htmlFor="name">Name</label>
               <input
                 id="name"
                 type="text"
@@ -142,80 +142,6 @@ export default function HotelEditScreen(props) {
               ></input>
             </div>
             <div>
-          <label htmlFor="category">Category</label>
-          <select id="category" selected={category}
-        onChange={(e) => {
-          setCategory(e.target.value);
-        }}
-      >
-        <option value='normal'>Normal</option>
-        <option value='standrad'>Standrad</option>
-        <option value='luxcury'>Luxcury</option>
-        <option value='high luxcury'>High Luxcury</option>
-       
-      </select>
-        </div>
-            <div>
-              <label htmlFor="name">Address Line 1 </label>
-              <input
-                id="address1"
-                type="text"
-                placeholder="Enter hotel address line 1"
-                value={addressline1}
-                onChange={(e) => setAddressLine1(e.target.value)}
-              ></input>
-            </div>
-            <div>
-              <label htmlFor="name">Address Line 2 </label>
-              <input
-                id="address2"
-                type="text"
-                placeholder="Enter hotel address line 2"
-                value={addressline2}
-                onChange={(e) => setAddressLine2(e.target.value)}
-              ></input>
-            </div>
-            <div>
-              <label htmlFor="city">City </label>
-              <input
-                id="city"
-                type="text"
-                placeholder="Enter hotel city"
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
-              ></input>
-            </div>
-            <div>
-              <label htmlFor="province">Province </label>
-              <input
-                id="province"
-                type="text"
-                placeholder="Enter hotel Province"
-                value={province}
-                onChange={(e) => setProvince(e.target.value)}
-              ></input>
-            </div>
-            <div>
-              <label htmlFor="province">Country </label>
-              <input
-                id="country"
-                type="text"
-                placeholder="Enter hotel country"
-                value={country}
-                onChange={(e) => setCountry(e.target.value)}
-              ></input>
-            </div>
-            <div>
-              <label htmlFor="description">Description </label>
-              <textarea
-                id="description"
-                type="text"
-                placeholder="Enter hotel Description"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-              ></textarea>
-            </div>
-            <div>
               <label htmlFor="image">Image</label>
               <input
                 id="image"
@@ -223,7 +149,6 @@ export default function HotelEditScreen(props) {
                 placeholder="Enter image"
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
-                disabled="true"
               ></input>
             </div>
             <div>

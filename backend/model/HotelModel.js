@@ -12,7 +12,6 @@ const roomSchema = new Schema({
     rating:{ type: Number},
     numReviews:{ type: Number},
     hotel: { type: mongoose.Schema.Types.ObjectId, ref: 'Hotel', required:true  },
-    avalability:{type: Boolean, default: true}
     
 },
 {
@@ -37,7 +36,6 @@ const hotelSchema = new Schema({
                 roomSchema
             ],
             hotelserviceProvider:  { type: mongoose.Schema.Types.ObjectID, ref: 'User' },
-            isverify:{type: Boolean, default: false},
 },
 {
     timestamps: true,
