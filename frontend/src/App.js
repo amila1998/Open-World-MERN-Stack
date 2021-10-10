@@ -47,7 +47,8 @@ import TouristDetails from './screens/TouristDetails';
 import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
 import HSPRegistrationScreen from './screens/HSPRegistrationScreen';
-
+import Feature from './screens/Feature';
+import AboutUsScreen from './screens/AboutUsScreen';
 
 
 
@@ -73,7 +74,8 @@ function App() {
      
       <main>
 
-
+      <Route path="/aboutus"exact component={AboutUsScreen}></Route>
+      <Route path="/feature" exact component={Feature}></Route>
       <Route path="/hspRegister" exact component={HSPRegistrationScreen}></Route>
 
       <Route path="/ServiseProviderLogingCategory" exact component={ServiceProviderLoginCategoryScreen}></Route>

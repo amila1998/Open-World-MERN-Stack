@@ -155,44 +155,21 @@ const GuideRegister = ()=>{
         
   </div>
 </div>
-
-
-<br/>
-
-<div className="form-floating mb-3">
-  <input 
-         type="email" 
-         className="form-control" 
-         id="floatingInput" 
-         placeholder="Enter Phone Number"
-         name="email"
-         value={userInfo.email}
-         onChange={(e)=>setemail(e.target.value)}
-         required
-        />
-  <label 
-         for="floatingInput">Email Address</label>
-  </div>
-
-  <br/>
-<div className="form-floating mb-3">
+<br></br>
+<div >
   <input 
          type="text" 
-         className="form-control" 
-         id="floatingInput" 
+         className="form-control"  
          placeholder="Guide Age"
          name="age"
          value={age}
          onChange={(e)=>setage(e.target.value)}
          required
          maxLength="2"/>
-  <label 
-         for="floatingInput">Guide Age</label>
+  
   </div>
-
-  <br/>
- 
-  <div className="form-floating mb-3">
+<br></br>
+  <div >
   <input 
          type="text" 
          className="form-control" 
@@ -204,9 +181,32 @@ const GuideRegister = ()=>{
          required
          maxLength="10"
          minLength="10"/>
-  <label 
-         for="floatingInput">Phone Number</label>
+
+         
   </div>
+
+
+<br/>
+
+<div >
+  <input 
+         type="email" 
+         className="form-control" 
+         id="floatingInput" 
+         placeholder="Enter Phone Number"
+         name="email"
+         value={userInfo.email}
+         onChange={(e)=>setemail(e.target.value)}
+         required
+        />
+
+  </div>
+
+  <br/>
+
+
+  <br/>
+ 
 
  
   <div className="form-check">

@@ -72,7 +72,7 @@ render(){
 <div>
 
 
-<br/><h5><p><b><center>All Destinations</center></b></p></h5>
+<br/><h1 style={{fontSize:'50px'}}><b><center>Welcome to Guide World</center></b></h1>
 
 
   
