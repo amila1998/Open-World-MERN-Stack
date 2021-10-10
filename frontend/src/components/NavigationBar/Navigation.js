@@ -61,6 +61,9 @@ export default function Navigation() {
                   <li>
                     <Link to="/guides">Guides</Link>
                   </li>
+                  <li>
+                    <Link to="/AdventureList">Adventure</Link>
+                  </li>
                 </ul>
               </div>
             <Link to="/feature">Feature        

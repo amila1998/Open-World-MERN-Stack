@@ -77,8 +77,35 @@ export const SidebarData = [
   },
 
   {
+    title: 'Adventure Management',
+    path: '#GuideManagement',
+    icon: <IoIcons.IoIosPaper />,
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+
+    subNav: [
+      {
+        title: 'Adventure List',
+        path: '/Adventure',
+        icon: <IoIcons.IoIosPaper />,
+        cName: 'sub-nav'
+      },
+      
+      {
+        title: 'Bookings',
+        path: '/adminbooking',
+        icon: <IoIcons.IoIosPaper />
+      }
+    ]
+  },
+
+
+
+  {
     title: 'Support',
     path: '/support',
     icon: <IoIcons.IoMdHelpCircle />
   }
 ];
+
+
