@@ -56,6 +56,12 @@ app.use("/guideBookingR",guidebookingRouter);
 const hotelbookingRouter =require("./routes/hotelbookingRouter.js");
 app.use("/hotelbookingR",hotelbookingRouter);
 
+const CardDetailsRouter =require("./routes/cartControl.js");
+app.use("/cardR",CardDetailsRouter);
+
+
+const paymentRouter =require("./routes/paymentRoute.js");
+app.use("/paymentR",paymentRouter);
 //const bookingRouter =require("./routes/bookingRouter.js");
 //app.use("/bookingR",bookingRouter);
 

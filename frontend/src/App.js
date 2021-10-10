@@ -58,6 +58,11 @@ import MyRoomList from './screens/MyRoomLists';
 import HSPRoomAddScreen from './screens/HSPRoomAddScreen';
 import HSPRoomEditScreen from './screens/HSPRoomEditScreen';
 import HSPHotelEditScreen from './screens/HSPHotelEditScreen';
+import cart from './components/cart';
+import app from './creditcard/app';
+import mypaymentDetails from './screens/mypaymentDetails';
+import HotelRoomBookingpayment from './components/HotelRoomBookingpayment';
+import HotelRoomBookingpaymentList from './components/mypay';
 
 
 
@@ -143,8 +148,9 @@ function App() {
       <AdminRoute path="/HotelManagement" exact component={AdminHotelManagement}></AdminRoute>
       <AdminRoute path="/HotelManagement/hotellist" exact component={HotelList}></AdminRoute>
       <AdminRoute path="/UserManagement/userlist" exact component={UserListScreen}></AdminRoute>
+      <AdminRoute path="/PaymentManagement/cardslist" exact component={cart}/>
+      <AdminRoute path="/PaymentManagement/HotelRoomBookingpayment" exact component={HotelRoomBookingpaymentList}/>
       
-
       </Switch>
 
       
@@ -169,10 +175,19 @@ path="/myGuideprofileConformation" exact component={MyGuideprofileConformation}/
             path="/UpdateUserProfile"
             exact   component={UpdateUserProfile}
           ></PrivateRoute>
+          <PrivateRoute path="/mypaymentDetails" exact component={mypaymentDetails}/>
+          <PrivateRoute path="/addanewcard" exact component={app}/>
           <PrivateRoute
             path="/profile"
             exact   component={UserProfile}
           ></PrivateRoute>
+
+        <PrivateRoute path="/payment/:hbid" exact component={HotelRoomBookingpayment}/>
+
+
+
+
+
 
         <HotelServiceProviderRoute
             path="/ServiceProviderDashboard"
