@@ -71,7 +71,7 @@ export default function RoomList(props) {
           )}
         </div>
         
-            <div class="right1">
+            <div class="right1 pageBody">
             <div className="row">
                
               
@@ -101,6 +101,7 @@ export default function RoomList(props) {
                         <th>NAME</th>
                  
                         <th>CATEGORY</th>
+                        <th>AVALABILITY</th>
                    
                         <th>ACTIONS</th>
                         </tr>
@@ -110,9 +111,9 @@ export default function RoomList(props) {
                         <tr key={room._id}>
                             <td>{room._id}</td>
                             <td>{room.roomname}</td>
-                     
+                           
                             <td>{room.category}</td>
-                          
+                            <td>{room.avalability ? 'YES' : ' NO'}</td>
                             <td>
                            
                             <button

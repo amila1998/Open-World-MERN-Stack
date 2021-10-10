@@ -17,6 +17,9 @@ export default function HSPRoomEditScreen(props) {
   
   const [roomname, setRoomName] = useState('');
   const [price, setPrice] = useState('');
+  const [description, setDescription] = useState('');
+  const [category, setCategory] = useState('');
+  const [avalability, setAvalability] = useState('');
  
   
 
@@ -42,7 +45,7 @@ export default function HSPRoomEditScreen(props) {
   useEffect(() => {
 
     if (successUpdate) {
-      props.history.push(`/roomlist/${hotelId }`);
+      props.history.push(`/myroomlist/${hotelId }`);
     }
     if (!room || room._id !== roomId || successUpdate) {
       dispatch({ type: ROOM_UPDATE_RESET });
@@ -50,6 +53,9 @@ export default function HSPRoomEditScreen(props) {
     } else {
       setRoomName(room.roomname);
       setPrice(room.price)
+      setDescription(room.description);
+      setCategory(room.category);
+      setAvalability(room.avalability);
      
     }
   }, [room, dispatch, hotelId,roomId, successUpdate, props.history]);
@@ -61,8 +67,10 @@ export default function HSPRoomEditScreen(props) {
           hotel:hotelId,
           _id: roomId,
           roomname,
-          price
-
+          price,
+          description,
+          category,
+          avalability,
 
 
 
@@ -109,7 +117,7 @@ export default function HSPRoomEditScreen(props) {
           <>
       <form className="form" onSubmit={submitHandler}>
         <div>
-          <h1>Edit Hotel {hotelId}</h1>
+          <h1>Edit Room {hotelId}</h1>
         </div>
      
             <div>
@@ -123,7 +131,45 @@ export default function HSPRoomEditScreen(props) {
               ></input>
             </div>
             <div>
-              <label htmlFor="name">price</label>
+              <label htmlFor="avalability">Avalability</label>
+              <input
+                id="avalability"
+                type="checkbox"
+                checked={avalability}
+                onChange={(e) => setAvalability(e.target.checked)}
+              ></input>
+            </div>
+            <div>
+          <label htmlFor="name">Description</label>
+          <textarea 
+            type="text"
+            id="description"
+            placeholder="Enter Description"
+            required
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          ></textarea >
+        </div>
+        <div>
+          <label htmlFor="category">Category</label>
+          <select id="category"
+        onChange={(e) => {
+          setCategory(e.target.value);
+        }}
+      >
+        <option value='Single'>Single: A room assigned to one person.</option>
+        <option value='Double'>Double: A room assigned to two people.</option>
+        <option value='Triple'>Triple: A room assigned to three people.</option>
+        <option value='Quad'>Quad: A room assigned to four people.</option>
+        <option value='Queen'>Queen: A room with a queen-sized bed.</option>
+        <option value='Queen'>King: A room with a king-sized bed. </option>
+        <option value='Twin'>Twin: A room with two beds.</option>
+        <option value='Double-double'>Double-double: A room with two double (or perhaps queen) beds.</option>
+        <option value='Studio'>Studio: A room with a studio bed – a couch that can be converted into a bed. May also have an additional bed</option>
+      </select>
+        </div>
+            <div>
+              <label htmlFor="name">Room Price pre Day price</label>
               <input
                 id="price"
                 type="number"

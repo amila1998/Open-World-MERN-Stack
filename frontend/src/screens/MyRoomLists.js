@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteRoom, listRooms } from '../actions/roomAction';
-import Sidebar from '../components/AdminSidebar';
+
 //import Sidebar from '../components/AdminSidebar';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-
+import Sidebar from '../components/HotelServiceProviderSidebar';
 import { ROOM_CREATE_RESET, ROOM_DELETE_RESET } from '../constants/roomConstants';
 
 
@@ -71,7 +71,7 @@ export default function MyRoomList(props) {
           )}
         </div>
         
-            <div class="right1">
+            <div class="right1 pageBody">
             <div className="row">
                
               
@@ -101,7 +101,7 @@ export default function MyRoomList(props) {
                         <th>NAME</th>
                  
                         <th>CATEGORY</th>
-                   
+                        <th>AVALABILITY</th>
                         <th>ACTIONS</th>
                         </tr>
                     </thead>
@@ -110,9 +110,9 @@ export default function MyRoomList(props) {
                         <tr key={room._id}>
                             <td>{room._id}</td>
                             <td>{room.roomname}</td>
-                     
+                           
                             <td>{room.category}</td>
-                          
+                            <td>{room.avalability ? 'YES' : ' NO'}</td>
                             <td>
                            
                             <button

@@ -18,6 +18,7 @@ router.route("/add/:uid",isAdmin,isServiceprovider).post(async(req, res)=>{
     numReviews: 0,
     description: 'sample description',
     hotelserviceProvider:req.params.uid,
+    isverify:"false",
     
   });
   const createdHotel = await hotel.save();
@@ -83,8 +84,10 @@ router.route("/update/:id",isAdmin,isServiceprovider).put(async (req, res) => {
       hotel.addressline2 = req.body.addressline2;
       hotel.city = req.body.city;
       hotel.province = req.body.province;
+      hotel.country = req.body.country;
       hotel.description = req.body.description;
       hotel.category = req.body.category;
+      hotel.isverify= req.body.isverify;
       const updatedHotel = await hotel.save();
       res.send({ message: 'Hotel Updated', hotel: updatedHotel });
     } else {
