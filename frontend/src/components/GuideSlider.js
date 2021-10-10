@@ -23,24 +23,24 @@ export default class componentName extends Component {
                         <center>
                         <div class="carousel-inner" >
                             <div class="carousel-item active" data-bs-interval="10000">
-                            <img src="../uploads/p1.png" alt="abc" class="d-block w-100" id="bigimg" />
+                            <img src="../uploads/p1.jpg" alt="abc" class="d-block w-100" id="bigimg" />
                                 <div class="carousel-caption d-none d-md-block">
                             </div>
                             </div>
                             
                                 <div class="carousel-item" data-bs-interval="2000">
-                                <img src="../uploads/p4.png" alt="abc" class="d-block w-100" id="bigimg"/>
+                                <img src="../uploads/p6.jpg" alt="abc" class="d-block w-100" id="bigimg"/>
                                 <div class="carousel-caption d-none d-md-block">  
                                 </div>
                                 
                             </div>
                                 <div class="carousel-item">
-                                <img src="../uploads/p2.png"  alt="abc" class="d-block w-100" id="bigimg"/>
+                                <img src="../uploads/p3.jpg"  alt="abc" class="d-block w-100" id="bigimg"/>
                                 <div class="carousel-caption d-none d-md-block"> 
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img src="../uploads/logo.png"  alt="abc" class="d-block w-100" id="bigimg"/>
+                                <img src="../uploads/p7.jpg"  alt="abc" class="d-block w-100" id="bigimg"/>
                                 <div class="carousel-caption d-none d-md-block"> 
                                 </div>
                             </div>
@@ -50,7 +50,7 @@ export default class componentName extends Component {
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img src="../uploads/p7.jpg"  alt="abc" class="d-block w-100" id="bigimg"/>
+                                <img src="../uploads/p8.jpg"  alt="abc" class="d-block w-100" id="bigimg"/>
                                 <div class="carousel-caption d-none d-md-block"> 
                                 </div>
                             </div>

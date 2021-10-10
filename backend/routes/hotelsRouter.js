@@ -4,7 +4,7 @@ let Hotel = require("../model/HotelModel.js");
 const Room = require("../model/HotelRoomsModel.js");
 const { isAdmin , isServiceprovider} =  require("../utils.js");
 //insert
-router.route("/add",isAdmin,isServiceprovider).post(async(req, res)=>{
+router.route("/add/:uid",isAdmin,isServiceprovider).post(async(req, res)=>{
   const hotel = new Hotel({
     hotelname: 'sample name ' + Date.now(),
     image: 'defaultHotel.jpg',
@@ -17,7 +17,8 @@ router.route("/add",isAdmin,isServiceprovider).post(async(req, res)=>{
     rating: 0,
     numReviews: 0,
     description: 'sample description',
-    hotelserviceProvider:req.user._id,
+    hotelserviceProvider:req.params.uid,
+    isverify:"false",
     
   });
   const createdHotel = await hotel.save();
@@ -36,8 +37,9 @@ router.route("/displayAll" ).get(async(req, res)=>{
    })
   })
 
-  router.route("/displayAllforHSP/:userID" ).get(async(req, res)=>{
+  router.route("/displayAllforHSP/:userID"  ).get(async(req, res)=>{
     let userId = req.params.userID;
+    //console.log(userId)
     //const hotelserviceProvider = req.query.hotelserviceProvider || '';
    // const hotelserviceProviderFilter = hotelserviceProvider ? { hotelserviceProvider } : {};
     const hotels = await Hotel.find({hotelserviceProvider:userId}).then((hotels)=>{
@@ -82,8 +84,10 @@ router.route("/update/:id",isAdmin,isServiceprovider).put(async (req, res) => {
       hotel.addressline2 = req.body.addressline2;
       hotel.city = req.body.city;
       hotel.province = req.body.province;
+      hotel.country = req.body.country;
       hotel.description = req.body.description;
       hotel.category = req.body.category;
+      hotel.isverify= req.body.isverify;
       const updatedHotel = await hotel.save();
       res.send({ message: 'Hotel Updated', hotel: updatedHotel });
     } else {

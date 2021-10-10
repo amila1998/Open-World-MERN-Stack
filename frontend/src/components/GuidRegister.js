@@ -3,6 +3,7 @@ import {useHistory} from 'react-router-dom';
 import axios from "axios";
 import '../styles/guide.css'
 import { useSelector } from "react-redux";
+import { signout } from "../actions/userAction";
  
 const GuideRegister = ()=>{
  
@@ -101,10 +102,10 @@ const GuideRegister = ()=>{
       (res)=>{
         console.log(res.data)
       setMessage(res.data)
-      localStorage.removeItem('userInfo')
+      //localStorage.removeItem('userInfo')
       alert(" Registeration Successful")
-      
-      history.push("/guideProfile");
+      signout()
+      //history.push("/guideProfile");
      })
      
     .catch((err)=>{
@@ -155,44 +156,21 @@ const GuideRegister = ()=>{
         
   </div>
 </div>
-
-
-<br/>
-
-<div className="form-floating mb-3">
-  <input 
-         type="email" 
-         className="form-control" 
-         id="floatingInput" 
-         placeholder="Enter Phone Number"
-         name="email"
-         value={userInfo.email}
-         onChange={(e)=>setemail(e.target.value)}
-         required
-        />
-  <label 
-         for="floatingInput">Email Address</label>
-  </div>
-
-  <br/>
-<div className="form-floating mb-3">
+<br></br>
+<div >
   <input 
          type="text" 
-         className="form-control" 
-         id="floatingInput" 
+         className="form-control"  
          placeholder="Guide Age"
          name="age"
          value={age}
          onChange={(e)=>setage(e.target.value)}
          required
          maxLength="2"/>
-  <label 
-         for="floatingInput">Guide Age</label>
+  
   </div>
-
-  <br/>
- 
-  <div className="form-floating mb-3">
+<br></br>
+  <div >
   <input 
          type="text" 
          className="form-control" 
@@ -204,9 +182,32 @@ const GuideRegister = ()=>{
          required
          maxLength="10"
          minLength="10"/>
-  <label 
-         for="floatingInput">Phone Number</label>
+
+         
   </div>
+
+
+<br/>
+
+<div >
+  <input 
+         type="email" 
+         className="form-control" 
+         id="floatingInput" 
+         placeholder="Enter Phone Number"
+         name="email"
+         value={userInfo.email}
+         onChange={(e)=>setemail(e.target.value)}
+         required
+        />
+
+  </div>
+
+  <br/>
+
+
+  <br/>
+ 
 
  
   <div className="form-check">
