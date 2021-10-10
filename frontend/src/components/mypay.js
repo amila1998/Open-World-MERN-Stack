@@ -1,5 +1,5 @@
 import React from 'react';
- 
+import '../creditcard/creditcard.css';
 import swal from  'sweetalert';
 import axios from 'axios';
 
@@ -40,7 +40,7 @@ class HotelRoomBookingpaymentList extends React.Component {
         this.state = initialState; 
     }
     componentDidMount() {
-        const url = "http://localhost:8000/client";       
+        const url = "http://localhost:8070/paymentR";       
         axios.get(url)
         .then(response => this.setState({client:response['data']})
         )
@@ -60,7 +60,7 @@ class HotelRoomBookingpaymentList extends React.Component {
 
 
     onChange(id){
-        const url = 'http://localhost:8000/client/';
+        const url = 'http://localhost:8070/paymentR/';
         axios.get(url+id)
         .then(response =>
         this.setState({userid:response['data']['userid'] , Hotelid:response['data']['Hotelid'] ,vehicleid:response['data']['vehicleid'] ,guideid:response['data']['guideid'] ,
@@ -141,7 +141,7 @@ class HotelRoomBookingpaymentList extends React.Component {
         if( this.state.userid && this.state.Hotelid || this.state.vehicleid   ||  this.state.guideid || this.state.outdoorid || this.state.ayurvedicid  
              ||  this.state.total || this.state.approve ){
             console.log(this.state);
-            const url = 'http://localhost:8000/client';
+            const url = 'http://localhost:8070/paymentR';
             
             if(!this.state.id){
                 var data = JSON.stringify({  userid: this.state.userid ,  Hotelid:this.state.Hotelid ,  vehicleid: this.state.vehicleid ,  guideid: this.state.guideid ,  outdoorid: this.state.outdoorid,
@@ -185,7 +185,7 @@ class HotelRoomBookingpaymentList extends React.Component {
           })
           .then((willDelete) => {
             if (willDelete) {
-                const url = "http://localhost:8000/client/";
+                const url = "http://localhost:8070/paymentR/";
                 axios.delete(url+id)
                 .then(res =>{
                     swal("Delete Successful!", {
@@ -205,14 +205,15 @@ class HotelRoomBookingpaymentList extends React.Component {
             <br/><br/>
             <div class="justify-content-center">
  
-
+            <div class="right1 pageBody"> 
 
    <h2>ADMIN VIEW BOOKING</h2>
                     <hr/>
 
 
    <div class="x_scroll"></div>
-                    <br></br>  
+                    <br></br> 
+                   
                     <form autoComplete="off" onSubmit={this.SubmitForm}>
                         <div class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right font-weight-bold">userid</label>
@@ -264,7 +265,7 @@ class HotelRoomBookingpaymentList extends React.Component {
                         <br/>
                         <div class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right font-weight-bold">paymentstates</label>
-                            <div class="col-md-2">                                
+                            <div class="col-md-2 pp">                                
                                 <input type="text" class="form-control" name="paymentstates" value={this.state.paymentstates} onChange={this.handleChange} />
                                 <div style={{color : "red"}}>{this.state.paymentstatesError}</div>
                             </div>
@@ -272,16 +273,16 @@ class HotelRoomBookingpaymentList extends React.Component {
                         <br/>
                         <div class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right font-weight-bold">total</label>
-                            <div class="col-md-2">                                
-                                <input type="text" class="form-control" name="total" value={this.state.total} onChange={this.handleChange} />
+                            <div class="col-md-2 pp" >                                
+                                <input type="text" class="form-control"  name="total" value={this.state.total} onChange={this.handleChange} />
                                 <div style={{color : "red"}}>{this.state.totalError}</div>
                             </div>
                         </div>
                         <br/>
                         <div class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right font-weight-bold">Approved</label>
-                            <div class="col-md-2">                                
-                                <input type="checkbox" class="form-control" name="approve" value={this.state.approve} onChange={this.handleChange} />
+                            <div class="col-md-2 ">                                
+                                <input type="checkbox" class=" "  name="approve" value={this.state.approve} onChange={this.handleChange} />
                                 <div style={{color : "red"}}>{this.state.approveError}</div>
                             </div>
                         </div>
@@ -292,11 +293,13 @@ class HotelRoomBookingpaymentList extends React.Component {
                             <input type="button" class="btn btn-danger" value="Clear" onClick={() => this.onClear()} />
                         </div>
                     </form>
+</div>
+
                   <br></br>
                     <hr/>
                     <br></br><br></br> <br></br><br></br> 
 
-                    <table class="table">
+                    <table class="table table-striped table-dark">
                         <thead>
                             <tr>
                             <th class="tableTh">user ID</th>
