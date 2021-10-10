@@ -2,7 +2,7 @@ import React,{useReducer, useState} from "react"
 import {useHistory} from 'react-router-dom';
 import axios from "axios";
 import '../styles/guide.css'
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { signout } from "../actions/userAction";
  
 const GuideRegister = ()=>{
@@ -28,7 +28,7 @@ const GuideRegister = ()=>{
      const onChangeFile= e=>{
          setFileName(e.target.files[0]);
      }
-   
+     const dispatch = useDispatch();
    const changeOnClick =(e)=>{
         var arr=[];
         var s=document.getElementById('Sinhala');
@@ -104,8 +104,9 @@ const GuideRegister = ()=>{
       setMessage(res.data)
       //localStorage.removeItem('userInfo')
       alert(" Registeration Successful")
-      signout()
-      //history.push("/guideProfile");
+      //const { dispatch } = this.props; 
+      //dispatch(signout({}));
+       history.push("/");
      })
      
     .catch((err)=>{
