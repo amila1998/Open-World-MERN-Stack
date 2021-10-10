@@ -47,8 +47,19 @@ import TouristDetails from './screens/TouristDetails';
 import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
 import HSPRegistrationScreen from './screens/HSPRegistrationScreen';
+
 import Feature from './screens/Feature';
 import AboutUsScreen from './screens/AboutUsScreen';
+
+import MyBookingsScreen from './screens/MyBookingsScreen';
+import HSPDashBoardScreen from './screens/HSPDashBoardScreen';
+import MyHotelsScreen from './screens/MyHotelsScreen';
+import MyRoomList from './screens/MyRoomLists';
+import HSPRoomAddScreen from './screens/HSPRoomAddScreen';
+import HSPRoomEditScreen from './screens/HSPRoomEditScreen';
+import HSPHotelEditScreen from './screens/HSPHotelEditScreen';
+
+
 
 
 
@@ -79,6 +90,9 @@ function App() {
       <Route path="/hspRegister" exact component={HSPRegistrationScreen}></Route>
 
       <Route path="/ServiseProviderLogingCategory" exact component={ServiceProviderLoginCategoryScreen}></Route>
+
+      <PrivateRoute path="/myBookings" exact  component={MyBookingsScreen}></PrivateRoute>
+
     <PrivateRoute path="/guideRegister" exact  component={GuideRegister}></PrivateRoute>
     <Route path="/guidelogin" exact  component={GuideSigninScreen}></Route>
 
@@ -101,12 +115,24 @@ function App() {
             component={HotelEditScreen}
             
           ></AdminRoute>
+
+      
+        <AdminRoute
+            path="/hotel/hotelDetails/:Htlid/edit/hsp"
+            component={HSPHotelEditScreen}
+            
+          ></AdminRoute>
       
         
       <Route path="/:hotelId/roomDetails/:roomId" exact component={RoomDetailsScreen}></Route>
       <AdminRoute path="/addARoom/:hotelId"  component={RoomAddScreen}></AdminRoute>
       <AdminRoute path="/room/:hotelId/roomDetails/:roomId/edit" exact component={RoomEditScreen}></AdminRoute>
       <AdminRoute path="/roomlist/:hotelId"  component={RoomList}></AdminRoute>
+      
+      <HotelServiceProviderRoute path="/addARoom/:hotelId/hsp"  component={HSPRoomAddScreen}></HotelServiceProviderRoute>
+      <HotelServiceProviderRoute path="/room/:hotelId/roomDetails/:roomId/edit/hsp" exact component={HSPRoomEditScreen}></HotelServiceProviderRoute>
+      <HotelServiceProviderRoute path="/myroomlist/:hotelId"  component={MyRoomList}></HotelServiceProviderRoute>
+
       <Route path="/register" component={RegisterScreen}></Route>
       <Route path="/signin" component={SigninScreen}></Route>
       
@@ -124,8 +150,8 @@ function App() {
       
       <Switch>
 
-      <HotelServiceProviderRoute path="/HotelSPDashBoard" exact component={AdminHotelManagement}></HotelServiceProviderRoute>
-      <HotelServiceProviderRoute path="/hotellist/hotelSP" exact component={HotelList}></HotelServiceProviderRoute>
+      <HotelServiceProviderRoute path="/hspProfile" exact component={HSPDashBoardScreen}></HotelServiceProviderRoute>
+      <HotelServiceProviderRoute path="/myHotels" exact component={MyHotelsScreen}></HotelServiceProviderRoute>
       <HotelServiceProviderRoute path="/bookingList/hotelSP" component={UserListScreen}></HotelServiceProviderRoute>
       
 
@@ -152,10 +178,7 @@ path="/myGuideprofileConformation" exact component={MyGuideprofileConformation}/
             path="/ServiceProviderDashboard"
             component={ServiceProviderDashboardScreen}
       ></HotelServiceProviderRoute>
-      <HotelServiceProviderRoute
-            path="/hotellist"
-            component={HotelList}
-      ></HotelServiceProviderRoute>
+    
       
       <AdminRoute
             path="/adminDashboard"

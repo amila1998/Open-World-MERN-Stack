@@ -79,6 +79,9 @@ export default function Navigation() {
                         <Link to="/profile">Profile</Link>
                     </li>
                     <li>
+                        <Link to="/myBookings">My Bookings</Link>
+                    </li>
+                    <li>
                         <Link to="/settings">Settings</Link>
                     </li>
                      <li>

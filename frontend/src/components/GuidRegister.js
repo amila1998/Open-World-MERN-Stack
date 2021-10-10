@@ -3,6 +3,7 @@ import {useHistory} from 'react-router-dom';
 import axios from "axios";
 import '../styles/guide.css'
 import { useSelector } from "react-redux";
+import { signout } from "../actions/userAction";
  
 const GuideRegister = ()=>{
  
@@ -101,10 +102,10 @@ const GuideRegister = ()=>{
       (res)=>{
         console.log(res.data)
       setMessage(res.data)
-      localStorage.removeItem('userInfo')
+      //localStorage.removeItem('userInfo')
       alert(" Registeration Successful")
-      
-      history.push("/guideProfile");
+      signout()
+      //history.push("/guideProfile");
      })
      
     .catch((err)=>{
