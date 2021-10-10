@@ -39,17 +39,14 @@ export default function RoomDetailsScreen(props){
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [message , setMassege] = useState('');
-  const [price , setPrice] = useState('');
-  const [bookingDayCount , setcount] = useState('');
   const [bookedDateArr, setbookedDateArr] = useState([]);
   //const [BstartDate, setBStartDate] = useState([]);
  // const [BendDate, setBEndDate] = useState([]);
-  const oneDay = 24 * 60 * 60 * 1000;
+
       useEffect(()=> {
       formateBookedDates()
-      bookingTotal()
 
-      },[roomwithdays,startDate,endDate])
+      },[roomwithdays])
   const formateBookedDates = ()=> {
     let dateList = [];
     for (let i=0; i<roomwithdays?.datelist?.length; i++){
@@ -60,14 +57,6 @@ export default function RoomDetailsScreen(props){
     setbookedDateArr(dateList)
     //console.log(bookedDateArr)
   }
-  const bookingTotal = ()=> {
-    const diffDays = Math.round(Math.abs(((startDate - endDate) / oneDay))+1);
-    setcount(diffDays)
-    }
-   
-    //console.log(bookedDateArr)
-  
-  
   
 
   
@@ -97,13 +86,14 @@ export default function RoomDetailsScreen(props){
       if ((!startDate || !endDate)){
         alert("Please Select Booking Date Range In Calender");
       }else{
-        if(roomwithdays.room.avalability){
+        
+        
           dispatch(createHotelbooking(
             hotelId,
             roomId,
             startDate,
             endDate,
-            roomwithdays.room.price*bookingDayCount,
+            roomwithdays.room.price,
             message,
             userInfo._id,
             ));
@@ -113,11 +103,6 @@ export default function RoomDetailsScreen(props){
             }else{
               alert("Booking not Success");
             }
-        }else{
-          alert("This room is Unavailable");
-        }
-        
-         
        
        
       }
@@ -151,7 +136,7 @@ export default function RoomDetailsScreen(props){
     
   return (
     <>
-    <div className="pageBody">
+    <div>
       <Link to="/rooms">Back to result</Link>
       
         {loading ? (
@@ -174,30 +159,15 @@ export default function RoomDetailsScreen(props){
           <ul>
             <li>
               
-              <h1 style={{ fontSize:'20px', position:"center" , margin:'auto', }}>Room Name:  {roomwithdays.room.roomname}</h1>
+              <h1>Room Name:  {roomwithdays.room.roomname}</h1>
             </li>
-            <li>
-              
-              <h1 style={{ fontSize:'20px', position:"center" , margin:'auto', }}> {roomwithdays.room.avalability?(
-                  <h1 style={{ color:'green' }}>Avalability: Avalable</h1>
-              ):(
-                <h1 style={{ color:'red' }}>Avalability: Unavalable</h1>
-              )}</h1>
-            </li>
-            <li>
-                    <div className="rowcart">
-                      <div >Price for a Day : ${roomwithdays.room.price}</div>
-                     
-                    </div>
-                  </li>
-          
+            
             
             <li>
-            <div className="rowcart">
-              ,<div><p>Description: {roomwithdays.room.description}</p></div>
-              </div>
+              
+              <p>Description: {roomwithdays.room.description}</p>
+             
             </li>
-
           
             
           </ul>
@@ -213,7 +183,12 @@ export default function RoomDetailsScreen(props){
          
               <div className="card card-body">
                 <ul>
-                 
+                  <li>
+                    <div className="rowcart">
+                      <div>Price : ${roomwithdays.room.price}</div>
+                     
+                    </div>
+                  </li>
                   <li>
                 
                   <div className="rowcart">
@@ -236,12 +211,6 @@ export default function RoomDetailsScreen(props){
               
                     </div>
               
-                  </li>
-                  <li>
-                    <div className="rowcart">
-                      <div >Price : ${roomwithdays.room.price*bookingDayCount}</div>
-                     
-                    </div>
                   </li>
                   <li>
                     <div className="rowcart">

@@ -204,7 +204,6 @@ router.route("/view/:email").get((req,res)=>{
 
 
 router.put('/update/:id',(req,res)=>{
-    
     Guide.findByIdAndUpdate(
         req.params.id,
         {
@@ -221,9 +220,7 @@ router.put('/update/:id',(req,res)=>{
     );
 });
 
-router.delete('/delete/:id/:uid',(req,res)=>{
-    //const user = User.findById(req.params.userid);
-    
+router.delete('/delete/:id',(req,res)=>{
     Guide.findByIdAndRemove(req.params.id).exec((err,deleteguide)=>{
         if(err) return res.status(400).json({
           message:"Guide Data Delete unsuccesful",err

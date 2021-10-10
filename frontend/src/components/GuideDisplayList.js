@@ -72,7 +72,7 @@ render(){
 <div>
 
 
-<br/><h1 style={{fontSize:'50px'}}><b><center>Welcome to Guide World</center></b></h1>
+<br/><h5><p><b><center>All Destinations</center></b></p></h5>
 
 
   
@@ -163,7 +163,7 @@ Tourist guides provides the visitor with in depth knowledge in their mother tong
         <h5 class="card-title">Gender: {guide.gender}</h5>
         <h5 class="card-title"> <Reactstars edit={false}  size={40} value={Math.floor(guide.reviewsAvg)}/> {guide.reviewsAvg}</h5>
         <a type="button" class="btn btn-primary" href={`/guide/details/${guide.id}`}>
-         View Guide Details
+         View Details
         </a>
      
       </div>

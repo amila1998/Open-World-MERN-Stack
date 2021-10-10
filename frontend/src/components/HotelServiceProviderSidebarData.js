@@ -8,8 +8,8 @@ export const SidebarData = [
 
   {
     
-    title: 'Profile',
-    path: '/hspProfile',
+    title: 'Dashboard',
+    path: '/ServiceProviderDashboard',
     icon: <AiIcons.AiOutlineUser />,
   },
   {
@@ -20,6 +20,16 @@ export const SidebarData = [
     iconOpened: <RiIcons.RiArrowUpSFill />,
   },
   {
+    title: 'Products',
+    path: '/products',
+    icon: <FaIcons.FaCartPlus />
+  },
+  {
+    title: 'Team',
+    path: '/team',
+    icon: <IoIcons.IoMdPeople />
+  },
+  {
     title: 'Messages',
     path: '#messages',
     icon: <FaIcons.FaEnvelopeOpenText />,
@@ -27,6 +37,18 @@ export const SidebarData = [
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
 
+    subNav: [
+      {
+        title: 'Message 1',
+        path: '/messages/message1',
+        icon: <IoIcons.IoIosPaper />
+      },
+      {
+        title: 'Message 2',
+        path: '/messages/message2',
+        icon: <IoIcons.IoIosPaper />
+      }
+    ]
   },
   {
     title: 'Support',

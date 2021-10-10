@@ -35,6 +35,17 @@ const uploadRouter =require("./routes/uploadRouter.js");
 app.use('/api/uploads', uploadRouter);
 
 
+const vbookingRoutes = require('./routes/vbookings.js');
+app.use(vbookingRoutes);
+
+const vehicleRoutes = require('./routes/vehicles.js');
+app.use(vehicleRoutes);
+
+
+
+
+
+
 
 const hotelRouter =require("./routes/hotelsRouter.js");
 app.use("/hotelR",hotelRouter);
@@ -56,30 +67,6 @@ app.use("/guideBookingR",guidebookingRouter);
 const hotelbookingRouter =require("./routes/hotelbookingRouter.js");
 app.use("/hotelbookingR",hotelbookingRouter);
 
-
-var activityRoutes = require('./routes/activityController')
-var BookingRoutes = require('./routes/BookingController')
-
-
-app.use('/Booking',BookingRoutes)
-app.use('/adventure',activityRoutes)
-app.use(express.static('public'))
-
-
-
-
-
-
-
-
-
-const CardDetailsRouter =require("./routes/cartControl.js");
-app.use("/cardR",CardDetailsRouter);
-
-
-const paymentRouter =require("./routes/paymentRoute.js");
-app.use("/paymentR",paymentRouter);
-
 //const bookingRouter =require("./routes/bookingRouter.js");
 //app.use("/bookingR",bookingRouter);
 
@@ -93,4 +80,4 @@ app.listen(PORT,()=>{
     console.log(`Server at http://localhost:${PORT}`)
 })
 
-
+app.use(express.static('RV_image'))

@@ -20,19 +20,16 @@ const {
     HOTELBOOKING_DAYS_REQUEST,
     HOTELBOOKING_DAYS_SUCCESS,
     HOTELBOOKING_DAYS_FAIL,
-    MYHOTELBOOKING_LIST_REQUEST,
-    MYHOTELBOOKING_LIST_SUCCESS,
-    MYHOTELBOOKING_LIST_FAIL,
     
   } = require('../constants/hotelbookingConstants');
   
-  export const myhotelBookingListReducer = (state = { loading: true }, action) => {
+  export const hotelBookingListReducer = (state = { loading: true }, action) => {
     switch (action.type) {
-      case MYHOTELBOOKING_LIST_REQUEST:
+      case HOTELBOOKING_LIST_REQUEST:
         return { loading: true };
-      case MYHOTELBOOKING_LIST_SUCCESS:
+      case HOTELBOOKING_LIST_SUCCESS:
         return { loading: false, hotelbookings: action.payload };
-      case MYHOTELBOOKING_LIST_FAIL:
+      case HOTELBOOKING_LIST_FAIL:
         return { loading: false, error: action.payload };
       default:
         return state;

@@ -33,6 +33,28 @@ export const SidebarData = [
     ]
   },
   {
+    title: 'Rent Vehicle Management',
+    path: '#UserManagement',
+    icon: <IoIcons.IoIosPaper />,
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+
+    subNav: [
+      {
+        title: 'Rent Vehicle List',
+        path: '/vehicle',
+        icon: <IoIcons.IoIosPaper />,
+        cName: 'sub-nav'
+      },
+      
+      {
+        title: 'Vehicle Booking List',
+        path: '/vbookings',
+        icon: <IoIcons.IoIosPaper />
+      },
+    ]
+  },
+  {
     title: 'Hotel Management',
     path: '#HotelManagement',
     icon: <IoIcons.IoIosPaper />,
@@ -75,59 +97,6 @@ export const SidebarData = [
       }
     ]
   },
-  {
-    title: 'Payment Management',
-    path: '#PaymentManagement',
-    icon: <IoIcons.IoIosPaper />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
-
-    subNav: [
-      {
-        title: 'Cards List',
-        path: '/PaymentManagement/cardslist',
-        icon: <IoIcons.IoIosPaper />,
-        cName: 'sub-nav'
-      },
-      {
-        title: 'Booking Details',
-        path: '/PaymentManagement/HotelRoomBookingpayment',
-        icon: <IoIcons.IoIosPaper />,
-        cName: 'sub-nav'
-      },
-      {
-        title: 'Reports',
-        path: '/HotelManagement/reports',
-        icon: <IoIcons.IoIosPaper />
-      }
-    ]
-  },
-
-
-  {
-    title: 'Adventure Management',
-    path: '#GuideManagement',
-    icon: <IoIcons.IoIosPaper />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
-
-    subNav: [
-      {
-        title: 'Adventure List',
-        path: '/Adventure',
-        icon: <IoIcons.IoIosPaper />,
-        cName: 'sub-nav'
-      },
-      
-      {
-        title: 'Bookings',
-        path: '/adminbooking',
-        icon: <IoIcons.IoIosPaper />
-      }
-    ]
-  },
-
-
 
   {
     title: 'Support',
@@ -135,5 +104,3 @@ export const SidebarData = [
     icon: <IoIcons.IoMdHelpCircle />
   }
 ];
-
-

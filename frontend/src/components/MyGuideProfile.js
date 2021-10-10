@@ -26,11 +26,9 @@ export default class MyGuideProfile extends Component {
   }
 
   onDelete=(id)=>{
-    this.userData =JSON.parse(localStorage.getItem('userInfo'));
-    const uid = this.userData._id;
-    axios.delete(`http://localhost:8070/guideR/delete/${id}/${uid}`).then((res)=>{
+    axios.delete(`http://localhost:8070/guideR/delete/${id}`).then((res)=>{
       alert("Guide Details Delete SuccessFully");
-      //localStorage.removeItem('userInfo');
+      localStorage.removeItem('userInfo');
       window.location.replace('/');
      
     })

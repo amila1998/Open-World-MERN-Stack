@@ -52,7 +52,7 @@ export const registerhsp = (firstname, lastname, logo,description,userID) => asy
       userSignin: { userInfo },
     } = getState();
     try {
-      const { data } = await Axios.get(`http://localhost:8070/userR/userfindbyid/${userId}`, {
+      const { data } = await Axios.get(`http://localhost:8070//hspR/userfindbyid/${userId}`, {
         headers: { Authorization: `Bearer ${userInfo.token}` },
       });
       dispatch({ type: HSP_DETAILS_SUCCESS, payload: data });
@@ -65,18 +65,18 @@ export const registerhsp = (firstname, lastname, logo,description,userID) => asy
     }
   };
   
-  export const updatehspProfile = (hsp) => async (dispatch, getState) => {
-    dispatch({ type: HSP_UPDATE_PROFILE_REQUEST, payload: hsp });
+  export const updatehspProfile = (user) => async (dispatch, getState) => {
+    dispatch({ type: HSP_UPDATE_PROFILE_REQUEST, payload: user });
     const {
       userSignin: { userInfo },
     } = getState();
     try {
-      const { data } = await Axios.put(`http://localhost:8070/hspR/updateSP/${hsp.userId}`, hsp, {
+      const { data } = await Axios.put(`http://localhost:8070/userR/updateUser/${user.userId}`, user, {
         headers: { Authorization: `Bearer ${userInfo.token}` },
       });
       dispatch({ type: HSP_UPDATE_PROFILE_SUCCESS, payload: data });
       
-     // localStorage.setItem('userInfo', JSON.stringify(data));
+      localStorage.setItem('userInfo', JSON.stringify(data));
     } catch (error) {
       const message =
         error.response && error.response.data.message
