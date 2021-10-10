@@ -65,6 +65,14 @@ import HotelRoomBookingpayment from './components/HotelRoomBookingpayment';
 import HotelRoomBookingpaymentList from './components/mypay';
 
 
+import Adventure from './components/adventure';
+import Booking from './components/Booking';
+import AdventureList from './components/adventureList';
+import AdventureOne from './components/adventureOne';
+import adminbooking from './components/adminbooking';
+import adventureadd from './components/adventureadd';
+
+
 
 
 
@@ -89,6 +97,18 @@ function App() {
       <Navigation/>
      
       <main>
+
+      <Switch>
+          <Route path="/one_adventures/:id" component={ AdventureOne }></Route>
+          <Route path="/AdventureList" component={ AdventureList }></Route>
+          <Route path="/Booking/:id" component={ Booking }></Route>
+          <Route path="/adminbooking" component={ adminbooking }></Route>
+          <Route path="/adventureadd" component={ adventureadd }></Route>
+          <Route path="/Adventure" component={ Adventure }></Route>
+        </Switch>
+
+
+
 
       <Route path="/aboutus"exact component={AboutUsScreen}></Route>
       <Route path="/feature" exact component={Feature}></Route>
