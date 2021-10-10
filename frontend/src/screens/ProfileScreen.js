@@ -22,7 +22,7 @@ export default function ProfileScreen(props) {
 
  
   return (
-    <div>
+    <div className="pageBody">
       <form className="form" >
         <div>
           <h1>User Profile</h1>

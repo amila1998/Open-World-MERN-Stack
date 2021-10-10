@@ -16,7 +16,8 @@ export default function HomeScreen(){
                 alt=""
               />
             </div>
-        <h1 class="font-weight-light"><b>Home</b></h1>
+            <div className="pageBody">
+        
         <p>
         Although many of us have been “tourists” at some point in our lives, defining what tourism actually is can be difficult. Tourism is the activities of people traveling to and staying in places outside their usual environment for leisure, business or other purposes for not more than one consecutive year.
 Tourism is a dynamic and competitive industry that requires the ability to adapt constantly to customers’ changing needs and desires, as the customer’s satisfaction, safety and enjoyment are particularly the focus of tourism businesses.
@@ -31,6 +32,7 @@ Tourism is a dynamic and competitive industry that requires the ability to adapt
        <p>The tourists coming to BC from other places are called inbound tourists. BC competes in a global market to attract tourists from the United States, Japan, Germany and many other countries. The industry also implements marketing campaigns aimed at attracting travellers from other parts of Canada, as well as from within British Columbia.
 
 </p>
+</div>
       </div>
       </div>
     );

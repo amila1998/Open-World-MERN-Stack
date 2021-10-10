@@ -112,37 +112,37 @@ function App() {
       <Route path="/hotel/hotelDetails/:Htlid"  component={HotelDetailsScreen} exact></Route>
       <AdminRoute
             path="/hotel/hotelDetails/:Htlid/edit"
-            component={HotelEditScreen}
+            exact  component={HotelEditScreen}
             
           ></AdminRoute>
 
       
-        <AdminRoute
+        <HotelServiceProviderRoute
             path="/hotel/hotelDetails/:Htlid/edit/hsp"
-            component={HSPHotelEditScreen}
+            exact  component={HSPHotelEditScreen}
             
-          ></AdminRoute>
+          ></HotelServiceProviderRoute>
       
         
       <Route path="/:hotelId/roomDetails/:roomId" exact component={RoomDetailsScreen}></Route>
-      <AdminRoute path="/addARoom/:hotelId"  component={RoomAddScreen}></AdminRoute>
+      <AdminRoute path="/addARoom/:hotelId" exact  component={RoomAddScreen}></AdminRoute>
       <AdminRoute path="/room/:hotelId/roomDetails/:roomId/edit" exact component={RoomEditScreen}></AdminRoute>
-      <AdminRoute path="/roomlist/:hotelId"  component={RoomList}></AdminRoute>
+      <AdminRoute path="/roomlist/:hotelId" exact  component={RoomList}></AdminRoute>
       
-      <HotelServiceProviderRoute path="/addARoom/:hotelId/hsp"  component={HSPRoomAddScreen}></HotelServiceProviderRoute>
+      <HotelServiceProviderRoute path="/addARoom/:hotelId/hsp" exact component={HSPRoomAddScreen}></HotelServiceProviderRoute>
       <HotelServiceProviderRoute path="/room/:hotelId/roomDetails/:roomId/edit/hsp" exact component={HSPRoomEditScreen}></HotelServiceProviderRoute>
-      <HotelServiceProviderRoute path="/myroomlist/:hotelId"  component={MyRoomList}></HotelServiceProviderRoute>
+      <HotelServiceProviderRoute path="/myroomlist/:hotelId" exact  component={MyRoomList}></HotelServiceProviderRoute>
 
-      <Route path="/register" component={RegisterScreen}></Route>
-      <Route path="/signin" component={SigninScreen}></Route>
+      <Route path="/register" exact component={RegisterScreen}></Route>
+      <Route path="/signin" exact component={SigninScreen}></Route>
       
-      <Route path="/settings" component={Settings}></Route>
+      <Route path="/settings" exact component={Settings}></Route>
 
       <Switch>
 
       <AdminRoute path="/HotelManagement" exact component={AdminHotelManagement}></AdminRoute>
       <AdminRoute path="/HotelManagement/hotellist" exact component={HotelList}></AdminRoute>
-      <AdminRoute path="/UserManagement/userlist" component={UserListScreen}></AdminRoute>
+      <AdminRoute path="/UserManagement/userlist" exact component={UserListScreen}></AdminRoute>
       
 
       </Switch>
@@ -152,7 +152,7 @@ function App() {
 
       <HotelServiceProviderRoute path="/hspProfile" exact component={HSPDashBoardScreen}></HotelServiceProviderRoute>
       <HotelServiceProviderRoute path="/myHotels" exact component={MyHotelsScreen}></HotelServiceProviderRoute>
-      <HotelServiceProviderRoute path="/bookingList/hotelSP" component={UserListScreen}></HotelServiceProviderRoute>
+      <HotelServiceProviderRoute path="/bookingList/hotelSP" exact component={UserListScreen}></HotelServiceProviderRoute>
       
 
       </Switch>
@@ -167,24 +167,24 @@ path="/myGuideprofileConformation" exact component={MyGuideprofileConformation}/
       <PrivateRoute
      
             path="/UpdateUserProfile"
-            component={UpdateUserProfile}
+            exact   component={UpdateUserProfile}
           ></PrivateRoute>
           <PrivateRoute
             path="/profile"
-            component={UserProfile}
+            exact   component={UserProfile}
           ></PrivateRoute>
 
         <HotelServiceProviderRoute
             path="/ServiceProviderDashboard"
-            component={ServiceProviderDashboardScreen}
+            exact  component={ServiceProviderDashboardScreen}
       ></HotelServiceProviderRoute>
     
       
       <AdminRoute
             path="/adminDashboard"
-            component={AdminDashboardScreen}
+            exact    component={AdminDashboardScreen}
       ></AdminRoute>
-      <AdminRoute path="/user/:id/edit"  component={UserEditScreen}></AdminRoute>
+      <AdminRoute path="/user/:id/edit" exact  component={UserEditScreen}></AdminRoute>
         
       <Route path="/" exact component={HomeScreen}></Route>
       </main>

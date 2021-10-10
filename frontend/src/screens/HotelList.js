@@ -61,7 +61,7 @@ export default function HotelList(props) {
           )}
         </div>
         
-            <div class="right1">
+            <div class="right1 pageBody">
             <div className="row">
                
               

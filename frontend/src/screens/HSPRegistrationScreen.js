@@ -41,7 +41,7 @@ export default function HSPRegistrationScreen(props) {
 
 
     return (
-        <div>
+        <div className="pageBody">
             <form className="form" onSubmit={submitHandler}>
         <div>
           <h1>Create Tourist Account</h1>

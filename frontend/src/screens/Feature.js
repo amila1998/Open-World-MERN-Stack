@@ -5,6 +5,7 @@ import img1 from './../logo.png'
 export default function Feature() {
 
     return (
+      
         <div className="about">
         <div class="container">
           <div class="row align-items-center my-5">
@@ -15,7 +16,7 @@ export default function Feature() {
                 alt=""
               />
             </div>
-            <div class="col-lg-5">
+            <div class="col-lg-5 pageBody">
               <h1 class="font-weight-light"><b>Feature</b></h1>
               <p>
               Features Of Tourism 

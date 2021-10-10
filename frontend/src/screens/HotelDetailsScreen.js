@@ -25,7 +25,7 @@ export default function HotelDetailsScreen(props){
     
   }, [dispatch, hotelId]);
   return (
-    <div>
+    <div className="pageBody">
     {loading ? (
       <LoadingBox></LoadingBox>
     ) : error ? (
@@ -34,13 +34,13 @@ export default function HotelDetailsScreen(props){
     <div>
       <Link to="/hotels">Back to result</Link>
       <div className="row top">
-        <div className="col-2">
-          <img className="large" src={`/uploads/HotelsandRooms/${hotel.image}`} alt={hotel.hotelname}></img>
+        <div className="">
+          <img style={{maxHeight:'500px', position:"center" , margin:'auto', }} className="large" src={`/uploads/HotelsandRooms/${hotel.image}`} alt={hotel.hotelname}></img>
         </div>
-        <div className="col-1">
+        <div className="">
           <ul>
             <li>
-              <h1>{hotel.hotelname}</h1>
+              <h1 style={{fontSize:'50px', position:"center" , margin:'auto', }}>{hotel.hotelname}</h1>
             </li>
             <li>
               <Rating
@@ -48,16 +48,22 @@ export default function HotelDetailsScreen(props){
                 numReviews={hotel.numReviews}
               ></Rating>
             </li>
-            <li>Pirce : ${hotel.price}</li>
-            <li>
-              Description:
-              <p>{hotel.description}</p>
+            <li style={{fontSize:'20px', position:"center" , margin:'auto', }}>Category : {hotel.category}</li>
+            <li style={{fontSize:'20px', position:"center" , margin:'auto', }}>
+              Description :
+              <p style={{fontSize:'15px', position:"center" , margin:'auto', }}>{hotel.description}</p>
+            </li>
+            <li style={{fontSize:'20px', position:"center" , margin:'auto', }}>
+              Location :
+              <p style={{fontSize:'15px', position:"center" , margin:'auto', }}>{hotel.addressline1}<br/>{hotel.addressline2}<br/>{hotel.city}<br/>{hotel.province}<br/>{hotel.country}</p>
             </li>
           </ul>
         </div>
        
       </div>
-      <div>  <div className="col-3">
+      <div>  <div className="col">
+        <hr style={{ border: '10px solid green',  radius: '5px' }} />
+            <h1 style={{fontSize:'50px', position:"center" , margin:'auto', }}>ROOMS</h1>
       
             <div className="row center">
             {

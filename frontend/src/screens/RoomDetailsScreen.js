@@ -97,8 +97,7 @@ export default function RoomDetailsScreen(props){
       if ((!startDate || !endDate)){
         alert("Please Select Booking Date Range In Calender");
       }else{
-        
-        
+        if(roomwithdays.room.avalability){
           dispatch(createHotelbooking(
             hotelId,
             roomId,
@@ -114,6 +113,11 @@ export default function RoomDetailsScreen(props){
             }else{
               alert("Booking not Success");
             }
+        }else{
+          alert("This room is Unavailable");
+        }
+        
+         
        
        
       }
@@ -170,7 +174,15 @@ export default function RoomDetailsScreen(props){
           <ul>
             <li>
               
-              <h1>Room Name:  {roomwithdays.room.roomname}</h1>
+              <h1 style={{ fontSize:'20px', position:"center" , margin:'auto', }}>Room Name:  {roomwithdays.room.roomname}</h1>
+            </li>
+            <li>
+              
+              <h1 style={{ fontSize:'20px', position:"center" , margin:'auto', }}> {roomwithdays.room.avalability?(
+                  <h1 style={{ color:'green' }}>Avalability: Avalable</h1>
+              ):(
+                <h1 style={{ color:'red' }}>Avalability: Unavalable</h1>
+              )}</h1>
             </li>
             <li>
                     <div className="rowcart">
