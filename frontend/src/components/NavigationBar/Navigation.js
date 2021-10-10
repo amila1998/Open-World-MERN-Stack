@@ -63,7 +63,7 @@ export default function Navigation() {
                   </li>
                 </ul>
               </div>
-            <Link to="/feacures">feacures          
+            <Link to="/feature">Feature        
             </Link>
             <Link to="/aboutus">About Us           
             </Link>

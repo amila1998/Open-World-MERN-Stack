@@ -47,6 +47,10 @@ import TouristDetails from './screens/TouristDetails';
 import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
 import HSPRegistrationScreen from './screens/HSPRegistrationScreen';
+
+import Feature from './screens/Feature';
+import AboutUsScreen from './screens/AboutUsScreen';
+
 import MyBookingsScreen from './screens/MyBookingsScreen';
 import HSPDashBoardScreen from './screens/HSPDashBoardScreen';
 import MyHotelsScreen from './screens/MyHotelsScreen';
@@ -54,6 +58,7 @@ import MyRoomList from './screens/MyRoomLists';
 import HSPRoomAddScreen from './screens/HSPRoomAddScreen';
 import HSPRoomEditScreen from './screens/HSPRoomEditScreen';
 import HSPHotelEditScreen from './screens/HSPHotelEditScreen';
+
 
 
 
@@ -80,7 +85,8 @@ function App() {
      
       <main>
 
-
+      <Route path="/aboutus"exact component={AboutUsScreen}></Route>
+      <Route path="/feature" exact component={Feature}></Route>
       <Route path="/hspRegister" exact component={HSPRegistrationScreen}></Route>
 
       <Route path="/ServiseProviderLogingCategory" exact component={ServiceProviderLoginCategoryScreen}></Route>
