@@ -331,18 +331,18 @@ export default class EditVehicle extends Component {
                     <form className="form-group" noValidate>
 
                         <div className="bla">
-                            <div className="form-group" style={{marginBottom:'15px'}}>
+                            <div id="q2" className="form-group" style={{marginBottom:'15px'}}>
                                 <label style={{marginBottom:'5px'}}>is booked?</label>
                                 <br/>
                                 <input type="text"
                                 className="formcontrol"
                                 name="is_booked"
-                                placeholder="is booked type 'BOOKED', else keep empty"
+                                placeholder="if you want to booked vehicle, type 'BOOKED', else keep empty"
                                 value={this.state.is_booked}
                                 onChange={this.handleInputChange} />
                                 <div style={{color : "red"}}>{this.state.is_bookedError}</div>
                             </div>
-                            <div className="form-group" style={{marginBottom:'15px'}}>
+                            <div  id="q2"className="form-group" style={{marginBottom:'15px'}}>
                                 <label style={{marginBottom:'5px'}}>name</label>
                                 <br/>
                                 <input type="text"
@@ -354,7 +354,7 @@ export default class EditVehicle extends Component {
                                 <div style={{color : "red"}}>{this.state.nameError}</div>
                             </div>
 
-                            <div className="form-group" style={{marginBottom:'15px'}}>
+                            <div id="q2" className="form-group" style={{marginBottom:'15px'}}>
                                 <label style={{marginBottom:'5px'}}>brand</label>
                                 <br/>
                                 <input type="text"
@@ -367,7 +367,7 @@ export default class EditVehicle extends Component {
                             </div>
                         </div>
                         <div className="bla">
-                            <div className="form-group" style={{marginBottom:'15px'}}>
+                            <div id="q2" className="form-group" style={{marginBottom:'15px'}}>
                                 <label style={{marginBottom:'5px'}}>price per day</label>
                                 <br/>
                                 <input type="number"
@@ -379,7 +379,7 @@ export default class EditVehicle extends Component {
                                 <div style={{color : "red"}}>{this.state.price_per_dayError}</div>
                             </div>
 
-                            <div className="form-group" style={{marginBottom:'15px'}}>
+                            <div id="q2" className="form-group" style={{marginBottom:'15px'}}>
                                 <label style={{marginBottom:'5px'}}>year</label>
                                 <br/>
                                 <input type="number"
@@ -392,7 +392,7 @@ export default class EditVehicle extends Component {
                             </div>
                         </div>
                         <div className="bla">
-                            <div className="form-group" style={{marginBottom:'15px'}}>
+                            <div id="q2" className="form-group" style={{marginBottom:'15px'}}>
                                 <label style={{marginBottom:'5px'}}>image1</label>
                                 <br/>
                                 <input type="file"
@@ -403,7 +403,7 @@ export default class EditVehicle extends Component {
                                 <div style={{color : "red"}}>{this.state.image1Error}</div>
                             </div>
 
-                            <div className="form-group" style={{marginBottom:'15px'}}>
+                            <div id="q2" className="form-group" style={{marginBottom:'15px'}}>
                                 <label style={{marginBottom:'5px'}}>image2</label>
                                 <br/>
                                 <input type="file"
@@ -415,7 +415,7 @@ export default class EditVehicle extends Component {
                             </div>
                         </div>
                         <div className="bla">
-                            <div className="form-group" style={{marginBottom:'15px'}}>
+                            <div id="q2" className="form-group" style={{marginBottom:'15px'}}>
                             
                                 <label style={{marginBottom:'5px'}}>image3</label>
                                 <br/>
@@ -427,7 +427,7 @@ export default class EditVehicle extends Component {
                                 <div style={{color : "red"}}>{this.state.image3Error}</div>
                             </div>
 
-                            <div className="form-group" style={{marginBottom:'15px'}}>
+                            <div id="q2" className="form-group" style={{marginBottom:'15px'}}>
                             
                                 <label style={{marginBottom:'5px'}}>image4</label>
                                 <br/>
@@ -440,7 +440,7 @@ export default class EditVehicle extends Component {
                             </div>
                         </div>
                         <div className="bla">
-                            <div className="form-group" style={{marginBottom:'15px'}}>
+                            <div id="q2" className="form-group" style={{marginBottom:'15px'}}>
                             
                                 <label style={{marginBottom:'5px'}}>image5</label>
                                 <br/>
@@ -453,7 +453,7 @@ export default class EditVehicle extends Component {
                             </div>
                         </div>
                         <div className="bla">
-                            <div className="form-group" style={{marginBottom:'15px'}}>
+                            <div id="q2" className="form-group" style={{marginBottom:'15px'}}>
                            
                                 <label style={{marginBottom:'5px'}}>category</label>
                                 <br/>
@@ -466,7 +466,7 @@ export default class EditVehicle extends Component {
                                 <div style={{color : "red"}}>{this.state.categoryError}</div>
                             </div>
 
-                            <div className="form-group" style={{marginBottom:'15px'}}>
+                            <div id="q2"  className="form-group" style={{marginBottom:'15px'}}>
                             
                                 <label style={{marginBottom:'5px'}}>seat capacity</label>
                                 <br/>
@@ -480,7 +480,7 @@ export default class EditVehicle extends Component {
                             </div>
                         </div>
                         <div className="bla">
-                            <div className="form-group" style={{marginBottom:'15px'}}>
+                            <div id="q2" className="form-group" style={{marginBottom:'15px'}}>
 
                                 <label style={{marginBottom:'5px'}}>description</label>
                                 <br/>
@@ -493,7 +493,7 @@ export default class EditVehicle extends Component {
                                 <div style={{color : "red"}}>{this.state.descriptionError}</div>
                             </div>
 
-                            <div className="form-group" style={{marginBottom:'15px'}}>
+                            <div id="q2" className="form-group" style={{marginBottom:'15px'}}>
                                 <label style={{marginBottom:'5px'}}>contact number</label>
                                 <br/>
                                 <input type="number"

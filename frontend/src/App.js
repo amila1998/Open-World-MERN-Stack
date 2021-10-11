@@ -109,7 +109,7 @@ function App() {
 
 
       <br/>
-        <br/>
+      <br/>
 
       
         <Route path="/vehicle" exact component={Vehicle}></Route>
@@ -209,10 +209,10 @@ function App() {
 
       <GuideRoute path="/guidebookingdetails/:id" exact component={GuideBookingDetailsEdit}/>
       <GuideRoute 
-path="/myGuideprofileConformation" exact component={MyGuideprofileConformation}/>
-<GuideRoute path="/guide/viewTouristProfile/:userId" exact component={TouristDetails}/>
- <GuideRoute path="/guideProfile" exact component={MyGuideProfile}/>
- <GuideRoute path="/guide/edit/:id" exact component={EditGuide}/>
+      path="/myGuideprofileConformation" exact component={MyGuideprofileConformation}/>
+      <GuideRoute path="/guide/viewTouristProfile/:userId" exact component={TouristDetails}/>
+      <GuideRoute path="/guideProfile" exact component={MyGuideProfile}/>
+      <GuideRoute path="/guide/edit/:id" exact component={EditGuide}/>
       <PrivateRoute
      
             path="/UpdateUserProfile"
@@ -246,7 +246,7 @@ path="/myGuideprofileConformation" exact component={MyGuideprofileConformation}/
         
       <Route path="/" exact component={HomeScreen}></Route>
       </main>
-      <footer className="mt-auto">All right reserved</footer>
+      <footer className="mt-auto"id="q2"><center>All right reserved</center></footer>
     </div>
     </BrowserRouter>
     </div>

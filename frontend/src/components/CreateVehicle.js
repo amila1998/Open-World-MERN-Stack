@@ -300,16 +300,17 @@ export default class CreateVehicle extends Component {
         return (
             <div className="container">
             <div className="col-md-8 mt-4 mx-auto">
-                <h1 className="h3 mb-3 font-weight-normal">Create new vehicle</h1>
+                <h1 className="h3 mb-3 font-weight-normal"><center>Create new vehicle</center></h1>
 
                     <form className="form-group" noValidate>
 
                         <div className="bla">
 
-                            <div className="form-group" style={{marginBottom:'15px'}}>
+                            <div hidden id="q2" className="form-group" style={{marginBottom:'15px'}}>
                                 <label style={{marginBottom:'5px'}}>is booked?</label>
                                 <br/>
                                 <input type="text"
+                                
                                 className="formcontrol"
                                 name="is_booked"
                                 placeholder="is booked type 'BOOKED', else keep empty"
@@ -318,7 +319,7 @@ export default class CreateVehicle extends Component {
                                 <div style={{color : "red"}}>{this.state.is_bookedError}</div>
                             </div>
 
-                            <div className="form-group" style={{marginBottom:'15px'}}>
+                            <div id="q2" className="form-group" style={{marginBottom:'15px'}}>
                                 <label style={{marginBottom:'5px'}}>name</label>
                                 <br/>
                                 <input type="text"
@@ -330,7 +331,7 @@ export default class CreateVehicle extends Component {
                                 <div style={{color : "red"}}>{this.state.nameError}</div>
                             </div>
 
-                            <div className="form-group" style={{marginBottom:'15px'}}>
+                            <div id="q2" className="form-group" style={{marginBottom:'15px'}}>
                                 <label style={{marginBottom:'5px'}}>brand</label>
                                 <br/>
                                 <input type="text"
@@ -343,7 +344,7 @@ export default class CreateVehicle extends Component {
                             </div>
                         </div>
                         <div className="bla">
-                            <div className="form-group" style={{marginBottom:'15px'}}>
+                            <div id="q2" className="form-group" style={{marginBottom:'15px'}}>
                                 <label style={{marginBottom:'5px'}}>price per day</label>
                                 <br/>
                                 <input type="number"
@@ -355,7 +356,7 @@ export default class CreateVehicle extends Component {
                                 <div style={{color : "red"}}>{this.state.price_per_dayError}</div>
                             </div>
 
-                            <div className="form-group" style={{marginBottom:'15px'}}>
+                            <div id="q2" className="form-group" style={{marginBottom:'15px'}}>
                                 <label style={{marginBottom:'5px'}}>year</label>
                                 <br/>
                                 <input type="number"
@@ -368,7 +369,7 @@ export default class CreateVehicle extends Component {
                             </div>
                         </div>
                         <div className="bla">
-                            <div className="form-group" style={{marginBottom:'15px'}}>
+                            <div id="q2" className="form-group" style={{marginBottom:'15px'}}>
                                 <label style={{marginBottom:'5px'}}>image1</label>
                                 <br/>
                                 <input type="file"
@@ -378,7 +379,7 @@ export default class CreateVehicle extends Component {
                                 <div style={{color : "red"}}>{this.state.image1Error}</div>
                             </div>
 
-                            <div className="form-group" style={{marginBottom:'15px'}}>
+                            <div id="q2" className="form-group" style={{marginBottom:'15px'}}>
                                 <label style={{marginBottom:'5px'}}>image2</label>
                                 <br/>
                                 <input type="file"
@@ -389,7 +390,7 @@ export default class CreateVehicle extends Component {
                             </div>
                         </div>
                         <div className="bla">
-                            <div className="form-group" style={{marginBottom:'15px'}}>
+                            <div id="q2" className="form-group" style={{marginBottom:'15px'}}>
                                 <label style={{marginBottom:'5px'}}>image3</label>
                                 <br/>
                                 <input type="file"
@@ -399,7 +400,7 @@ export default class CreateVehicle extends Component {
                                 <div style={{color : "red"}}>{this.state.image3Error}</div>
                             </div>
 
-                            <div className="form-group" style={{marginBottom:'15px'}}>
+                            <div id="q2" className="form-group" style={{marginBottom:'15px'}}>
                                 <label style={{marginBottom:'5px'}}>image4</label>
                                 <br/>
                                 <input type="file"
@@ -410,7 +411,7 @@ export default class CreateVehicle extends Component {
                             </div>
                         </div>
                         <div className="bla">
-                            <div className="form-group" style={{marginBottom:'15px'}}>
+                            <div id="q2" className="form-group" style={{marginBottom:'15px'}}>
                                 <label style={{marginBottom:'5px'}}>image5</label>
                                 <br/>
                                 <input type="file"
@@ -421,7 +422,7 @@ export default class CreateVehicle extends Component {
                             </div>
                         </div>
                         <div className="bla">
-                            <div className="form-group" style={{marginBottom:'15px'}}>
+                            <div id="q2" className="form-group" style={{marginBottom:'15px'}}>
                                 <label style={{marginBottom:'5px'}}>category</label>
                                 <br/>
                                 <input type="text"
@@ -433,7 +434,7 @@ export default class CreateVehicle extends Component {
                                 <div style={{color : "red"}}>{this.state.categoryError}</div>
                             </div>
 
-                            <div className="form-group" style={{marginBottom:'15px'}}>
+                            <div id="q2" className="form-group" style={{marginBottom:'15px'}}>
                                 <label style={{marginBottom:'5px'}}>seat capacity</label>
                                 <br/>
                                 <input type="number"
@@ -446,7 +447,7 @@ export default class CreateVehicle extends Component {
                             </div>
                         </div>
                         <div className="bla">
-                            <div className="form-group" style={{marginBottom:'15px'}}>
+                            <div id="q2" className="form-group" style={{marginBottom:'15px'}}>
                                 <label style={{marginBottom:'5px'}}>description</label>
                                 <br/>
                                 <textarea
@@ -458,7 +459,7 @@ export default class CreateVehicle extends Component {
                                 <div style={{color : "red"}}>{this.state.descriptionError}</div>
                             </div>
 
-                            <div className="form-group" style={{marginBottom:'15px'}}>
+                            <div id="q2" className="form-group" style={{marginBottom:'15px'}}>
                                 <label style={{marginBottom:'5px'}}>contact number</label>
                                 <br/>
                                 <input type="number"
@@ -470,7 +471,7 @@ export default class CreateVehicle extends Component {
                                 <div style={{color : "red"}}>{this.state.contact_numberError}</div>
                             </div>
                         </div>
-                        <button className=" btn-success" type="submit" style={{marginTop:'15px'}} onClick={this.onSubmit}>
+                        <button id="q2" className=" btn-success" type="submit" style={{marginTop:'15px'}} onClick={this.onSubmit}>
                             
                             &nbsp; save
                         </button>

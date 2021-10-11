@@ -70,15 +70,15 @@ export default class Vehicle extends Component {
                 </div>
                 </th>
                 <th>
-                <button className="btn-success" id="but">
-                    <a href="/CreateVehicle" style={{textDecoration:'none', color:'white'}}>Create New Vehicle</a>
+                <button  className="btn-success" id="but">
+                    <a id="q2" href="/CreateVehicle" style={{textDecoration:'none', color:'white'}}>Create New Vehicle</a>
                 </button>
                 </th>
                 </tr>
                 </table>
                 <br/>
                 <div id="tainer">
-                <table className="table" style={{marginBottom:'40px'}}>
+                <table id="q2" className="table" style={{marginBottom:'40px'}}>
                     <thead>
                         <tr>
                             <th scope="col">#</th>
