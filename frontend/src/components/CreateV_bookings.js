@@ -176,8 +176,9 @@ export default class CreateV_bookings extends Component {
                     <div class="user-details">
                     
                     <div class="input-box">
-                        <span class="details">Your Name &nbsp; <span style={{color : "red"}}>{this.state.nameError}</span></span>
+                        <span class="details" id="q2">Your Name &nbsp; <span style={{color : "red"}}>{this.state.nameError}</span></span>
                         <input type="text" 
+                        id="q2"
                         value={this.state.name} 
                         name="name" 
                         placeholder="Enter your name" 
@@ -185,50 +186,50 @@ export default class CreateV_bookings extends Component {
                     </div>
 
                     <div class="input-box">
-                        <span class="details">Your Contact Number <br/> <span style={{color : "red"}}>{this.state.contact_numberError}</span></span>
-                        <input type="number" value={this.state.contact_number} name="contact_number" placeholder="Enter Contact Number" 
+                        <span class="details" id="q2">Your Contact Number <br/> <span style={{color : "red"}}>{this.state.contact_numberError}</span></span>
+                        <input type="number" id="q2" value={this.state.contact_number} name="contact_number" placeholder="Enter Contact Number" 
                         onChange={this.handleInputChange}  />
                     </div>
                     
                     <div class="input-box">
-                        <span class="details">Email &nbsp; <span style={{color : "red"}}>{this.state.emailError}</span></span>
-                        <input type="email" value={this.state.email} name="email" placeholder="Enter your email" 
+                        <span class="details" id="q2">Email &nbsp; <span style={{color : "red"}}>{this.state.emailError}</span></span>
+                        <input type="email" id="q2" value={this.state.email} name="email" placeholder="Enter your email" 
                         onChange={this.handleInputChange} />
                     </div>
                     
                     <div class="input-box">
-                        <span class="details">Time &nbsp; <span style={{color : "red"}}>{this.state.timeError}</span></span>
-                        <input type="time" value={this.state.time} name="time" placeholder="Enter your number" 
+                        <span class="details" id="q2">Time &nbsp; <span style={{color : "red"}}>{this.state.timeError}</span></span>
+                        <input type="time" id="q2" value={this.state.time} name="time" placeholder="Enter your number" 
                         onChange={this.handleInputChange}/>
                     </div>
                     
                     <div class="input-box">
-                        <span class="details">Pickup Location &nbsp; <span style={{color : "red"}}>{this.state.pickup_locationError}</span></span>
-                        <input type="text" value={this.state.pickup_location} name="pickup_location" placeholder="Address...." 
+                        <span class="details" id="q2">Pickup Location &nbsp; <span style={{color : "red"}}>{this.state.pickup_locationError}</span></span>
+                        <input type="text" id="q2" value={this.state.pickup_location} name="pickup_location" placeholder="Address...." 
                         onChange={this.handleInputChange}/>
                     </div>
 
                     <div class="input-box">
-                        <span class="details">Drop off Location &nbsp; <span style={{color : "red"}}>{this.state.drop_off_locationError}</span></span>
-                        <input type="text" value={this.state.drop_off_location} name="drop_off_location" placeholder="Address...." 
+                        <span class="details" id="q2">Drop off Location &nbsp; <span style={{color : "red"}}>{this.state.drop_off_locationError}</span></span>
+                        <input type="text" id="q2" value={this.state.drop_off_location} name="drop_off_location" placeholder="Address...." 
                         onChange={this.handleInputChange}/>
                     </div>
                     
                     <div class="input-box">
-                        <span class="details">Pickup Date &nbsp; <span style={{color : "red"}}>{this.state.pickup_dateError}</span></span>
-                        <input type="date" value={this.state.pickup_date} name="pickup_date" 
+                        <span class="details" id="q2">Pickup Date &nbsp; <span style={{color : "red"}}>{this.state.pickup_dateError}</span></span>
+                        <input type="date" id="q2" value={this.state.pickup_date} name="pickup_date" 
                         onChange={this.handleInputChange}/>
                     </div>
 
                     <div class="input-box">
-                        <span class="details">Return Date &nbsp; <span style={{color : "red"}}>{this.state.return_dateError}</span></span>
-                        <input type="date" value={this.state.return_date} name="return_date"  
+                        <span class="details" id="q2">Return Date &nbsp; <span style={{color : "red"}}>{this.state.return_dateError}</span></span>
+                        <input type="date" id="q2" value={this.state.return_date} name="return_date"  
                         onChange={this.handleInputChange}/>
                     </div>
                     
                     <div class="input-box">
-                        <span class="details">Need Driver? &nbsp; <span style={{color : "red"}}>{this.state.need_driverError}</span></span>
-                        <input type="text" value={this.state.need_driver} name="need_driver" placeholder="Yes / No" 
+                        <span class="details" id="q2">Need Driver? &nbsp; <span style={{color : "red"}}>{this.state.need_driverError}</span></span>
+                        <input type="text" id="q2" value={this.state.need_driver} name="need_driver" placeholder="Yes / No" 
                         onChange={this.handleInputChange}/>
                     </div>
 

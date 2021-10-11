@@ -25,8 +25,22 @@ export default class vbookings extends Component {
                 console.log(this.state.vbookings);
             }
         });
+        
     }   
 
+    retrieveVehicles(){
+        axios.get("http://localhost:8070/vehicles").then(res=>{
+            if(res.data.success){
+                this.setState({
+                    vehicles:res.data.existingVehicles
+                });
+                console.log(this.state.vehicles);
+            }
+        });
+        
+    } 
+
+    
 
 
     onDelete = (id) =>{
@@ -39,7 +53,7 @@ export default class vbookings extends Component {
     render() {
         return (
             <div className="container">
-                <table class="table">
+                <table id="q2" class="table">
                     <thead>
                         <tr>
                             <th scope='col'>#</th>
@@ -73,6 +87,11 @@ export default class vbookings extends Component {
                           <button class="red" ><a  href="#" onClick={() =>this.onDelete(vbookings._id)} >
                                     <i className="far fa-trash-alt"></i>&nbsp;Reject
                             </a></button>
+                            {/*
+                            <button class="red" ><a  href={`/VehicleScreen/${vehicles._id}`}>
+                                    <i className="far fa-trash-alt"></i>&nbsp;View Details
+                            </a></button>
+                             */}
                           </td>
                       </tr>  
                     ))}

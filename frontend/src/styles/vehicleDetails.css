@@ -10,17 +10,20 @@ body {background-color: #455F51;}
   margin-left: 350px;
   width: 400px;
   height: 40px;
+  font-size: 17px;
 }
 
 #search1{
   margin-left: 450px;
   width: 500px;
   height: 40px;
+  font-size: 17px;
 }
 #search2{
   margin-left: 50px;
   width: 300px;
   height: 40px;
+  font-size: 17px;
 }
 .container{
   
@@ -91,7 +94,7 @@ body {background-color: #455F51;}
     border-radius: 0.5rem;;
   }
   img.medium {
-    max-width: 20rem;
+    max-width: 25rem;
     width: 100%;
   }
 
@@ -103,7 +106,7 @@ body {background-color: #455F51;}
 
   #add{
     border-radius: 0.5rem;
-    max-width: 35rem;
+    max-width: 40rem;
     width: 100%;
     padding: 5px 6px;
   }
@@ -204,7 +207,7 @@ body {background-color: #455F51;}
   }
 
   #h66 {
-    font-size: 25px;
+    font-size: 20px;
   }
 
   #h666 {
@@ -213,4 +216,8 @@ body {background-color: #455F51;}
 
   .formcontrol{
     width: 70rem;
+  }
+
+  #q2 {
+    font-size: 17px;
   }
