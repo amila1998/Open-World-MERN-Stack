@@ -88,7 +88,7 @@ const {firstName,lastName,age,phone,email,gender,licence,education,languages,gui
     <button type="submit" class="btn btn-primary" ><a href={`/guide/edit/${id}`} style={{textDecoration:'none' ,color:'white'}} >Update</a></button>
     &nbsp;&nbsp;&nbsp;
         <button type="submit" class="btn btn-primary" onClick={()=>this.onDelete(id)}>Delete</button>&nbsp;&nbsp;&nbsp;
-        <button type="submit" class="btn btn-primary" onClick={()=>this.onRequest(email)} >Check Request</button></center>
+       </center>
 <br/>
  <br>
  </br>

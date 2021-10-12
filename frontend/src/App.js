@@ -71,6 +71,8 @@ import AdventureList from './components/adventureList';
 import AdventureOne from './components/adventureOne';
 import adminbooking from './components/adminbooking';
 import adventureadd from './components/adventureadd';
+import AdminGuideDisplayList from './components/AdminGuideManagement';
+
 
 import Vehicle from './components/Vehicle';
 import vbookings from './components/vbookings';
@@ -175,7 +177,7 @@ function App() {
 
 
 
-
+    
 
       <Route path="/hotels" exact component={HotelsScreen}></Route>
       <Route path="/rooms" exact component={RoomsScreen}></Route>
@@ -213,13 +215,14 @@ function App() {
       <Route path="/settings" exact component={Settings}></Route>
 
       <Switch>
-
+     
       <AdminRoute path="/HotelManagement" exact component={AdminHotelManagement}></AdminRoute>
       <AdminRoute path="/HotelManagement/hotellist" exact component={HotelList}></AdminRoute>
       <AdminRoute path="/UserManagement/userlist" exact component={UserListScreen}></AdminRoute>
       <AdminRoute path="/PaymentManagement/cardslist" exact component={cart}/>
       <AdminRoute path="/PaymentManagement/HotelRoomBookingpayment" exact component={HotelRoomBookingpaymentList}/>
-      
+      <AdminRoute path="/GuideManagement/guidelist" exact component={AdminGuideDisplayList}></AdminRoute>
+     
       </Switch>
 
       
@@ -235,10 +238,12 @@ function App() {
 
       <GuideRoute path="/guidebookingdetails/:id" exact component={GuideBookingDetailsEdit}/>
       <GuideRoute 
-      path="/myGuideprofileConformation" exact component={MyGuideprofileConformation}/>
-      <GuideRoute path="/guide/viewTouristProfile/:userId" exact component={TouristDetails}/>
-      <GuideRoute path="/guideProfile" exact component={MyGuideProfile}/>
-      <GuideRoute path="/guide/edit/:id" exact component={EditGuide}/>
+
+path="/myGuideprofileConformation" exact component={MyGuideprofileConformation}/>
+<GuideRoute path="/guide/viewTouristProfile/:userId" exact component={TouristDetails}/>
+ <GuideRoute path="/guideProfile" exact component={MyGuideProfile}/>
+ <GuideRoute path="/guide/edit/:id" exact component={EditGuide}/>
+
       <PrivateRoute
      
             path="/UpdateUserProfile"

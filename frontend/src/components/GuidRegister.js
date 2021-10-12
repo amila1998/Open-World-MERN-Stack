@@ -4,8 +4,11 @@ import axios from "axios";
 import '../styles/guide.css'
 import { useDispatch, useSelector } from "react-redux";
 import { signout } from "../actions/userAction";
+import { Form,Button,Col,Row,InputGroup } from "react-bootstrap";
  
 const GuideRegister = ()=>{
+
+  const [validated, setValidated] = useState(false);
  
      let history = useHistory();
      const userSignin = useSelector((state) => state.userSignin);
@@ -30,6 +33,13 @@ const GuideRegister = ()=>{
      }
      const dispatch = useDispatch();
    const changeOnClick =(e)=>{
+    const form = e.currentTarget;
+    if (form.checkValidity() === false) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+
+    else{
         var arr=[];
         var s=document.getElementById('Sinhala');
         if(s.checked){
@@ -115,8 +125,8 @@ const GuideRegister = ()=>{
 
     });
  
-   
-      
+  }
+  setValidated(true); 
    };
 
 
@@ -126,13 +136,13 @@ const GuideRegister = ()=>{
         <div className="container ">
         <div className="w-75 mx-auto shadow p-5 formbodyadd">
             
-    <div  encType="multipart/form-data" >
+    <div   >
     <h1 >Guide Registration</h1>
   
      
     <br></br>
   
-  
+  <Form encType="multipart/form-data" noValidate validated={validated} onSubmit={(e) => changeOnClick(e)}>
     
 <div className="row">
   <div className="col">
@@ -144,6 +154,9 @@ const GuideRegister = ()=>{
         value={firstName}
         onChange={(e)=>setfirstName(e.target.value)}
         required/>
+         <Form.Control.Feedback type="invalid">
+              Please provide a valid Name
+            </Form.Control.Feedback>
   </div>
   <div className="col">
     <input 
@@ -154,6 +167,9 @@ const GuideRegister = ()=>{
         value={lastName}
         onChange={(e)=>setlastName(e.target.value)}
         required/>
+         <Form.Control.Feedback type="invalid">
+              Please provide a valid Name
+            </Form.Control.Feedback>
         
   </div>
 </div>
@@ -168,6 +184,9 @@ const GuideRegister = ()=>{
          onChange={(e)=>setage(e.target.value)}
          required
          maxLength="2"/>
+          <Form.Control.Feedback type="invalid">
+              Please provide a Age
+            </Form.Control.Feedback>
   
   </div>
 <br></br>
@@ -183,6 +202,9 @@ const GuideRegister = ()=>{
          required
          maxLength="10"
          minLength="10"/>
+          <Form.Control.Feedback type="invalid">
+              Please provide a valid Phone Number
+            </Form.Control.Feedback>
 
          
   </div>
@@ -195,12 +217,15 @@ const GuideRegister = ()=>{
          type="email" 
          className="form-control" 
          id="floatingInput" 
-         placeholder="Enter Phone Number"
+         placeholder="Enter Email"
          name="email"
          value={userInfo.email}
          onChange={(e)=>setemail(e.target.value)}
          required
         />
+         <Form.Control.Feedback type="invalid">
+              Please provide a valid Email
+            </Form.Control.Feedback>
 
   </div>
 
@@ -338,10 +363,10 @@ const GuideRegister = ()=>{
 
 
 <div>
-<button onClick={changeOnClick} className="primary">Add Guide</button>
+<button className="primary">Add Guide</button>
 
 </div>
- 
+</Form>
 
  
 </div>
