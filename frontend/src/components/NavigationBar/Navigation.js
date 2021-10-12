@@ -46,7 +46,7 @@ export default function Navigation() {
     </button>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       
-    <div className="flex-row-reverse">
+    <div id="q2" className="flex-row-reverse">
           <div className="dropdown">
                 <Link to="#Categories">
                 Categories <i className="fa fa-caret-down"></i>
@@ -63,6 +63,12 @@ export default function Navigation() {
                   </li>
                   <li>
                     <Link to="/AdventureList">Adventure</Link>
+                  </li>
+                  <li>
+                    <Link to="/VehicleHomeScreen">Rent Vehicles</Link>
+                  </li>
+                  <li>
+                    <Link to="/DestinationHomeScreen">Destination</Link>
                   </li>
                 </ul>
               </div>
@@ -144,8 +150,8 @@ export default function Navigation() {
             )}
           </div>
           <form className="form-inline my-2 my-lg-0">
-      <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-      <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <input  className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+      <button  className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
     </div>
     

@@ -74,6 +74,24 @@ import adventureadd from './components/adventureadd';
 import AdminGuideDisplayList from './components/AdminGuideManagement';
 
 
+import Vehicle from './components/Vehicle';
+import vbookings from './components/vbookings';
+import VehicleHomeScreen from './components/VehicleHomeScreen';
+import CreateVehicle from './components/CreateVehicle';
+import CreateV_bookings from './components/CreateV_bookings';
+import EditVehicle from './components/EditVehicle';
+import VehicleScreen from './components/VehicleScreen';
+
+import Map_admin from "./components/Map_admin";
+import Map_cus from "./components/Map_cus";
+import CreateDestination from './components/CreateDestination';
+import FFMM1 from './components/FFMM1';
+import DestinationDetails from './components/DestinationDetails';
+import EditDestination from './components/EditDestination';
+import DestinationHomeScreen from './components/DestinationHomeScreen';
+import ImageSlider from './components/ImageSlider';
+import DestinationVideo from "./components/DestinationVideo";
+
 
 
 
@@ -99,6 +117,37 @@ function App() {
       <Navigation/>
      
       <main>
+
+
+
+
+
+
+      <br/>
+      <br/>
+
+      <Route path="/DestinationHomeScreen" exact component={DestinationHomeScreen}></Route>
+      <Route path="/Map_admin" exact component={Map_admin}></Route>        
+      <Route path="/Map_cus" exact component={Map_cus}></Route>    
+      <Route path="/FFMM1" exact component={FFMM1}></Route>
+      <Route path="/addDestination" exact component={CreateDestination}></Route>
+      <Route path="/editDestination/:id" exact component={EditDestination}></Route>
+      <Route path="/Destination/:id" exact component={DestinationDetails}></Route>       
+      <Route path="/ImageSlider" exact component={ImageSlider}></Route>
+      <Route path="/DestinationVideo" exact component={DestinationVideo}></Route>
+
+
+
+
+      
+        <Route path="/vehicle" exact component={Vehicle}></Route>
+      <Route path="/vbookings" exact component={vbookings}></Route>
+      <Route path="/VehicleHomeScreen" exact component={VehicleHomeScreen}></Route>
+      <Route path="/CreateVehicle" exact component={CreateVehicle}></Route>
+      <Route path="/CreateV_bookings" exact component={CreateV_bookings}></Route>
+      <Route path="/EditVehicle/:id" exact component={EditVehicle}></Route>
+      <Route path="/VehicleScreen/:id" exact component={VehicleScreen}></Route>
+
 
       <Switch>
           <Route path="/one_adventures/:id" component={ AdventureOne }></Route>
@@ -189,12 +238,11 @@ function App() {
 
       <GuideRoute path="/guidebookingdetails/:id" exact component={GuideBookingDetailsEdit}/>
       <GuideRoute 
+
 path="/myGuideprofileConformation" exact component={MyGuideprofileConformation}/>
 <GuideRoute path="/guide/viewTouristProfile/:userId" exact component={TouristDetails}/>
  <GuideRoute path="/guideProfile" exact component={MyGuideProfile}/>
  <GuideRoute path="/guide/edit/:id" exact component={EditGuide}/>
-
-
 
       <PrivateRoute
      
@@ -229,7 +277,7 @@ path="/myGuideprofileConformation" exact component={MyGuideprofileConformation}/
         
       <Route path="/" exact component={HomeScreen}></Route>
       </main>
-      <footer className="mt-auto">All right reserved</footer>
+      <footer className="mt-auto"id="q2"><center>All right reserved</center></footer>
     </div>
     </BrowserRouter>
     </div>

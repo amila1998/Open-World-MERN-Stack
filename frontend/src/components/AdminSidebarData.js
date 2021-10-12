@@ -71,6 +71,28 @@ export const SidebarData = [
     ]
   },
   {
+    title: 'Rent Vehicle Management',
+    path: '#UserManagement',
+    icon: <IoIcons.IoIosPaper />,
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+
+    subNav: [
+      {
+        title: 'Rent Vehicle List',
+        path: '/vehicle',
+        icon: <IoIcons.IoIosPaper />,
+        cName: 'sub-nav'
+      },
+      
+      {
+        title: 'Vehicle Booking List',
+        path: '/vbookings',
+        icon: <IoIcons.IoIosPaper />
+      },
+    ]
+  },
+  {
     title: 'Payment Management',
     path: '#PaymentManagement',
     icon: <IoIcons.IoIosPaper />,
@@ -122,6 +144,35 @@ export const SidebarData = [
     ]
   },
 
+  {
+    title: 'Destination Management',
+    path: '#DestinationManagement',
+    icon: <IoIcons.IoIosPaper />,
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+
+    subNav: [
+      {
+        title: 'Destination List',
+        path: '/FFMM1',
+        icon: <IoIcons.IoIosPaper />,
+        cName: 'sub-nav'
+      },
+      {
+        title: 'Destination Map',
+        path: '/Map_admin',
+        icon: <IoIcons.IoIosPaper />,
+        cName: 'sub-nav'
+      },
+      
+      {
+        title: 'Reports',
+        path: '/Reports',
+        icon: <IoIcons.IoIosPaper />
+      }
+    ]
+  },
+  
 
 
   {
